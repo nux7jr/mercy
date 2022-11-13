@@ -1,0 +1,84 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "ticket",
+      "price": 1000,
+      "title": "Some company",
+      "image": {
+        "url": "someurl/someurl"
+      },
+      "available": true
+    },
+    {
+      "id": 2,
+      "name": "ticket",
+      "price": 1000,
+      "title": "Some company",
+      "image": {
+        "url": "someurl/someurl"
+      },
+      "available": true
+    },
+    {
+      "id": 3,
+      "name": "ticket",
+      "price": 1000,
+      "title": "Some company",
+      "image": {
+        "url": "someurl/someurl"
+      },
+      "available": true
+    },
+    {
+      "id": 4,
+      "name": "ticket",
+      "price": 1000,
+      "title": "Some company",
+      "image": {
+        "url": "someurl/someurl"
+      },
+      "available": true
+    },
+    {
+      "id": 5,
+      "name": "ticket",
+      "price": 1000,
+      "title": "Some company",
+      "image": {
+        "url": "someurl/someurl"
+      },
+      "available": true
+    },
+    {
+      "id": 6,
+      "name": "ticket",
+      "price": 1000,
+      "title": "Some company",
+      "image": {
+        "url": "someurl/someurl"
+      },
+      "available": true
+    },
+    {
+      "id": 7,
+      "name": "ticket",
+      "price": 1000,
+      "title": "Some company",
+      "image": {
+        "url": "someurl/someurl"
+      },
+      "available": true
+    },
+    {
+      "id": 8,
+      "name": "ticket",
+      "price": 1000,
+      "title": "Some company",
+      "image": {
+        "url": "someurl/someurl"
+      },
+      "available": true
+    }
+  ]
+}
