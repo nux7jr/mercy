@@ -1,15 +1,21 @@
 <template>
   <div class="home">
-    <h3>Home</h3>
-    <TicketList />
-    <CartList />
+    <MercyMainImportantInfo />
+    <MercyMainHeader />
+    <MercyMainInformationAboutBuy />
+    <MercyMainBuyInfoWrapper />
+    <MercyMainFormOrder />
+    <MercyMainFaqInfo />
   </div>
 </template>
 
 <script>
-import TicketList from "@/components/TicketList.vue";
-import CartList from "@/components/CartList.vue";
-
+import MercyMainBuyInfoWrapper from "@/components/BuyInfoWrapper.vue";
+import MercyMainImportantInfo from "@/components/ImportantInfo.vue";
+import MercyMainHeader from "@/components/Header.vue";
+import MercyMainInformationAboutBuy from "@/components/InformationAboutBuy.vue";
+import MercyMainFormOrder from "@/components/FormOrder.vue";
+import MercyMainFaqInfo from "@/components/FaqInfo.vue";
 export default {
   name: "HomeView",
   data() {
@@ -18,8 +24,12 @@ export default {
   created() {},
   methods: {},
   components: {
-    TicketList,
-    CartList,
+    MercyMainBuyInfoWrapper,
+    MercyMainImportantInfo,
+    MercyMainHeader,
+    MercyMainFaqInfo,
+    MercyMainInformationAboutBuy,
+    MercyMainFormOrder
   },
 };
 </script>

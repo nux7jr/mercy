@@ -14,10 +14,22 @@ export default new Vuex.Store({
     updateProducts(state, products) {
       state.products = products;
     },
-    updateCart(state, products) {
-      // state.cart.push(products);
-      console.log(products);
-      // this push !
+    toggleDataCart(state, products) {
+      let isProductExists = false;
+        if (state.cart.length) {
+          state.cart.map(function (item) {
+            if (item.id === products.id) {
+              isProductExists = true;
+              state.cart.splice(item, 1);
+              console.log("del", item)
+            }
+          })
+          if (!isProductExists) {
+            state.cart.push(products)
+          }
+        } else {
+      state.cart.push(products)
+    }
     },
     deleteCartItem(state, data) {
       // state.products

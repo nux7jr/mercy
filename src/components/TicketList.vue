@@ -1,30 +1,24 @@
 <template>
-  <div class="ticket-map">
-    <div
-      @click="updateCart(data, $event)"
-      class="ticket-map-item"
+  <div class="ticket">
+    <div class="ticket-map">
+      <div
+      @click="toggleDataCart(data)"
+      class="ticket-map__item"
       v-for="data in allProducts"
       :key="data.id"
     >
-      <div class="ticket">
+      <div class="ticket-map__wrapper">
         {{ data.id }}
-        ||
-        {{ data.title }}
       </div>
     </div>
-
-    <!-- <div v-for="item in getProducts">
-
-    </div> -->
-
-    <p>Info about card X (component!)</p>
-    <button>buy (open cart popUp!)</button>
+    </div>
   </div>
 </template>
 
 <script>
 import { mapActions } from "vuex";
 import { mapGetters } from "vuex";
+import { mapMutations } from "vuex"
 export default {
   name: "TicketList",
   components: {},
@@ -35,28 +29,35 @@ export default {
     await this.getProducts();
   },
   methods: {
-    updateCart(data, event) {
-      // console.log(event, "event");
-      console.log(data);
-      console.log("пушим через vuex изменения в store.cart");
-    },
     ...mapActions(["getProducts"]),
+    ...mapMutations([
+      'toggleDataCart',
+    ]),
   },
 };
 </script>
 
 <style>
 .ticket-map {
+  max-width: 500px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 3px;
 }
 .ticket {
-  width: 150px;
-  height: 20px;
-  background-color: blueviolet;
+  padding: 10px;
+  border-radius: 15px;
+  background-color: var(--color-blue);
   color: white;
 }
+.ticket-map__wrapper {
+  padding: 10px;
+  border-radius: 15px;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
 </style>
