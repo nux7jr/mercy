@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Bar
+    <Doughnut
     :chart-options="chartOptions"
     :chart-data="chartData"
     :chart-id="chartId"
@@ -15,15 +15,15 @@
 </template>
 
 <script>
-import { Bar } from 'vue-chartjs/legacy'
+import { Doughnut } from 'vue-chartjs/legacy'
 
-import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js'
+import { Chart as ChartJS, Title, Tooltip, Legend, ArcElement, CategoryScale, LinearScale, Arc} from 'chart.js'
 
-ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
+ChartJS.register(Title, Tooltip, Legend, ArcElement, CategoryScale, LinearScale,)
 
 export default {
   name: 'MercyMainDiargamInfo',
-  components: { Bar },
+  components: { Doughnut },
   props: {
     chartId: {
       type: String,
@@ -58,7 +58,9 @@ export default {
     return {
       chartData: {
         labels: [ 'Свободно', 'Занято' ],
-        datasets: [ { data: [40, 60] } ]
+        datasets: [ { data: [40, 60] } ],
+        backgroundColor: ['#8DCCEC', '#9D9E9E'],
+        borderWidth: 0,
       },
       chartOptions: {
         responsive: true

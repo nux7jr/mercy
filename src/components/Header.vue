@@ -2,11 +2,10 @@
   <header>
     <div class="container">
         <nav class="navbar">
-            <a href="#" class="logo">Logo</a>
+            <a href="#" class="logo"><img src="@/assets/img/tiksangroup.png" alt=""></a>
             <ul class="nav-links">
                 <li><a href="#">Главная</a></li>
                 <li><a href="#">О проекте</a></li>
-                <!-- <li><router-link to="about">About</router-link></li> -->
                 <li><a href="#">Принять участие</a></li>
                 <li><a href="#">Партнеры</a></li>
                 <li><a href="#">FaQ</a></li>
@@ -26,7 +25,7 @@
             <div class="main-diagram">
               <MercyMainDiargamInfo id="diagram-info" :width=330 :height=400 />
             </div>
-            <button class="diagram__button">купить размещение логотипа</button>
+            <button class="diagram__button">Хочу в книгу рекордов Гиннеса</button>
             <p class="diagram__tag">#баннеррекорд</p>
           </div>
         </section>
@@ -153,7 +152,6 @@ header {
 .slogan__text {
   text-align: center;
 
-  font-family: 'Montserrat';
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
@@ -182,6 +180,18 @@ header {
   background: linear-gradient(318.53deg, #2A2A2A 9.02%, #2F2F2F 78.97%);
   box-shadow: 0px 4px 21px #000000;
   border-radius: 14px;
+}
+.diagram__button {
+  background: linear-gradient(118.3deg, #0AB9EE 7.91%, #8DCCEC 74.43%);
+  border-radius: 14px;
+  width: 306px;
+  height: 39px;
+  border-width: 0;
+  border-color: transparent;
+  margin: 0 auto;
+  margin-top: 20px;
+  color: white;
+  font-size: 20px;
 }
 @media (min-width: 575.98px) {
   header {
