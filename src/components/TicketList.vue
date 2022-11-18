@@ -1,17 +1,39 @@
 <template>
   <div class="ticket">
-    <div class="ticket-map">
+    <div v-if="allProducts.length" class="ticket-map">
       <div
-      @click="toggleDataCart(data)"
       class="ticket-map__item"
       v-for="data in allProducts"
       :key="data.id"
     >
-      <div class="ticket-map__wrapper">
-        {{ data.id }}
+      <div v-if="allProducts.length" class="ticket-map__wrapper">
+        <div @click="toggleDataCart(data)" v-if="data.available" class="product">
+          <div class="product__info">
+            <div class="product__index">ID:{{ data.index }}</div>
+            <p class="product__heading">
+              Это место свободно
+            </p>
+          </div>
+          <div class="product__id">
+            <img src="@/assets/img/Ellipse.svg" alt="Ellipse">
+          </div>
+        </div>
+        <div v-else class="product-booked">
+          <div class="product-booked__info">
+            <div class="product__index">ID:{{ data.index }}</div>
+            <p class="product-booked__heading">
+              Это место занято
+              <img class="product-booked__img" :src="`${data.logo}`" alt="logo">
+            </p>
+          </div>
+          <div class="product__id">
+            <img src="@/assets/img/NotElipse.svg" alt="Ellipse">
+          </div>
+        </div>
       </div>
     </div>
-    </div>
+  </div>
+  <div v-else class="ticket-map__error">Извините, произошла обишка</div>
   </div>
 </template>
 
@@ -24,8 +46,6 @@ export default {
   components: {},
   computed: mapGetters(["allProducts"]),
   async mounted() {
-    // this.$store.dispatch("getProducts");
-    // new data from vuex!
     await this.getProducts();
   },
   methods: {
@@ -39,25 +59,99 @@ export default {
 
 <style>
 .ticket-map {
-  max-width: 500px;
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(40, 1fr);
   align-items: center;
-  flex-wrap: wrap;
   gap: 3px;
+  
+  grid-auto-rows: 29px;
+}
+.product__index {
+  display: block;
+  margin: 0 auto;
+}
+.product-booked__heading {
+  margin: 0;
+}
+.product__heading {
+  margin: 0;
 }
 .ticket {
+  min-height: 750px;
+  min-width: 700px;
   padding: 10px;
   border-radius: 15px;
-  background-color: var(--color-blue);
+  background-color: white;
+  background-image: url(@/assets/img/bgProduct.png);
+  background-repeat: no-repeat;
+  background-position: center center;
   color: white;
 }
 .ticket-map__wrapper {
-  padding: 10px;
-  border-radius: 15px;
-  background-color: black;
-  color: white;
+  padding: 2px;
+  border-radius: 10px;
+  background-color: transparent;
+  color: rgb(0, 0, 0);
   cursor: pointer;
 }
-
+.product {
+  position: relative;
+}
+.product:hover > .product__info {
+  display: block;
+  animation: showBlock 0.7s linear forwards;
+}
+.product__info {
+  display: none;
+  position: absolute;
+  top: -150px;
+  left: -70px;
+  width: 150px;
+  height: 145px;
+  background-color: #5B5B5B;
+  border-radius: 10px;
+  object-fit: contain;
+}
+.product__heading {
+  color: rgb(0, 0, 0);
+}
+.product-booked__heading {
+  color: rgb(0, 0, 0);
+}
+.product-booked__info {
+  display: none;
+  position: absolute;
+  top: -150px;
+  left: -70px;
+  width: 150px;
+  height: 145px;
+  background-color: #5B5B5B;
+  border-radius: 10px;
+}
+.product-booked:hover > .product-booked__info {
+  display: block;
+  animation: showBlock 0.7s linear forwards;
+}
+.product-booked__img {
+  width: 90%;
+  height: 100px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 5px;
+  object-fit: contain;
+}
+.product-booked {
+  position: relative;
+}
+.ticket-map__error {
+  color: black;
+}
+@keyframes showBlock {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 </style>

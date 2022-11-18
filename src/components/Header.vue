@@ -69,7 +69,7 @@ export default {
 header {
   min-height: calc(100vh - 47px);
   background-color: black;
-  background-image: url(@/assets/bg.png);
+  background-image: url(@/assets/img/bg.png);
   background-repeat: no-repeat;
   background-position: center center;
   background-repeat: no-repeat;

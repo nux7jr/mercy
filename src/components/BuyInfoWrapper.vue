@@ -39,10 +39,17 @@ export default {
 .buy-info__wrapper {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 120px;
 }
 .buy-info__heading {
   color: white;
-  margin-top: 0;
+  display: flex;
+  margin: 0;
+  padding: 20px;
+  justify-content: center;
 }
 </style>

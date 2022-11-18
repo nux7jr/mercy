@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import HomeView from '@/views/HomeView.vue'
 import AboutView from "@/views/AboutView.vue"
+import MercyMainBuyView from "@/views/BuyView.vue"
 Vue.use(VueRouter)
 
 const routes = [
@@ -14,6 +15,11 @@ const routes = [
     path: '/about',
     name: 'AboutView',
     component: AboutView
+  },
+  {
+    path: '/buy',
+    name: 'MercyMainBuyView',
+    component: MercyMainBuyView
   },
 ]
 

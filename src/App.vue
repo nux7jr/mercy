@@ -20,11 +20,20 @@ export default {
   --color-white: white;
   --color-black: #020304;
 }
+@font-face {
+  font-family: 'Panton Regular';
+  src: url('assets/fonts/Panton-Regular.eot');
+  src: url('assets/fonts/Panton-Regular.eot?#iefix') format('embedded-opentype'),
+  url('assets/fonts/Panton-Regular.woff') format('woff'),
+  url('assets/fonts/Panton-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  }
 body {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Panton Regular', sans-serif;
 }
 /* Базавая стилистика */
 .visually-hidden {

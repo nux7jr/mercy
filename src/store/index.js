@@ -18,22 +18,23 @@ export default new Vuex.Store({
       let isProductExists = false;
         if (state.cart.length) {
           state.cart.map(function (item) {
-            if (item.id === products.id) {
+            if (item.index === products.index) {
               isProductExists = true;
               state.cart.splice(item, 1);
               console.log("del", item)
             }
           })
           if (!isProductExists) {
-            state.cart.push(products)
+            console.log("можно выбрать только один товар!")
           }
         } else {
       state.cart.push(products)
     }
     },
-    deleteCartItem(state, data) {
-      // state.products
-      // итерируюсь по массиву и удаляю если он там есть
+    fullReprimandCart() {
+        // state.card = [];
+        console.log("полное удаление!")
+      // полное удаление!
     },
   },
   state: {
