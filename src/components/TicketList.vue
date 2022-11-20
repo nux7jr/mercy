@@ -1,46 +1,48 @@
 <template>
   <div class="ticket">
     <div v-if="allProducts.length" class="ticket-map">
-      <div
-      class="ticket-map__item"
-      v-for="data in allProducts"
-      :key="data.id"
-    >
-      <div v-if="allProducts.length" class="ticket-map__wrapper">
-        <div @click="toggleDataCart(data)" v-if="data.available" class="product">
-          <div class="product__info">
-            <div class="product__index">ID:{{ data.index }}</div>
-            <p class="product__heading">
-              Это место свободно
-            </p>
+      <div class="ticket-map__item" v-for="data in allProducts" :key="data.id">
+        <div v-if="allProducts.length" class="ticket-map__wrapper">
+          <div
+            @click="toggleDataCart(data)"
+            v-if="data.available"
+            class="product"
+          >
+            <div class="product__info">
+              <div class="product__index">Номер: {{ data.index }}</div>
+              <p class="product__heading">Это место свободно</p>
+            </div>
+            <div class="product__id">
+              <img src="@/assets/img/Ellipse.svg" alt="Ellipse" />
+            </div>
           </div>
-          <div class="product__id">
-            <img src="@/assets/img/Ellipse.svg" alt="Ellipse">
-          </div>
-        </div>
-        <div v-else class="product-booked">
-          <div class="product-booked__info">
-            <div class="product__index">ID:{{ data.index }}</div>
-            <p class="product-booked__heading">
-              Это место занято
-              <img class="product-booked__img" :src="`${data.logo}`" alt="logo">
-            </p>
-          </div>
-          <div class="product__id">
-            <img src="@/assets/img/NotElipse.svg" alt="Ellipse">
+          <div v-else class="product-booked">
+            <div class="product-booked__info">
+              <div class="product__index">Номер: {{ data.index }}</div>
+              <p class="product-booked__heading">
+                Это место занято
+                <img
+                  class="product-booked__img"
+                  :src="`${data.logo}`"
+                  alt="logo"
+                />
+              </p>
+            </div>
+            <div class="product__id">
+              <img src="@/assets/img/NotElipse.svg" alt="Ellipse" />
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div v-else class="ticket-map__error">Извините, произошла обишка</div>
+    <div v-else class="ticket-map__error">Извините, произошла обишка</div>
   </div>
 </template>
 
 <script>
 import { mapActions } from "vuex";
 import { mapGetters } from "vuex";
-import { mapMutations } from "vuex"
+import { mapMutations } from "vuex";
 export default {
   name: "TicketList",
   components: {},
@@ -50,9 +52,7 @@ export default {
   },
   methods: {
     ...mapActions(["getProducts"]),
-    ...mapMutations([
-      'toggleDataCart',
-    ]),
+    ...mapMutations(["toggleDataCart"]),
   },
 };
 </script>
@@ -63,18 +63,25 @@ export default {
   grid-template-columns: repeat(40, 1fr);
   align-items: center;
   gap: 3px;
-  
+
   grid-auto-rows: 29px;
 }
 .product__index {
   display: block;
-  margin: 0 auto;
+  font-size: 15px;
+  text-align: center;
+  color: white;
 }
 .product-booked__heading {
+  text-align: center;
   margin: 0;
+  font-size: 15px;
+  color: rgb(255, 255, 255);
 }
 .product__heading {
+  text-align: center;
   margin: 0;
+  color: rgb(255, 255, 255);
 }
 .ticket {
   min-height: 750px;
@@ -108,15 +115,9 @@ export default {
   left: -70px;
   width: 150px;
   height: 145px;
-  background-color: #5B5B5B;
+  background-color: #5b5b5b;
   border-radius: 10px;
   object-fit: contain;
-}
-.product__heading {
-  color: rgb(0, 0, 0);
-}
-.product-booked__heading {
-  color: rgb(0, 0, 0);
 }
 .product-booked__info {
   display: none;
@@ -125,7 +126,7 @@ export default {
   left: -70px;
   width: 150px;
   height: 145px;
-  background-color: #5B5B5B;
+  background-color: #5b5b5b;
   border-radius: 10px;
 }
 .product-booked:hover > .product-booked__info {
@@ -139,6 +140,7 @@ export default {
   margin: 0 auto;
   border-radius: 5px;
   object-fit: contain;
+  border-radius: 15px;
 }
 .product-booked {
   position: relative;

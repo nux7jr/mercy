@@ -21,21 +21,15 @@
 
 <script>
 export default {
-  name: 'MercyMainImportantInfo',
+  name: "MercyMainImportantInfo",
 
   data() {
-    return {
-      
-    };
+    return {};
   },
 
-  mounted() {
-    
-  },
+  mounted() {},
 
-  methods: {
-    
-  },
+  methods: {},
 };
 </script>
 
@@ -60,10 +54,8 @@ export default {
   gap: 20px;
 }
 @media (min-width: 575.98px) {
-
 }
 @media (min-width: 767.98px) {
-
 }
 @media (max-width: 767.98px) {
   .important-info {

@@ -4,7 +4,11 @@
       <div class="offer-order">
         <p>Корзина:</p>
         <div class="offer-order__wrapper">
-          <div class="offer-order__item__wrapper" v-for="item in allCart" key="index">
+          <div
+            class="offer-order__item__wrapper"
+            v-for="item in allCart"
+            :key="index"
+          >
             <div class="offer-order__item">
               <div class="offer-order__info">
                 <p>Выбранное место: {{ item.index }}</p>
@@ -21,22 +25,22 @@
               {{ cartTotalCost | toFix | formattedPrice }}
             </p>
           </div>
-          <router-link v-show="allCart.length" transition name="fade" class="offer-order__link" to="/buy">
+          <router-link
+            v-show="allCart.length"
+            transition
+            name="fade"
+            class="offer-order__link"
+            to="/buy"
+          >
             Оформить заказ
           </router-link>
         </div>
         <div class="price-info">
           <p class="price-info__item">стоимость размещения</p>
           <ul class="price-info__item price-info__list">
-            <li>
-              от 50 000р
-            </li>
-            <li>
-              от 15 000р
-            </li>
-            <li>
-              от 10 000р
-            </li>
+            <li>от 50 000р</li>
+            <li>от 15 000р</li>
+            <li>от 10 000р</li>
           </ul>
         </div>
       </div>
@@ -45,44 +49,40 @@
 </template>
 
 <script>
-import { mapState, mapGetters, mapMutations } from 'vuex';
+import { mapState, mapGetters, mapMutations } from "vuex";
 import toFix from "@/filters/toFix";
 import formattedPrice from "@/filters/price-format";
 export default {
   name: "CartList",
   data() {
-    return {
-    }
+    return {};
   },
   filters: {
-      formattedPrice,
-      toFix
-    },
+    formattedPrice,
+    toFix,
+  },
   computed: {
     ...mapState(["cart"]),
     ...mapGetters(["allCart"]),
-    // ...mapMutations([
-    //   'fullReprimandCart',
-    // ]),
+    ...mapMutations(["fullReprimandCart"]),
     cartTotalCost() {
-        let result = []
+      let result = [];
 
-        if (this.allCart.length) {
-          for (let item of this.allCart) {
-            result.push(item.price)
-          }
-          result = result.reduce(function (sum, el) {
-            return sum + el;
-          })
-          return result;
-        } else {
-          return 0
+      if (this.allCart.length) {
+        for (let item of this.allCart) {
+          result.push(item.price);
         }
+        result = result.reduce(function (sum, el) {
+          return sum + el;
+        });
+        return result;
+      } else {
+        return 0;
       }
+    },
   },
-  
-  methods: {
-  }
+
+  methods: {},
 };
 </script>
 
@@ -99,7 +99,7 @@ export default {
   cursor: pointer;
 }
 .offer-order {
-  background-color: #1C1C1C;
+  background-color: #1c1c1c;
   padding: 20px;
   color: white;
   border-radius: 15px;
@@ -107,7 +107,7 @@ export default {
 .offer-order__link {
   color: black;
   padding: 15px;
-  background-color: #8DCCEC;
+  background-color: #8dccec;
   border-radius: 15px;
   transition: background-color 0.2s;
 }
@@ -117,10 +117,12 @@ export default {
 .offer-order__link:visited {
   color: black;
 }
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
 }
-.fade-enter, .fade-leave-to {
+.fade-enter,
+.fade-leave-to {
   opacity: 0;
 }
 </style>

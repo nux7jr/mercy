@@ -1,8 +1,8 @@
 <template>
-  <div class="buy-info">
+  <div id="buy-info" class="buy-info">
     <h3 class="buy-info__heading">Участие в благотворительной акции-рекорде</h3>
     <div class="buy-info__wrapper">
-      <TicketList/>
+      <TicketList />
       <CartList />
     </div>
   </div>
@@ -12,29 +12,24 @@
 import TicketList from "@/components/TicketList.vue";
 import CartList from "@/components/CartList.vue";
 export default {
-  name: 'MercyMainBuyInfoWrapper',
+  name: "MercyMainBuyInfoWrapper",
   components: {
-    TicketList, CartList
+    TicketList,
+    CartList,
   },
   data() {
-    return {
-      
-    };
+    return {};
   },
 
-  mounted() {
-    
-  },
+  mounted() {},
 
-  methods: {
-    
-  },
+  methods: {},
 };
 </script>
 
 <style lang="scss" scoped>
 .buy-info {
-  background: linear-gradient(180deg, #5B5B5B 0%, #383838 100%);
+  background: linear-gradient(180deg, #5b5b5b 0%, #383838 100%);
 }
 .buy-info__wrapper {
   display: flex;

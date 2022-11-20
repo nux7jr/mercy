@@ -1,5 +1,5 @@
 <template>
-  <div class="partners">
+  <div id="partners" class="partners">
     <div class="partners__item">
       <h3 class="partners__heading">Партнеры благотворительной акции</h3>
     </div>
@@ -7,14 +7,14 @@
       <section class="enable-animation">
         <div class="marquee marquee--fit-content">
           <ul class="marquee__content">
-            <li><img src="@/assets/img/logo-partners.png" alt=""></li>
-            <li><img src="@/assets/img/logo-partners.png" alt=""></li>
-            <li><img src="@/assets/img/logo-partners.png" alt=""></li>
+            <li><img src="@/assets/img/logo-partners.png" alt="" /></li>
+            <li><img src="@/assets/img/logo-partners.png" alt="" /></li>
+            <li><img src="@/assets/img/logo-partners.png" alt="" /></li>
           </ul>
           <ul aria-hidden="true" class="marquee__content">
-            <li><img src="@/assets/img/logo-partners.png" alt=""></li>
-            <li><img src="@/assets/img/logo-partners.png" alt=""></li>
-            <li><img src="@/assets/img/logo-partners.png" alt=""></li>
+            <li><img src="@/assets/img/logo-partners.png" alt="" /></li>
+            <li><img src="@/assets/img/logo-partners.png" alt="" /></li>
+            <li><img src="@/assets/img/logo-partners.png" alt="" /></li>
           </ul>
         </div>
       </section>
@@ -24,27 +24,21 @@
 
 <script>
 export default {
-  name: 'MercyMainPartnersList',
+  name: "MercyMainPartnersList",
 
   data() {
-    return {
-      
-    };
+    return {};
   },
 
-  mounted() {
-    
-  },
+  mounted() {},
 
-  methods: {
-    
-  },
+  methods: {},
 };
 </script>
 
 <style lang="scss" scoped>
 .partners {
-  background-color: #5B5B5B;
+  background-color: #5b5b5b;
 }
 .partners__heading {
   text-align: center;

@@ -4,36 +4,37 @@
   </div>
 </template>
 <script>
-
 export default {
   name: "App",
-  components: {
-  },
+  components: {},
 };
 </script>
 <style lang="scss">
 :root {
-  --color-main: #5B5B5B;
-  --color-light-gray: #9D9E9E;
-  --color-blue: #0AB9EE;
-  --color-light-blue: #8DCCEC;
+  --color-main: #5b5b5b;
+  --color-light-gray: #9d9e9e;
+  --color-blue: #0ab9ee;
+  --color-light-blue: #8dccec;
   --color-white: white;
   --color-black: #020304;
 }
 @font-face {
-  font-family: 'Panton Regular';
-  src: url('assets/fonts/Panton-Regular.eot');
-  src: url('assets/fonts/Panton-Regular.eot?#iefix') format('embedded-opentype'),
-  url('assets/fonts/Panton-Regular.woff') format('woff'),
-  url('assets/fonts/Panton-Regular.ttf') format('truetype');
+  font-family: "Panton Regular";
+  src: url("assets/fonts/Panton-Regular.eot");
+  src: url("assets/fonts/Panton-Regular.eot?#iefix") format("embedded-opentype"),
+    url("assets/fonts/Panton-Regular.woff") format("woff"),
+    url("assets/fonts/Panton-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
-  }
+}
 body {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: 'Panton Regular', sans-serif;
+  font-family: "Panton Regular", sans-serif;
+}
+html {
+  scroll-behavior: smooth;
 }
 /* Базавая стилистика */
 .visually-hidden {

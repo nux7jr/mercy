@@ -1,70 +1,72 @@
 <template>
-  <header>
+  <header id="main">
     <div class="container">
-        <nav class="navbar">
-            <a href="#" class="logo"><img src="@/assets/img/tiksangroup.png" alt=""></a>
-            <ul class="nav-links">
-                <li><a href="#">Главная</a></li>
-                <li><a href="#">О проекте</a></li>
-                <li><a href="#">Принять участие</a></li>
-                <li><a href="#">Партнеры</a></li>
-                <li><a href="#">FaQ</a></li>
-            </ul>
-            <div v-on:click="toggleMenu" class="burger-icon" id="burger">X</div>
-        </nav>
-        <section class="slogan">
-          <div class="slogan__text">
-            <small>Благотворительная акция-рекорд</small>
-            <h1 class="slogan__heading">1000 логотипов на баннере</h1>
-            <p>премии</p>
-            <h3>Человек года 2022</h3>
-          </div>
-          <div class="diagram">
-            <h1 class="diagram__heeading">Уже занято места на баннере</h1>
-            <small>257 логотипов из 1000</small>
-            <div class="main-diagram">
-              <MercyMainDiargamInfo id="diagram-info" :width=330 :height=400 />
-            </div>
-            <button class="diagram__button">Хочу в книгу рекордов Гиннеса</button>
-            <p class="diagram__tag">#баннеррекорд</p>
-          </div>
-        </section>
-        <div class="call">
-          <p class="call__item">Листайте вниз</p>
+      <nav class="navbar">
+        <a href="#" class="logo"
+          ><img src="@/assets/img/tiksangroup.png" alt=""
+        /></a>
+        <ul class="nav-links">
+          <li><a href="#main">Главная</a></li>
+          <li><a href="#about">О проекте</a></li>
+          <li><a href="#buy-info">Принять участие</a></li>
+          <li><a href="#partners">Партнеры</a></li>
+          <li><a href="#faq">FaQ</a></li>
+        </ul>
+        <div v-on:click="toggleMenu" class="burger-icon" id="burger">X</div>
+      </nav>
+      <section class="slogan">
+        <div class="slogan__text">
+          <small>Благотворительная акция-рекорд</small>
+          <h1 class="slogan__heading">1000 логотипов на баннере</h1>
+          <p>премии</p>
+          <h3>Человек года 2022</h3>
         </div>
+        <div class="diagram">
+          <h1 class="diagram__heeading">Уже занято места на баннере</h1>
+          <small>257 логотипов из 1000</small>
+          <div class="main-diagram">
+            <MercyMainDiargamInfo
+              id="diagram-info"
+              :width="330"
+              :height="400"
+            />
+          </div>
+          <a href="#buy-info" class="diagram__link"
+            >Хочу в книгу рекордов Гиннеса</a
+          >
+          <p class="diagram__tag">#баннеррекорд</p>
+        </div>
+      </section>
+      <div class="call">
+        <p class="call__item">Листайте вниз</p>
+      </div>
     </div>
   </header>
 </template>
 
 <script>
-import MercyMainDiargamInfo from "@/components/DiargamInfo.vue"
+import MercyMainDiargamInfo from "@/components/DiargamInfo.vue";
 export default {
-  name: 'MercyMainHeader',
+  name: "MercyMainHeader",
   components: {
     MercyMainDiargamInfo,
   },
   data() {
-    return {
-      
-    };
+    return {};
   },
 
-  mounted() {
-    
-  },
+  mounted() {},
 
   methods: {
     toggleMenu() {
-      const navLinks = document.querySelector('.nav-links');
-      navLinks.classList.toggle('active');
-
-    }
+      const navLinks = document.querySelector(".nav-links");
+      navLinks.classList.toggle("active");
+    },
   },
 };
 </script>
 
 <style scoped>
-
 header {
   min-height: calc(100vh - 47px);
   background-color: black;
@@ -177,21 +179,21 @@ header {
   flex-direction: column;
   border-radius: 15px;
 
-  background: linear-gradient(318.53deg, #2A2A2A 9.02%, #2F2F2F 78.97%);
+  background: linear-gradient(318.53deg, #2a2a2a 9.02%, #2f2f2f 78.97%);
   box-shadow: 0px 4px 21px #000000;
   border-radius: 14px;
 }
-.diagram__button {
-  background: linear-gradient(118.3deg, #0AB9EE 7.91%, #8DCCEC 74.43%);
+.diagram__link {
+  background: linear-gradient(118.3deg, #0ab9ee 7.91%, #8dccec 74.43%);
   border-radius: 14px;
-  width: 306px;
-  height: 39px;
+  padding: 8px;
   border-width: 0;
   border-color: transparent;
   margin: 0 auto;
   margin-top: 20px;
   color: white;
   font-size: 20px;
+  cursor: pointer;
 }
 @media (min-width: 575.98px) {
   header {
@@ -243,7 +245,6 @@ header {
   .slogan {
     justify-content: center;
   }
-
 }
 
 @media (min-width: 991.98px) {

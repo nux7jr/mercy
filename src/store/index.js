@@ -16,24 +16,24 @@ export default new Vuex.Store({
     },
     toggleDataCart(state, products) {
       let isProductExists = false;
-        if (state.cart.length) {
-          state.cart.map(function (item) {
-            if (item.index === products.index) {
-              isProductExists = true;
-              state.cart.splice(item, 1);
-              console.log("del", item)
-            }
-          })
-          if (!isProductExists) {
-            console.log("можно выбрать только один товар!")
+      if (state.cart.length) {
+        state.cart.map(function (item) {
+          if (item.index === products.index) {
+            isProductExists = true;
+            state.cart.splice(item, 1);
+            console.log("del", item);
           }
-        } else {
-      state.cart.push(products)
-    }
+        });
+        if (!isProductExists) {
+          console.log("можно выбрать только один товар!");
+        }
+      } else {
+        state.cart.push(products);
+      }
     },
-    fullReprimandCart() {
-        // state.card = [];
-        console.log("полное удаление!")
+    fullReprimandCart(state) {
+      state.cart = [];
+      console.log("полное удаление!");
       // полное удаление!
     },
   },

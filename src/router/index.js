@@ -1,30 +1,30 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import HomeView from '@/views/HomeView.vue'
-import AboutView from "@/views/AboutView.vue"
-import MercyMainBuyView from "@/views/BuyView.vue"
-Vue.use(VueRouter)
+import Vue from "vue";
+import VueRouter from "vue-router";
+import HomeView from "@/views/HomeView.vue";
+import MercyMainBuyView from "@/views/BuyView.vue";
+import MercyPageNotFound from "@/views/404View.vue";
+Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/',
-    name: 'home',
-    component: HomeView
+    path: "/",
+    name: "home",
+    component: HomeView,
   },
   {
-    path: '/about',
-    name: 'AboutView',
-    component: AboutView
+    path: "/buy",
+    name: "MercyMainBuyView",
+    component: MercyMainBuyView,
   },
   {
-    path: '/buy',
-    name: 'MercyMainBuyView',
-    component: MercyMainBuyView
+    path: "/:catchAll(.*)*",
+    name: "MercyPageNotFound",
+    component: MercyPageNotFound,
   },
-]
+];
 
 const router = new VueRouter({
-  routes
-})
+  routes,
+});
 
-export default router
+export default router;
