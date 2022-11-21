@@ -148,6 +148,11 @@ export default {
 .ticket-map__error {
   color: black;
 }
+@media (max-width: 1199.98px) {
+  .ticket {
+    display: none;
+  }
+}
 @keyframes showBlock {
   0% {
     opacity: 0;

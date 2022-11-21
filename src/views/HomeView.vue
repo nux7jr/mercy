@@ -6,6 +6,8 @@
     <MercyMainBuyInfoWrapper />
     <MercyMainFaqInfo />
     <MercyMainPartnersList />
+    <MercyMainAboutOrganizers />
+    <MercyMainFooter />
   </div>
 </template>
 
@@ -16,6 +18,8 @@ import MercyMainHeader from "@/components/Header.vue";
 import MercyMainInformationAboutBuy from "@/components/InformationAboutBuy.vue";
 import MercyMainFaqInfo from "@/components/FaqInfo.vue";
 import MercyMainPartnersList from "@/components/PartnersList.vue";
+import MercyMainAboutOrganizers from "@/components/AboutOrganizers.vue";
+import MercyMainFooter from "@/components/Footer.vue";
 export default {
   name: "HomeView",
   data() {
@@ -30,6 +34,8 @@ export default {
     MercyMainFaqInfo,
     MercyMainInformationAboutBuy,
     MercyMainPartnersList,
+    MercyMainAboutOrganizers,
+    MercyMainFooter
   },
 };
 </script>

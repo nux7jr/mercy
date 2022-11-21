@@ -25,6 +25,14 @@
               {{ cartTotalCost | toFix | formattedPrice }}
             </p>
           </div>
+<<<<<<< HEAD
+          <transition name="fade">
+            <router-link
+            v-show="allCart.length"
+            class="offer-order__link"
+            to="/buy"
+            >
+=======
           <router-link
             v-show="allCart.length"
             transition
@@ -32,8 +40,10 @@
             class="offer-order__link"
             to="/buy"
           >
+>>>>>>> 6df3393047415881de2b97591ce0cbb62d01d8b4
             Оформить заказ
           </router-link>
+        </transition> 
         </div>
         <div class="price-info">
           <p class="price-info__item">стоимость размещения</p>

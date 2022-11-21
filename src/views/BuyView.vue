@@ -4,15 +4,24 @@
       <div
         class="offer-order__item__wrapper"
         v-for="item in allCart"
+<<<<<<< HEAD
+        :key="index"
+=======
         key="index"
+>>>>>>> 6df3393047415881de2b97591ce0cbb62d01d8b4
       >
         <div class="form-order">
           <h1 class="form-order__heading">Оформление заявки</h1>
           <small>* – Поля обязательны к заполнению.</small>
           <form action="" method="post" enctype="multipart/form-data">
             <div class="offer-order__item main-info">
-              <p>Место номер: {{ item.index }}</p>
-              <p class="delete">X</p>
+              <p>Номер места: {{ item.index }}</p>
+              <p @click="fullReprimandCart" class="delete">
+                <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10.5806 19.4194L19.4194 10.5806" stroke="#5B5B5B" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M10.5806 10.5806L19.4194 19.4194" stroke="#5B5B5B" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                </p>
             </div>
             <div class="offer-order__item">
               <p class="offer-order__price-name">Итого:</p>
@@ -21,6 +30,18 @@
               </p>
             </div>
             <hr />
+<<<<<<< HEAD
+            <div class="from-order__item">
+              <input
+                class="from-order__input"
+                type="hidden"
+                v-bind:value="item.index"
+                name="index"
+                id="index"
+              />
+            </div>
+=======
+>>>>>>> 6df3393047415881de2b97591ce0cbb62d01d8b4
             <div class="from-order__wrapper">
               <div class="from-order__item">
                 <label for="name" class="from-order__heading">
@@ -80,7 +101,10 @@
                   id="price"
                   placeholder="Напишите сумму от 10 000р"
                   min="10000"
+<<<<<<< HEAD
+=======
                   v-bind="item.price"
+>>>>>>> 6df3393047415881de2b97591ce0cbb62d01d8b4
                 />
               </div>
               <div class="from-order__item">
@@ -130,7 +154,11 @@
         <button class="form-order__button">
           <router-link to="/"> Отменить </router-link>
         </button>
+<<<<<<< HEAD
+        form:{{ userFormData }}
+=======
         {{ userFormData }}
+>>>>>>> 6df3393047415881de2b97591ce0cbb62d01d8b4
         file:{{ file }}
       </div>
     </div>
@@ -144,8 +172,13 @@
 </template>
 
 <script>
+<<<<<<< HEAD
+import { mapState, mapGetters, mapMutations} from "vuex";
+import axios from "axios";
+=======
 import { mapState, mapGetters } from "vuex";
 import axios from "@/axios/axios";
+>>>>>>> 6df3393047415881de2b97591ce0cbb62d01d8b4
 
 export default {
   name: "MercyMainBuyView",
@@ -171,10 +204,17 @@ export default {
     ...mapGetters(["allCart"]),
   },
   methods: {
+    ...mapMutations(["fullReprimandCart"]),
     submitFile() {
       let formData = new FormData();
+      formData.append("id", this.userFormData.id);
+      formData.append("title", this.userFormData.title);
+      formData.append("link", this.userFormData.link);
+      formData.append("phone", this.userFormData.phone);
+      formData.append("email", this.userFormData.email);
+      formData.append("price", this.userFormData.price);
+
       formData.append("file", this.file);
-      formData.append("data", this.userFormData);
       axios
         .post("path/to/laravel", formData, {
           headers: {

@@ -3,7 +3,11 @@
     <h2 class="faq__heading">Вопрос-ответ</h2>
     <details class="faq__item spoiler faq__spoiler">
       <summary class="spoiler__header">
+<<<<<<< HEAD
+        <h3 class="faq__question"> 1. Кто организовал акцию с рекордом?</h3>
+=======
         <h3 class="faq__question">Кто организовывает акцию с рекордом?</h3>
+>>>>>>> 6df3393047415881de2b97591ce0cbb62d01d8b4
         <svg
           class="spoiler__cross"
           width="50"
@@ -12,7 +16,11 @@
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
+<<<<<<< HEAD
+          <ellipse cx="25" cy="25" rx="25" ry="25" fill="#c7c4c4" />
+=======
           <ellipse cx="25" cy="25" rx="25" ry="25" fill="#ECECEC" />
+>>>>>>> 6df3393047415881de2b97591ce0cbb62d01d8b4
           <path
             fill-rule="evenodd"
             clip-rule="evenodd"
@@ -23,15 +31,23 @@
       </summary>
       <div class="spoiler-content">
         <p class="spoiler-content__text">
+<<<<<<< HEAD
+          Акцию организовала группа компаний TIKSAN GROUP
+=======
           Являясь всего лишь частью общей картины, непосредственные участники
           технического прогресса призывают нас к новым свершениям, которые, в
           свою очередь, должны быть своевременно верифицированы.
+>>>>>>> 6df3393047415881de2b97591ce0cbb62d01d8b4
         </p>
       </div>
     </details>
     <details class="faq__item spoiler faq__spoiler">
       <summary class="spoiler__header">
+<<<<<<< HEAD
+        <h3 class="faq__question">2. Что я получу за участие в акции?</h3>
+=======
         <h3 class="faq__question">Кто организовывает акцию с рекордом?</h3>
+>>>>>>> 6df3393047415881de2b97591ce0cbb62d01d8b4
         <svg
           class="spoiler__cross"
           width="50"
@@ -40,7 +56,11 @@
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
+<<<<<<< HEAD
+          <ellipse cx="25" cy="25" rx="25" ry="25" fill="#c7c4c4" />
+=======
           <ellipse cx="25" cy="25" rx="25" ry="25" fill="#ECECEC" />
+>>>>>>> 6df3393047415881de2b97591ce0cbb62d01d8b4
           <path
             fill-rule="evenodd"
             clip-rule="evenodd"
@@ -51,15 +71,23 @@
       </summary>
       <div class="spoiler-content">
         <p class="spoiler-content__text">
+<<<<<<< HEAD
+            За участие в акции каждая организация получает сертификат о попадании в Книгу Рекордов Гиннесса России и всероссийскую PR-кампанию для своей организации
+=======
           Являясь всего лишь частью общей картины, непосредственные участники
           технического прогресса призывают нас к новым свершениям, которые, в
           свою очередь, должны быть своевременно верифицированы.
+>>>>>>> 6df3393047415881de2b97591ce0cbb62d01d8b4
         </p>
       </div>
     </details>
     <details class="faq__item spoiler faq__spoiler">
       <summary class="spoiler__header">
+<<<<<<< HEAD
+        <h3 class="faq__question">3. В какие фонды пойдут пожертвования?</h3>
+=======
         <h3 class="faq__question">Кто организовывает акцию с рекордом?</h3>
+>>>>>>> 6df3393047415881de2b97591ce0cbb62d01d8b4
         <svg
           class="spoiler__cross"
           width="50"
@@ -68,7 +96,11 @@
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
+<<<<<<< HEAD
+          <ellipse cx="25" cy="25" rx="25" ry="25" fill="#c7c4c4" />
+=======
           <ellipse cx="25" cy="25" rx="25" ry="25" fill="#ECECEC" />
+>>>>>>> 6df3393047415881de2b97591ce0cbb62d01d8b4
           <path
             fill-rule="evenodd"
             clip-rule="evenodd"
@@ -79,15 +111,23 @@
       </summary>
       <div class="spoiler-content">
         <p class="spoiler-content__text">
+<<<<<<< HEAD
+          Фонд для пожертвования вы сможете выбрать самостоятельно во время заполнения заявки. Фонды, в которые будут отправлены пожертвования: НАЗВАНИЕ ФОНДОВ
+=======
           Являясь всего лишь частью общей картины, непосредственные участники
           технического прогресса призывают нас к новым свершениям, которые, в
           свою очередь, должны быть своевременно верифицированы.
+>>>>>>> 6df3393047415881de2b97591ce0cbb62d01d8b4
         </p>
       </div>
     </details>
     <details class="faq__item spoiler faq__spoiler">
       <summary class="spoiler__header">
+<<<<<<< HEAD
+        <h3 class="faq__question">4. Где логотип компании будет размещаться?</h3>
+=======
         <h3 class="faq__question">Кто организовывает акцию с рекордом?</h3>
+>>>>>>> 6df3393047415881de2b97591ce0cbb62d01d8b4
         <svg
           class="spoiler__cross"
           width="50"
@@ -96,7 +136,11 @@
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
+<<<<<<< HEAD
+          <ellipse cx="25" cy="25" rx="25" ry="25" fill="#c7c4c4" />
+=======
           <ellipse cx="25" cy="25" rx="25" ry="25" fill="#ECECEC" />
+>>>>>>> 6df3393047415881de2b97591ce0cbb62d01d8b4
           <path
             fill-rule="evenodd"
             clip-rule="evenodd"
@@ -107,9 +151,65 @@
       </summary>
       <div class="spoiler-content">
         <p class="spoiler-content__text">
+<<<<<<< HEAD
+          Мы разместили на этом сайте план-схему баннера и указали там возможные места и их цену. Вы сможете выбрать любое из представленных свободных мест. В Красноярске баннер будет размещен по адресу: АДРЕС
+        </p>
+      </div>
+    </details>
+    <details class="faq__item spoiler faq__spoiler">
+      <summary class="spoiler__header">
+        <h3 class="faq__question">5. Как будет фиксировать рекорд?</h3>
+        <svg
+          class="spoiler__cross"
+          width="50"
+          height="50"
+          viewbox="0 0 50 50"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <ellipse cx="25" cy="25" rx="25" ry="25" fill="#c7c4c4" />
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M25.0571 24.0571L25.0571 9L25.9429 9L25.9429 24.0571L33.8835 24.0571L41 24.0571L41 24.9429L25.9429 24.9429L25.9429 40L25.0571 40L25.0571 24.9429L10 24.9429L10 24.0571L25.0571 24.0571Z"
+            fill="#666666"
+          />
+        </svg>
+      </summary>
+      <div class="spoiler-content">
+        <p class="spoiler-content__text">
+          Дату установки рекорда будет определена позже. В назначенный день приедет специалист Книги рекордов Гиннесса России из Москвы для его фиксации. На самом мероприятии эксперт выдаст сертификат об установки рекорда. ДАТА ВРЕМЯ
+        </p>
+      </div>
+    </details>
+    <details class="faq__item spoiler faq__spoiler">
+      <summary class="spoiler__header">
+        <h3 class="faq__question">6. Что такое «Человек Года»?</h3>
+        <svg
+          class="spoiler__cross"
+          width="50"
+          height="50"
+          viewbox="0 0 50 50"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <ellipse cx="25" cy="25" rx="25" ry="25" fill="#c7c4c4" />
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M25.0571 24.0571L25.0571 9L25.9429 9L25.9429 24.0571L33.8835 24.0571L41 24.0571L41 24.9429L25.9429 24.9429L25.9429 40L25.0571 40L25.0571 24.9429L10 24.9429L10 24.0571L25.0571 24.0571Z"
+            fill="#666666"
+          />
+        </svg>
+      </summary>
+      <div class="spoiler-content">
+        <p class="spoiler-content__text">
+          «Человек Года» - это премия, которая проходит ежегодно в городе Красноярск. Она учреждена изданием «Деловой Квартал». Премия ежегодно вручается людям, внесшим наибольший вклад в развитие экономики, культуры и социальной сферы Красноярского края. Награждая этих людей за их достижения, «Деловой квартал» подчёркивает важность их деятельности для жизни города и края. В 2022 году компания TIKSAN GROUP является соучредителем премии.
+=======
           Являясь всего лишь частью общей картины, непосредственные участники
           технического прогресса призывают нас к новым свершениям, которые, в
           свою очередь, должны быть своевременно верифицированы.
+>>>>>>> 6df3393047415881de2b97591ce0cbb62d01d8b4
         </p>
       </div>
     </details>
@@ -141,7 +241,12 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+<<<<<<< HEAD
+  background-color: #F2F2F2;
+  // F2F2F2
+=======
   background-color: rgb(147, 137, 137);
+>>>>>>> 6df3393047415881de2b97591ce0cbb62d01d8b4
 }
 .faq__heading {
   text-align: center;
@@ -190,4 +295,12 @@ export default {
 .spoiler[open] .spoiler__cross {
   transform: rotate(180deg);
 }
+<<<<<<< HEAD
+@media (max-width: 767.98px) {
+  .faq__question {
+    max-width: 200px;
+  }
+}
+=======
+>>>>>>> 6df3393047415881de2b97591ce0cbb62d01d8b4
 </style>

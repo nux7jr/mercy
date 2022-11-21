@@ -24,6 +24,10 @@ const routes = [
 ];
 
 const router = new VueRouter({
+<<<<<<< HEAD
+  mode: 'history',
+=======
+>>>>>>> 6df3393047415881de2b97591ce0cbb62d01d8b4
   routes,
 });
 
