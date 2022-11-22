@@ -2,11 +2,7 @@
   <div id="about">
     <div class="information">
       <div class="goal">
-<<<<<<< HEAD
         <h2 class="goal__heading">Цель акции</h2>
-=======
-        <h3 class="goal__heading">Цель акции</h3>
->>>>>>> 6df3393047415881de2b97591ce0cbb62d01d8b4
         <p class="goal__text">
           Эта акция-благотворительность, цель которой побить рекорд Гиннеса -
           больше 1000 логотипов на одном баннере. Вы покупаете размещение
@@ -15,11 +11,7 @@
         </p>
       </div>
       <div class="money-transfer">
-<<<<<<< HEAD
         <h2 class="money-transfer__heading">Куда пойдут пожертвования</h2>
-=======
-        <h3 class="money-transfer__heading">Куда пойдут пожертвования</h3>
->>>>>>> 6df3393047415881de2b97591ce0cbb62d01d8b4
         <p class="money-transfer__text">
           Все пожертвования пойдут в фонд “НАЗВАНИЕ ФОНДА”. Баннер будет
           распечатан и презентован на ежегодной деловой премии Человек года 2022
@@ -28,7 +20,6 @@
           Tiksan Group и СМИ Красноярского края.
         </p>
       </div>
-<<<<<<< HEAD
       <div class="about">
         <h2 class="about__heading">О проекте</h2>
         <div class="about__text">
@@ -57,8 +48,6 @@
           </p>
         </div>
       </div>
-=======
->>>>>>> 6df3393047415881de2b97591ce0cbb62d01d8b4
     </div>
   </div>
 </template>
@@ -78,7 +67,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// info
+#about {
+  background-color: #EFEFEF;
+}
 .information {
   display: flex;
   flex-direction: row;
@@ -105,6 +96,12 @@ export default {
   text-align: center;
   max-width: 800px;
   padding: 5px;
+}
+.about__heading {
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-color: #8DCCEC;
+  text-underline-offset: 8px;
 }
 @media (max-width: 850px) {
   .information {

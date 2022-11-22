@@ -45,6 +45,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.about-organizers {
+  padding: 5px;
+}
 .about-organizers__wrapper {
   display: flex;
   flex-direction: row;
@@ -63,6 +66,12 @@ export default {
 .about-organizers__call, .about-organizers__text, .about-organizers__heading {
   display: block;
   text-align: center;
+}
+.about-organizers__heading {
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-color: #8DCCEC;
+  text-underline-offset: 8px;
 }
 .about-organizers__call {
   width: 290px;

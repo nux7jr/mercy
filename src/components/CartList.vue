@@ -1,8 +1,8 @@
 <template>
   <div class="cart">
-    <div v-show="allCart">
+    <h2 class="cart__heading">Корзина</h2>
+    <div class="cart__item">
       <div class="offer-order">
-        <p>Корзина:</p>
         <div class="offer-order__wrapper">
           <div
             class="offer-order__item__wrapper"
@@ -11,7 +11,7 @@
           >
             <div class="offer-order__item">
               <div class="offer-order__info">
-                <p>Выбранное место: {{ item.index }}</p>
+                <p class="offer-order__place">Выбранное место: <strong>{{ item.index }}</strong></p>
                 <div class="info__wrapper">
                   <p class="info__price">Цена: {{ item.price }}</p>
                   <p @click="fullReprimandCart()" class="delete">X</p>
@@ -25,22 +25,12 @@
               {{ cartTotalCost | toFix | formattedPrice }}
             </p>
           </div>
-<<<<<<< HEAD
           <transition name="fade">
             <router-link
             v-show="allCart.length"
             class="offer-order__link"
             to="/buy"
             >
-=======
-          <router-link
-            v-show="allCart.length"
-            transition
-            name="fade"
-            class="offer-order__link"
-            to="/buy"
-          >
->>>>>>> 6df3393047415881de2b97591ce0cbb62d01d8b4
             Оформить заказ
           </router-link>
         </transition> 
@@ -48,10 +38,20 @@
         <div class="price-info">
           <p class="price-info__item">стоимость размещения</p>
           <ul class="price-info__item price-info__list">
-            <li>от 50 000р</li>
-            <li>от 15 000р</li>
-            <li>от 10 000р</li>
+            <li><img class="price-info__img" src="@/assets/img/Rectangle 9.png" alt="информация о покупке"> от 50 000р</li>
+            <li><img class="price-info__img" src="@/assets/img/Rectangle 9-1.png" alt="информация о покупке">от 15 000р</li>
+            <li><img class="price-info__img" src="@/assets/img/Rectangle 9-2.png" alt="информация о покупке">от 10 000р</li>
           </ul>
+        </div>
+        <div class="availability-info">
+          <div class="availability-info__item">
+            <img class="availability-info__noAvalibleimg" src="@/assets/img/Avalible.png" alt="место свободно">
+            <h3 class="availability-info__heading">- место свободно</h3>
+          </div>
+          <div class="availability-info__item">
+            <img class="availability-info__img" src="@/assets/img/noAvalible.png" alt="место занято">
+            <h3 class="availability-info__heading">- место занято</h3>
+          </div>
         </div>
       </div>
     </div>
@@ -97,6 +97,9 @@ export default {
 </script>
 
 <style>
+.cart {
+  min-width: 400px;
+}
 .info__wrapper {
   display: flex;
   justify-content: space-between;
@@ -115,6 +118,7 @@ export default {
   border-radius: 15px;
 }
 .offer-order__link {
+  display: block;
   color: black;
   padding: 15px;
   background-color: #8dccec;
@@ -127,6 +131,51 @@ export default {
 .offer-order__link:visited {
   color: black;
 }
+.price-info__img {
+  width: 30px;
+  height: 30px;
+}
+.price-info__list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.price-info__list li{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  gap: 10px;
+}
+.availability-info__item {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+  gap: 5px;
+}
+.availability-info__img {
+  width: 13px;
+  height: 13px;
+}
+.availability-info__noAvalibleimg {
+  width: 7px;
+  height: 7px;
+}
+.availability-info__heading {
+  margin: 0;
+  line-height: 20px;
+}
+.offer-order__place {
+  margin-top: 0;
+}
+.availability-info {
+  margin-top: 25px;
+}
+.cart__heading {
+  color: white;
+  text-align: center;
+}
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.5s;
@@ -134,5 +183,10 @@ export default {
 .fade-enter,
 .fade-leave-to {
   opacity: 0;
+}
+@media (max-width: 850px) {
+  .cart {
+    min-width: auto;
+  }
 }
 </style>

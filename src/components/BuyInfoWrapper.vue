@@ -1,6 +1,6 @@
 <template>
   <div id="buy-info" class="buy-info">
-    <h3 class="buy-info__heading">Участие в благотворительной акции-рекорде</h3>
+    <h2 class="buy-info__heading">Участие в благотворительной акции-рекорде</h2>
     <div class="buy-info__wrapper">
       <TicketList />
       <CartList />
@@ -36,9 +36,8 @@ export default {
   flex-direction: row;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  align-items: center;
   gap: 10px;
-  padding-bottom: 120px;
+  padding-bottom: 20px;
 }
 .buy-info__heading {
   color: white;
@@ -46,5 +45,9 @@ export default {
   margin: 0;
   padding: 20px;
   justify-content: center;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-color: #8DCCEC;
+  text-underline-offset: 8px;
 }
 </style>

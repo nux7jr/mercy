@@ -1,6 +1,7 @@
 <template>
-  <div>
     <Doughnut
+    :width="width"
+    :height="height"
     :chart-options="chartOptions"
     :chart-data="chartData"
     :chart-id="chartId"
@@ -8,16 +9,13 @@
     :plugins="plugins"
     :css-classes="cssClasses"
     :styles="styles"
-    :width="width"
-    :height="height"
   />
-  </div>
 </template>
 
 <script>
 import { Doughnut } from 'vue-chartjs/legacy'
 
-import { Chart as ChartJS, Title, Tooltip, Legend, ArcElement, CategoryScale, LinearScale, Arc} from 'chart.js'
+import { Chart as ChartJS, Title, Tooltip, Legend, ArcElement, CategoryScale, LinearScale} from 'chart.js'
 
 ChartJS.register(Title, Tooltip, Legend, ArcElement, CategoryScale, LinearScale,)
 
@@ -35,11 +33,11 @@ export default {
     },
     width: {
       type: Number,
-      default: 400
+      default: 340
     },
     height: {
       type: Number,
-      default: 400
+      default: 340
     },
     cssClasses: {
       default: '',
@@ -63,7 +61,7 @@ export default {
         borderWidth: 0,
       },
       chartOptions: {
-        responsive: true
+        responsive: false
       }
     };
   },

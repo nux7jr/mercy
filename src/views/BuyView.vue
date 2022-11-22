@@ -1,14 +1,13 @@
 <template>
   <div class="buy container">
-    <div v-if="allCart.length">
+    <transition
+    name="fade"
+    :duration="2000">
+    <div v-show="allCart.length">
       <div
         class="offer-order__item__wrapper"
         v-for="item in allCart"
-<<<<<<< HEAD
-        :key="index"
-=======
         key="index"
->>>>>>> 6df3393047415881de2b97591ce0cbb62d01d8b4
       >
         <div class="form-order">
           <h1 class="form-order__heading">Оформление заявки</h1>
@@ -30,7 +29,6 @@
               </p>
             </div>
             <hr />
-<<<<<<< HEAD
             <div class="from-order__item">
               <input
                 class="from-order__input"
@@ -40,8 +38,6 @@
                 id="index"
               />
             </div>
-=======
->>>>>>> 6df3393047415881de2b97591ce0cbb62d01d8b4
             <div class="from-order__wrapper">
               <div class="from-order__item">
                 <label for="name" class="from-order__heading">
@@ -99,12 +95,7 @@
                   v-model="userFormData.price"
                   name="price"
                   id="price"
-                  placeholder="Напишите сумму от 10 000р"
-                  min="10000"
-<<<<<<< HEAD
-=======
-                  v-bind="item.price"
->>>>>>> 6df3393047415881de2b97591ce0cbb62d01d8b4
+                  v-bind:placeholder="`Напишите сумму от ${item.price}`"
                 />
               </div>
               <div class="from-order__item">
@@ -154,32 +145,25 @@
         <button class="form-order__button">
           <router-link to="/"> Отменить </router-link>
         </button>
-<<<<<<< HEAD
         form:{{ userFormData }}
-=======
-        {{ userFormData }}
->>>>>>> 6df3393047415881de2b97591ce0cbb62d01d8b4
         file:{{ file }}
       </div>
     </div>
-    <div class="error" v-else>
-      <h3>В вашей корзине ничего нет!</h3>
-      <button class="form-order__button">
-        <router-link to="/"> На глувную </router-link>
-      </button>
-    </div>
+    </transition> 
+    <transition name="fade">
+      <div class="error" v-show="!allCart.length">
+        <h3>В вашей корзине ничего нет!</h3>
+        <button class="form-order__button">
+          <router-link to="/"> На глувную </router-link>
+        </button>
+      </div>
+    </transition>
   </div>
 </template>
 
 <script>
-<<<<<<< HEAD
 import { mapState, mapGetters, mapMutations} from "vuex";
 import axios from "axios";
-=======
-import { mapState, mapGetters } from "vuex";
-import axios from "@/axios/axios";
->>>>>>> 6df3393047415881de2b97591ce0cbb62d01d8b4
-
 export default {
   name: "MercyMainBuyView",
 
@@ -392,7 +376,7 @@ small {
   .option {
     justify-content: center;
   }
-  .container {
+  .container {  
     padding: 5px;
   }
 }
@@ -410,6 +394,23 @@ small {
 @media (min-width: 1199.98px) {
   .container {
     padding: 0 calc(50vw - 590px);
+  }
+}
+.bounce-enter-active {
+  animation: bounce-in .5s;
+}
+.bounce-leave-active {
+  animation: bounce-in .5s reverse;
+}
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
   }
 }
 </style>

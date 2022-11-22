@@ -1,5 +1,4 @@
 <template>
-  <div>
     <article class="important-info">
       <ul class="important-info__list">
         <li>
@@ -16,7 +15,6 @@
         </li>
       </ul>
     </article>
-  </div>
 </template>
 
 <script>

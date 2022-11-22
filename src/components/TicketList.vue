@@ -1,5 +1,6 @@
 <template>
   <div class="ticket">
+    <h2 class="ticket__heading">Карта баннера</h2>
     <div v-if="allProducts.length" class="ticket-map">
       <div class="ticket-map__item" v-for="data in allProducts" :key="data.id">
         <div v-if="allProducts.length" class="ticket-map__wrapper">
@@ -83,7 +84,12 @@ export default {
   margin: 0;
   color: rgb(255, 255, 255);
 }
-.ticket {
+.ticket__heading {
+  text-align: center;
+  color: white;
+}
+
+.ticket-map {
   min-height: 750px;
   min-width: 700px;
   padding: 10px;
@@ -95,6 +101,7 @@ export default {
   color: white;
 }
 .ticket-map__wrapper {
+  
   padding: 2px;
   border-radius: 10px;
   background-color: transparent;

@@ -12,7 +12,6 @@
           <li><a href="#partners">Партнеры</a></li>
           <li><a href="#faq">FaQ</a></li>
         </ul>
-<<<<<<< HEAD
         <div v-on:click="toggleMenu" class="burger-icon" id="burger">
           <div class="icons">
             <svg
@@ -47,31 +46,19 @@
         </div>
       </nav>
       <section class="slogan">
-        <div class="slogan__text">
+        <div class="slogan__text backInLeft">
           <small>Благотворительная акция-рекорд</small>
-          <h1 class="slogan__heading">1000 логотипов <br> на баннере</h1>
+          <h1 class="slogan__heading animate__backInLeft">1000 логотипов <br> на баннере</h1>
           <small>в рамках премии</small>
           <h3 class="slogan__wrapper">Человек года 2022</h3>
         </div>
-=======
-        <div v-on:click="toggleMenu" class="burger-icon" id="burger">X</div>
-      </nav>
-      <section class="slogan">
-        <div class="slogan__text">
-          <small>Благотворительная акция-рекорд</small>
-          <h1 class="slogan__heading">1000 логотипов на баннере</h1>
-          <p>премии</p>
-          <h3>Человек года 2022</h3>
-        </div>
->>>>>>> 6df3393047415881de2b97591ce0cbb62d01d8b4
         <div class="diagram">
           <h1 class="diagram__heeading">Уже занято места на баннере</h1>
-          <small>257 логотипов из 1000</small>
+          <small class="diagram__small-text">257 логотипов из 1000</small>
           <div class="main-diagram">
             <MercyMainDiargamInfo
-              id="diagram-info"
-              :width="330"
-              :height="400"
+              :width="340"
+              :height="340"
             />
           </div>
           <a href="#buy-info" class="diagram__link"
@@ -88,6 +75,7 @@
 </template>
 
 <script>
+import 'animate.css';
 import MercyMainDiargamInfo from "@/components/DiargamInfo.vue";
 export default {
   name: "MercyMainHeader",
@@ -110,7 +98,6 @@ export default {
 </script>
 
 <style scoped>
-<<<<<<< HEAD
 svg {
   fill-rule: evenodd;
   clip-rule: evenodd;
@@ -130,13 +117,6 @@ svg + svg {
   margin-left: 1.5rem;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Segoe UI, sans-serif;
-}
-
 body {
   min-height: 100vh;
   display: flex;
@@ -154,7 +134,6 @@ body {
 h1 {
   font-size: 2.5rem;
   text-transform: uppercase;
-  letter-spacing: 5px;
   text-align: center;
   margin-bottom: 2rem;
 }
@@ -196,9 +175,8 @@ svg:nth-child(2).active {
 }
 
 
-=======
->>>>>>> 6df3393047415881de2b97591ce0cbb62d01d8b4
 header {
+  font-family: "Panton Regular", sans-serif;
   min-height: calc(100vh - 47px);
   background-color: black;
   background-image: url(@/assets/img/bg.png);
@@ -288,7 +266,7 @@ header {
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
-  line-height: 24px;
+  line-height: 20px;
   text-transform: uppercase;
 }
 .slogan__wrapper {
@@ -297,8 +275,8 @@ header {
 .slogan__wrapper::after {
   content: url(@/assets/img/sloganimg.png);
   position: absolute;
-  top: -15px;
-  right: 4px;
+  top: -27px;
+  right: 22px;
 }
 .slogan__heading {
   line-height: 37px;
@@ -306,6 +284,16 @@ header {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+.diagram__heeading {
+  margin-bottom: 5px;
+}
+.main-diagram {
+  display: flex;
+  justify-content: center;
+}
+.diagram__small-text {
+  text-align: center;
 }
 .call {
   color: var(--color-white);
@@ -322,6 +310,8 @@ header {
 }
 .diagram {
   padding: 20px;
+
+  max-width: 500px;
 
   display: flex;
   flex-direction: column;
@@ -345,9 +335,8 @@ header {
   cursor: pointer;
 }
 .diagram__tag {
-  position: absolute;
-  bottom: -32px;
-  left: 136px;
+  text-align: center;
+  margin: 10px;
 }
 
 @media (min-width: 575.98px) {
@@ -377,6 +366,12 @@ header {
     transition: 0.4s ease all;
     z-index: 10;
   }
+  .diagram {
+    padding: 0;
+  }
+  .slogan__wrapper::after {
+    display: none;
+  } 
   .container .navbar .burger-icon {
     display: block;
   }
@@ -409,7 +404,6 @@ header {
     justify-content: center;
   }
 }
-
 @media (min-width: 991.98px) {
   header {
     padding: 0 calc(50vw - 480px);
@@ -420,4 +414,45 @@ header {
     padding: 0 calc(50vw - 590px);
   }
 }
+@-webkit-keyframes backInLeft {
+  0% {
+    transform: translateX(-2000px) scale(.7);
+    opacity: .7;
+  }
+
+  80% {
+    transform: translateX(0px) scale(.7);
+    opacity: .7;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes backInLeft {
+  0% {
+    transform: translateX(-2000px) scale(.7);
+    opacity: .7;
+  }
+
+  80% {
+    transform: translateX(0px) scale(.7);
+    opacity: .7;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.backInLeft {
+  -webkit-animation: backInLeft 1.5s;
+  animation: backInLeft 1.5s;
+  -webkit-animation-timing-function: ease-out;
+  animation-timing-function: ease-out;
+}
+
 </style>

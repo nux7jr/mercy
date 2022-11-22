@@ -1,7 +1,7 @@
 <template>
   <div id="partners" class="partners">
     <div class="partners__item">
-      <h3 class="partners__heading">Партнеры благотворительной акции</h3>
+      <h2 class="partners__heading">Партнеры благотворительной акции</h2>
     </div>
     <div class="partners__wrapper">
       <section class="enable-animation">
@@ -46,8 +46,10 @@ export default {
   color: white;
   font-style: normal;
   font-weight: 800;
-
-  text-transform: uppercase;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-color: #8DCCEC;
+  text-underline-offset: 8px;
 }
 
 .marquee {
@@ -124,7 +126,6 @@ export default {
 }
 
 .enable-animation {
-  margin-block: 3rem;
   padding-bottom: 1.5rem;
 }
 </style>
