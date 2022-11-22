@@ -6,12 +6,14 @@
         <div class="offer-order__wrapper">
           <div
             class="offer-order__item__wrapper"
-            v-for="item in allCart"
+            v-for="(item, index) in allCart"
             :key="index"
           >
             <div class="offer-order__item">
               <div class="offer-order__info">
-                <p class="offer-order__place">Выбранное место: <strong>{{ item.index }}</strong></p>
+                <p class="offer-order__place">
+                  Выбранное место: <strong>{{ item.index }}</strong>
+                </p>
                 <div class="info__wrapper">
                   <p class="info__price">Цена: {{ item.price }}</p>
                   <p @click="fullReprimandCart()" class="delete">X</p>
@@ -27,29 +29,56 @@
           </div>
           <transition name="fade">
             <router-link
-            v-show="allCart.length"
-            class="offer-order__link"
-            to="/buy"
+              v-show="allCart.length"
+              class="offer-order__link"
+              to="/buy"
             >
-            Оформить заказ
-          </router-link>
-        </transition> 
+              Оформить заказ
+            </router-link>
+          </transition>
         </div>
         <div class="price-info">
           <p class="price-info__item">стоимость размещения</p>
           <ul class="price-info__item price-info__list">
-            <li><img class="price-info__img" src="@/assets/img/Rectangle 9.png" alt="информация о покупке"> от 50 000р</li>
-            <li><img class="price-info__img" src="@/assets/img/Rectangle 9-1.png" alt="информация о покупке">от 15 000р</li>
-            <li><img class="price-info__img" src="@/assets/img/Rectangle 9-2.png" alt="информация о покупке">от 10 000р</li>
+            <li>
+              <img
+                class="price-info__img"
+                src="@/assets/img/Rectangle 9.png"
+                alt="информация о покупке"
+              />
+              от 50 000р
+            </li>
+            <li>
+              <img
+                class="price-info__img"
+                src="@/assets/img/Rectangle 9-1.png"
+                alt="информация о покупке"
+              />от 15 000р
+            </li>
+            <li>
+              <img
+                class="price-info__img"
+                src="@/assets/img/Rectangle 9-2.png"
+                alt="информация о покупке"
+              />от 10 000р
+            </li>
           </ul>
         </div>
         <div class="availability-info">
           <div class="availability-info__item">
-            <img class="availability-info__noAvalibleimg" src="@/assets/img/Avalible.png" alt="место свободно">
+            <img
+              class="availability-info__noAvalibleimg"
+              src="@/assets/img/Avalible.png"
+              alt="место свободно"
+            />
             <h3 class="availability-info__heading">- место свободно</h3>
           </div>
           <div class="availability-info__item">
-            <img class="availability-info__img" src="@/assets/img/noAvalible.png" alt="место занято">
+            <img
+              class="availability-info__img"
+              src="@/assets/img/noAvalible.png"
+              alt="место занято"
+            />
             <h3 class="availability-info__heading">- место занято</h3>
           </div>
         </div>
@@ -140,7 +169,7 @@ export default {
   flex-direction: column;
   gap: 10px;
 }
-.price-info__list li{
+.price-info__list li {
   display: flex;
   justify-content: flex-start;
   align-items: center;

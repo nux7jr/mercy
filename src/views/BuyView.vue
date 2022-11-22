@@ -1,112 +1,130 @@
 <template>
   <div class="buy container">
-    <transition
-    name="fade"
-    :duration="2000">
-    <div v-show="allCart.length">
-      <div
-        class="offer-order__item__wrapper"
-        v-for="item in allCart"
-        key="index"
-      >
-        <div class="form-order">
-          <h1 class="form-order__heading">Оформление заявки</h1>
-          <small>* – Поля обязательны к заполнению.</small>
-          <form action="" method="post" enctype="multipart/form-data">
-            <div class="offer-order__item main-info">
-              <p>Номер места: {{ item.index }}</p>
-              <p @click="fullReprimandCart" class="delete">
-                <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M10.5806 19.4194L19.4194 10.5806" stroke="#5B5B5B" stroke-width="1.5" stroke-linecap="round"/>
-                <path d="M10.5806 10.5806L19.4194 19.4194" stroke="#5B5B5B" stroke-width="1.5" stroke-linecap="round"/>
-                </svg>
+    <transition name="fade" :duration="2000">
+      <div v-show="allCart.length">
+        <div
+          class="offer-order__item__wrapper"
+          v-for="(item, index) in allCart"
+          :key="index"
+        >
+          <div class="form-order">
+            <h1 class="form-order__heading">Оформление заявки</h1>
+            <small>* – Поля обязательны к заполнению.</small>
+            <form action="" method="post" enctype="multipart/form-data">
+              <div class="offer-order__item main-info">
+                <p>Номер места: {{ item.index }}</p>
+                <p @click="fullReprimandCart" class="delete">
+                  <svg
+                    width="30"
+                    height="30"
+                    viewBox="0 0 30 30"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M10.5806 19.4194L19.4194 10.5806"
+                      stroke="#5B5B5B"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                    />
+                    <path
+                      d="M10.5806 10.5806L19.4194 19.4194"
+                      stroke="#5B5B5B"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                    />
+                  </svg>
                 </p>
-            </div>
-            <div class="offer-order__item">
-              <p class="offer-order__price-name">Итого:</p>
-              <p class="offer-order__price">
-                {{ item.price }}
-              </p>
-            </div>
-            <hr />
-            <div class="from-order__item">
-              <input
-                class="from-order__input"
-                type="hidden"
-                v-bind:value="item.index"
-                name="index"
-                id="index"
-              />
-            </div>
-            <div class="from-order__wrapper">
-              <div class="from-order__item">
-                <label for="name" class="from-order__heading">
-                  * Название компании
-                </label>
-                <input
-                  class="from-order__input"
-                  type="text"
-                  v-model="userFormData.title"
-                  name="name"
-                  id="name"
-                />
               </div>
-              <div class="from-order__item">
-                <label for="link" class="from-order__heading">
-                  * Ссылка на сайт комании
-                </label>
-                <input
-                  class="from-order__input"
-                  type="text"
-                  v-model="userFormData.link"
-                  name="link"
-                  id="link"
-                />
-              </div>
-              <div class="from-order__item">
-                <label for="phone" class="from-order__heading">
-                  * Номер для связи
-                </label>
-                <input
-                  class="from-order__input"
-                  type="tel:"
-                  v-model="userFormData.phone"
-                  name="phone"
-                  id="phone"
-                />
-              </div>
-              <div class="from-order__item">
-                <label for="email" class="from-order__heading"> * Email </label>
-                <input
-                  class="from-order__input"
-                  type="email"
-                  v-model="userFormData.email"
-                  name="email"
-                  id="email"
-                />
-              </div>
-              <div class="from-order__item">
-                <label for="price" class="from-order__heading">
-                  * Сумма пожертвования
-                </label>
-                <input
-                  class="from-order__input"
-                  type="number"
-                  v-model="userFormData.price"
-                  name="price"
-                  id="price"
-                  v-bind:placeholder="`Напишите сумму от ${item.price}`"
-                />
-              </div>
-              <div class="from-order__item">
-                <p class="from-order__heading">* Требование к логотипу:</p>
-                <p class="from-order__text">
-                  Размер не менее 120х120, не более 1200х1200.
+              <div class="offer-order__item">
+                <p class="offer-order__price-name">Итого:</p>
+                <p class="offer-order__price">
+                  {{ item.price }}
                 </p>
-                <p class="from-order__text">Логотип в черно-белом варианте.</p>
-                <p class="from-order__text">Формат jpeg, png, svg</p>
               </div>
-              <!-- <div class="from-order__item">
+              <hr />
+              <div class="from-order__item">
+                <input
+                  class="from-order__input"
+                  type="hidden"
+                  value="index"
+                  name="index"
+                  v-model="userFormData.id"
+                />
+              </div>
+              <div class="from-order__wrapper">
+                <div class="from-order__item">
+                  <label for="name" class="from-order__heading">
+                    * Название компании
+                  </label>
+                  <input
+                    class="from-order__input"
+                    type="text"
+                    v-model="userFormData.title"
+                    name="name"
+                    id="name"
+                  />
+                </div>
+                <div class="from-order__item">
+                  <label for="link" class="from-order__heading">
+                    * Ссылка на сайт комании
+                  </label>
+                  <input
+                    class="from-order__input"
+                    type="text"
+                    v-model="userFormData.link"
+                    name="link"
+                    id="link"
+                  />
+                </div>
+                <div class="from-order__item">
+                  <label for="phone" class="from-order__heading">
+                    * Номер для связи
+                  </label>
+                  <input
+                    class="from-order__input"
+                    type="tel:"
+                    v-model="userFormData.phone"
+                    name="phone"
+                    id="phone"
+                  />
+                </div>
+                <div class="from-order__item">
+                  <label for="email" class="from-order__heading">
+                    * Email
+                  </label>
+                  <input
+                    class="from-order__input"
+                    type="email"
+                    v-model="userFormData.email"
+                    name="email"
+                    id="email"
+                  />
+                </div>
+                <div class="from-order__item">
+                  <label for="price" class="from-order__heading">
+                    * Сумма пожертвования
+                  </label>
+                  <input
+                    class="from-order__input"
+                    type="number"
+                    v-model="userFormData.price"
+                    name="price"
+                    id="price"
+                    v-bind:placeholder="`Напишите сумму от ${item.price}`"
+                  />
+                </div>
+                <div class="from-order__item">
+                  <p class="from-order__heading">* Требование к логотипу:</p>
+                  <p class="from-order__text">
+                    Размер не менее 120х120, не более 1200х1200.
+                  </p>
+                  <p class="from-order__text">
+                    Логотип в черно-белом варианте.
+                  </p>
+                  <p class="from-order__text">Формат jpeg, png, svg</p>
+                </div>
+                <!-- <div class="from-order__item">
                 <label class="input-file">
                   <p>Размер не менее 120х120, не более 1200х1200. Логотип в черно-белом варианте. Формат jpeg, png, svg</p>
                   <input class="from-order__file"
@@ -119,37 +137,40 @@
               </label>
               <p>Загружая изображения на наш сайт, вы соглашаетесь с Условиями пользования.</p>
               </div> -->
-              <input
-                class="from-order__file"
-                type="file"
-                name="file"
-                ref="file"
-                v-on:change="handleFileUpload()"
-              />
+                <input
+                  class="from-order__file"
+                  type="file"
+                  name="file"
+                  ref="file"
+                  v-on:change="handleFileUpload()"
+                />
 
-              <div class="file">
-                <p class="file__name">{{ file }}</p>
-                <p>
-                  Загружая изображения на наш сайт, вы соглашаетесь с Условиями
-                  пользования.
-                </p>
+                <div class="file">
+                  <p class="file__name">{{ file }} {{ file }}</p>
+                  <p>
+                    Загружая изображения на наш сайт, вы соглашаетесь с
+                    Условиями пользования.
+                  </p>
+                </div>
               </div>
-            </div>
-          </form>
+            </form>
+          </div>
+        </div>
+        <div class="option">
+          <button
+            class="form-order__submit"
+            @click="submitFile()"
+            type="submit"
+          >
+            Оплатить заявку
+          </button>
+          <button class="form-order__button">
+            <router-link to="/"> Отменить </router-link>
+          </button>
+          form:{{ userFormData }} file:{{ file }}
         </div>
       </div>
-      <div class="option">
-        <button class="form-order__submit" @click="submitFile()" type="submit">
-          Оплатить заявку
-        </button>
-        <button class="form-order__button">
-          <router-link to="/"> Отменить </router-link>
-        </button>
-        form:{{ userFormData }}
-        file:{{ file }}
-      </div>
-    </div>
-    </transition> 
+    </transition>
     <transition name="fade">
       <div class="error" v-show="!allCart.length">
         <h3>В вашей корзине ничего нет!</h3>
@@ -162,7 +183,7 @@
 </template>
 
 <script>
-import { mapState, mapGetters, mapMutations} from "vuex";
+import { mapState, mapGetters, mapMutations } from "vuex";
 import axios from "axios";
 export default {
   name: "MercyMainBuyView",
@@ -182,10 +203,15 @@ export default {
     };
   },
 
-  mounted() {},
+  mounted() {
+    this.userFormData.id = this.productTicket.index;
+  },
   computed: {
     ...mapState(["cart"]),
     ...mapGetters(["allCart"]),
+    productTicket() {
+      return this.allCart[0];
+    },
   },
   methods: {
     ...mapMutations(["fullReprimandCart"]),
@@ -214,7 +240,8 @@ export default {
         });
     },
     handleFileUpload() {
-      this.file = this.$refs.file.files[0];
+      this.file = this.$refs.file[0].files[0];
+      console.log(this.file);
     },
   },
   components: {},
@@ -376,7 +403,7 @@ small {
   .option {
     justify-content: center;
   }
-  .container {  
+  .container {
     padding: 5px;
   }
 }
@@ -397,10 +424,10 @@ small {
   }
 }
 .bounce-enter-active {
-  animation: bounce-in .5s;
+  animation: bounce-in 0.5s;
 }
 .bounce-leave-active {
-  animation: bounce-in .5s reverse;
+  animation: bounce-in 0.5s reverse;
 }
 @keyframes bounce-in {
   0% {

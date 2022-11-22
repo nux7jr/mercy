@@ -42,13 +42,15 @@
               </g>
             </svg>
           </div>
-      
         </div>
       </nav>
       <section class="slogan">
         <div class="slogan__text backInLeft">
           <small>Благотворительная акция-рекорд</small>
-          <h1 class="slogan__heading animate__backInLeft">1000 логотипов <br> на баннере</h1>
+          <h1 class="slogan__heading animate__backInLeft">
+            1000 логотипов <br />
+            на баннере
+          </h1>
           <small>в рамках премии</small>
           <h3 class="slogan__wrapper">Человек года 2022</h3>
         </div>
@@ -56,10 +58,7 @@
           <h1 class="diagram__heeading">Уже занято места на баннере</h1>
           <small class="diagram__small-text">257 логотипов из 1000</small>
           <div class="main-diagram">
-            <MercyMainDiargamInfo
-              :width="340"
-              :height="340"
-            />
+            <MercyMainDiargamInfo :width="340" :height="340" />
           </div>
           <a href="#buy-info" class="diagram__link"
             >Хочу в книгу рекордов Гиннеса</a
@@ -75,7 +74,7 @@
 </template>
 
 <script>
-import 'animate.css';
+import "animate.css";
 import MercyMainDiargamInfo from "@/components/DiargamInfo.vue";
 export default {
   name: "MercyMainHeader",
@@ -104,7 +103,7 @@ svg {
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-miterlimit: 1.5;
-cursor:pointer;
+  cursor: pointer;
 }
 
 svg path {
@@ -173,7 +172,6 @@ svg:nth-child(2).active {
 .rocket #top {
   stroke-dasharray: 30, 88;
 }
-
 
 header {
   font-family: "Panton Regular", sans-serif;
@@ -280,7 +278,7 @@ header {
 }
 .slogan__heading {
   line-height: 37px;
-  background: linear-gradient(118.3deg, #0AB9EE 7.91%, #8DCCEC 74.43%);
+  background: linear-gradient(118.3deg, #0ab9ee 7.91%, #8dccec 74.43%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -371,7 +369,7 @@ header {
   }
   .slogan__wrapper::after {
     display: none;
-  } 
+  }
   .container .navbar .burger-icon {
     display: block;
   }
@@ -416,13 +414,13 @@ header {
 }
 @-webkit-keyframes backInLeft {
   0% {
-    transform: translateX(-2000px) scale(.7);
-    opacity: .7;
+    transform: translateX(-2000px) scale(0.7);
+    opacity: 0.7;
   }
 
   80% {
-    transform: translateX(0px) scale(.7);
-    opacity: .7;
+    transform: translateX(0px) scale(0.7);
+    opacity: 0.7;
   }
 
   100% {
@@ -433,13 +431,13 @@ header {
 
 @keyframes backInLeft {
   0% {
-    transform: translateX(-2000px) scale(.7);
-    opacity: .7;
+    transform: translateX(-2000px) scale(0.7);
+    opacity: 0.7;
   }
 
   80% {
-    transform: translateX(0px) scale(.7);
-    opacity: .7;
+    transform: translateX(0px) scale(0.7);
+    opacity: 0.7;
   }
 
   100% {
@@ -454,5 +452,4 @@ header {
   -webkit-animation-timing-function: ease-out;
   animation-timing-function: ease-out;
 }
-
 </style>

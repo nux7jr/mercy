@@ -2,7 +2,11 @@
   <div class="ticket">
     <h2 class="ticket__heading">Карта баннера</h2>
     <div v-if="allProducts.length" class="ticket-map">
-      <div class="ticket-map__item" v-for="data in allProducts" :key="data.id">
+      <div
+        class="ticket-map__item"
+        v-for="(data, index) in allProducts"
+        :key="index"
+      >
         <div v-if="allProducts.length" class="ticket-map__wrapper">
           <div
             @click="toggleDataCart(data)"
@@ -101,7 +105,6 @@ export default {
   color: white;
 }
 .ticket-map__wrapper {
-  
   padding: 2px;
   border-radius: 10px;
   background-color: transparent;
