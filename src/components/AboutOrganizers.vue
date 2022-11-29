@@ -1,5 +1,5 @@
 <template>
-  <div class="about-organizers">
+  <div class="about-organizers" id="organizers">
     <h2 class="about-organizers__heading">Организаторы благотворительной акции</h2>
     <div class="about-organizers__wrapper">
       <div class="about-organizers__item organizer">

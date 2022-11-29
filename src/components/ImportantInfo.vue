@@ -2,16 +2,16 @@
     <article class="important-info">
       <ul class="important-info__list">
         <li>
-          <a href="#">Юридическая информация</a>
+          <a class="important-info__link" href="#">Юридическая информация</a>
         </li>
         <li>
-          <a href="#">Об организаторах</a>
+          <a class="important-info__link" href="#organizers">Об организаторах</a>
         </li>
         <li>
-          <a href="#">О кампании</a>
+          <a class="important-info__link" href="#mission">О кампании</a>
         </li>
         <li>
-          <a href="#">Контакты</a>
+          <a class="important-info__link" href="#">Контакты</a>
         </li>
       </ul>
     </article>
@@ -43,13 +43,18 @@ export default {
 }
 .important-info__list {
   margin-right: 10px;
-
   color: var(--color-white);
   opacity: 0.5;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   gap: 20px;
+}
+.important-info__link {
+  transition: 0.5s;
+}
+.important-info__link:hover {
+  color: rgb(167, 157, 157);
 }
 @media (min-width: 575.98px) {
 }

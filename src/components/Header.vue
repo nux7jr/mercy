@@ -132,7 +132,6 @@ body {
 
 h1 {
   font-size: 2.5rem;
-  text-transform: uppercase;
   text-align: center;
   margin-bottom: 2rem;
 }
@@ -197,7 +196,6 @@ header {
 .container .navbar .logo {
   font-size: 2.25rem;
   text-decoration: none;
-  text-transform: uppercase;
   color: var(--color-white);
   font-weight: 700;
 }
@@ -256,7 +254,7 @@ header {
   align-content: center;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
 }
 .slogan__text {
   text-align: center;
@@ -265,7 +263,6 @@ header {
   font-weight: 400;
   font-size: 20px;
   line-height: 20px;
-  text-transform: uppercase;
 }
 .slogan__wrapper {
   position: relative;
@@ -274,7 +271,7 @@ header {
   content: url(@/assets/img/sloganimg.png);
   position: absolute;
   top: -27px;
-  right: 22px;
+  right: 16px;
 }
 .slogan__heading {
   line-height: 37px;
@@ -341,6 +338,7 @@ header {
   header {
     padding: 0 calc(50vw - 270px);
   }
+  
 }
 @media (min-width: 767.98px) {
   header {
@@ -364,6 +362,9 @@ header {
     transition: 0.4s ease all;
     z-index: 10;
   }
+  h1 {
+    font-size: 2rem;
+  }
   .diagram {
     padding: 0;
   }
@@ -374,7 +375,7 @@ header {
     display: block;
   }
   .navbar {
-    padding: 5px;
+    padding: 15px;
   }
   #burger {
     width: 70px;
@@ -398,11 +399,11 @@ header {
   .container .navbar i {
     display: block;
   }
-  .slogan {
-    justify-content: center;
-  }
 }
 @media (min-width: 991.98px) {
+  .slogan {
+    justify-content: space-between;
+  }
   header {
     padding: 0 calc(50vw - 480px);
   }

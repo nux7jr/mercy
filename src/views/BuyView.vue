@@ -103,7 +103,7 @@
                 </div>
                 <div class="from-order__item">
                   <label for="price" class="from-order__heading">
-                    * Сумма пожертвования
+                    Место на баннере будет стоить {{ item.price }},<br> хотите пожертвовать больше?
                   </label>
                   <input
                     class="from-order__input"
@@ -112,6 +112,7 @@
                     name="price"
                     id="price"
                     v-bind:placeholder="`Напишите сумму от ${item.price}`"
+                    placeholder="Сколько вы готовы пожертвовать еще?"
                   />
                 </div>
                 <div class="from-order__item">
@@ -124,34 +125,17 @@
                   </p>
                   <p class="from-order__text">Формат jpeg, png, svg</p>
                 </div>
-                <!-- <div class="from-order__item">
+                <div class="from-order__item">
                 <label class="input-file">
-                  <p>Размер не менее 120х120, не более 1200х1200. Логотип в черно-белом варианте. Формат jpeg, png, svg</p>
                   <input class="from-order__file"
                   type="file"
                   name="file"
                   ref="file"
                   v-on:change="handleFileUpload()">		
                   <span>Загрузить логотип</span>
-                  <p class="file__name">{{ file }}</p>
               </label>
               <p>Загружая изображения на наш сайт, вы соглашаетесь с Условиями пользования.</p>
-              </div> -->
-                <input
-                  class="from-order__file"
-                  type="file"
-                  name="file"
-                  ref="file"
-                  v-on:change="handleFileUpload()"
-                />
-
-                <div class="file">
-                  <p class="file__name">{{ file }} {{ file }}</p>
-                  <p>
-                    Загружая изображения на наш сайт, вы соглашаетесь с
-                    Условиями пользования.
-                  </p>
-                </div>
+              </div>
               </div>
             </form>
           </div>
@@ -205,6 +189,7 @@ export default {
 
   mounted() {
     this.userFormData.id = this.productTicket.index;
+    this.userFormData.price = this.productTicket.price;
   },
   computed: {
     ...mapState(["cart"]),
@@ -313,11 +298,12 @@ export default {
   align-items: center;
 }
 .from-order__input {
-  width: 307px;
+  display: block;
   height: 37px;
 
   border: 1px solid #9d9e9e;
   border-radius: 14px;
+  
 }
 .form-order__heading,
 small {
@@ -333,6 +319,7 @@ small {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
   grid-auto-flow: column;
+  column-gap: 20px;
 }
 .error {
   text-align: center;
@@ -345,21 +332,20 @@ small {
 }
 .input-file span {
   position: relative;
-  display: block;
   cursor: pointer;
   outline: none;
   text-decoration: none;
   font-size: 24px;
   color: rgb(255 255 255);
   text-align: center;
-  border-radius: 4px;
+  border-radius: 9px;
   background-color: #8dccec;
-  line-height: 22px;
   height: 40px;
-  padding: 10px 20px;
+  padding: 4px 20px;
   box-sizing: border-box;
   border: none;
-  margin: 0;
+  margin: 20px 0 0 0;
+  display: block;
   transition: background-color 0.2s;
 }
 .input-file input[type="file"] {

@@ -1,5 +1,5 @@
 <template>
-  <div class="mission">
+  <div class="mission" id="mission">
     <div class="mission__img"></div>
     <div class="mission__info">
     <h2 class="mission__heading">Миссия Благотворительной акции</h2>

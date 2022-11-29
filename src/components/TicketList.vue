@@ -2,40 +2,60 @@
   <div class="ticket">
     <h2 class="ticket__heading">Карта баннера</h2>
     <div v-if="allProducts.length" class="ticket-map">
-      <div
-        class="ticket-map__item"
-        v-for="(data, index) in allProducts"
-        :key="index"
-      >
-        <div v-if="allProducts.length" class="ticket-map__wrapper">
-          <div
-            @click="toggleDataCart(data)"
-            v-if="data.available"
-            class="product"
-          >
-            <div class="product__info">
-              <div class="product__index">Номер: {{ data.index }}</div>
-              <p class="product__heading">Это место свободно</p>
-            </div>
-            <div class="product__id">
-              <img src="@/assets/img/Ellipse.svg" alt="Ellipse" />
-            </div>
+      <div class="product" v-for="(item, index) in allProducts" :key="index">
+        <div class="availableGoods" @click="toggleDataCart(item)" v-if="item.available">
+          <div class="cheapGoods availableItem" v-if="item.price == '10000'">
+            &#9679;
           </div>
-          <div v-else class="product-booked">
+          <div class="averageGoods availableItem" v-else-if="item.price == '25000'">
+            &#9679;
+          </div>
+          <div class="expensiveGoods availableItem" v-else-if="item.price == '50000'">
+            &#9679;
+          </div>
+        </div>
+        <div class="notAvailableGoods" v-else>
+          <div class="cheapGoods itemNotAvailable" v-if="item.price == '10000'">
             <div class="product-booked__info">
-              <div class="product__index">Номер: {{ data.index }}</div>
+              <div class="product__index">Номер: {{ item.index }}</div>
               <p class="product-booked__heading">
                 Это место занято
                 <img
                   class="product-booked__img"
-                  :src="`${data.logo}`"
+                  :src="`${item.logo}`"
                   alt="logo"
                 />
               </p>
             </div>
-            <div class="product__id">
-              <img src="@/assets/img/NotElipse.svg" alt="Ellipse" />
+            &#128937;
+          </div>
+          <div class="averageGoods itemNotAvailable" v-else-if="item.price == '25000'">
+            <div class="product-booked__info">
+              <div class="product__index">Номер: {{ item.index }}</div>
+              <p class="product-booked__heading">
+                Это место занято
+                <img
+                  class="product-booked__img"
+                  :src="`${item.logo}`"
+                  alt="logo"
+                />
+              </p>
             </div>
+            &#128937;
+          </div>
+          <div class="expensiveGoods itemNotAvailable" v-else-if="item.price == '50000'">
+            <div class="product-booked__info">
+              <div class="product__index">Номер: {{ item.index }}</div>
+              <p class="product-booked__heading">
+                Это место занято
+                <img
+                  class="product-booked__img"
+                  :src="`${item.logo}`"
+                  alt="logo"
+                />
+              </p>
+            </div>
+            &#128937;
           </div>
         </div>
       </div>
@@ -67,9 +87,6 @@ export default {
   display: grid;
   grid-template-columns: repeat(40, 1fr);
   align-items: center;
-  gap: 3px;
-
-  grid-auto-rows: 29px;
 }
 .product__index {
   display: block;
@@ -92,42 +109,20 @@ export default {
   text-align: center;
   color: white;
 }
-
 .ticket-map {
-  min-height: 750px;
-  min-width: 700px;
+  width: 900px;
   padding: 10px;
   border-radius: 15px;
   background-color: white;
-  background-image: url(@/assets/img/bgProduct.png);
-  background-repeat: no-repeat;
-  background-position: center center;
   color: white;
-}
-.ticket-map__wrapper {
-  padding: 2px;
-  border-radius: 10px;
-  background-color: transparent;
-  color: rgb(0, 0, 0);
   cursor: pointer;
 }
-.product {
+.itemNotAvailable {
   position: relative;
 }
-.product:hover > .product__info {
+.itemNotAvailable:hover > .product-booked__info {
   display: block;
   animation: showBlock 0.7s linear forwards;
-}
-.product__info {
-  display: none;
-  position: absolute;
-  top: -150px;
-  left: -70px;
-  width: 150px;
-  height: 145px;
-  background-color: #5b5b5b;
-  border-radius: 10px;
-  object-fit: contain;
 }
 .product-booked__info {
   display: none;
@@ -144,22 +139,52 @@ export default {
   animation: showBlock 0.7s linear forwards;
 }
 .product-booked__img {
-  width: 90%;
+  width: 100%;
   height: 100px;
   display: block;
   margin: 0 auto;
-  border-radius: 5px;
   object-fit: contain;
-  border-radius: 15px;
 }
 .product-booked {
   position: relative;
 }
 .ticket-map__error {
-  color: black;
+  color: rgb(255, 255, 255);
 }
+.cheapGoods {
+  background-color: rgb(254, 254, 254);
+}
+.averageGoods {
+  background-color: rgb(130, 144, 157);
+}
+.expensiveGoods {
+  background-color: rgb(109, 165, 213);
+}
+.itemNotAvailable {
+  color: black;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.availableItem {
+  color: black;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 21px;
+}
+
 @media (max-width: 1199.98px) {
-  .ticket {
+
+  .ticket-map {
+    overflow: scroll;
+    width: 300px;
+    height: 400px;
+    padding: 0;
+  }
+  .ticket-map::-webkit-scrollbar {
     display: none;
   }
 }

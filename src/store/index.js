@@ -6,8 +6,13 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   actions: {
     async getProducts(context) {
-      const products = await axios.get("http://localhost:3000/products");
+      // for me
+      const products = await axios.get("http://localhost:3000/products"); 
       context.commit("updateProducts", products.data);
+      // for prod 
+      // поставить prod true
+      // const products = await axios.get("http://tiksan-record.ru/db.json");
+      // context.commit("updateProducts", products.data.products);
     },
   },
   mutations: {

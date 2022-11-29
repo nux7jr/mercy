@@ -56,9 +56,10 @@ export default {
     return {
       chartData: {
         labels: [ 'Свободно', 'Занято' ],
-        datasets: [ { data: [40, 60] } ],
-        backgroundColor: ['#8DCCEC', '#9D9E9E'],
-        borderWidth: 0,
+        datasets: [{data: [60, 40],
+            backgroundColor: ['#8DCCEC', '#9D9E9E'],}],
+            borderWidth: 0,
+            borderColor: '#ddd'
       },
       chartOptions: {
         responsive: false

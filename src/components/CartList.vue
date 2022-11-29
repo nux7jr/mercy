@@ -43,7 +43,7 @@
             <li>
               <img
                 class="price-info__img"
-                src="@/assets/img/Rectangle 9.png"
+                src="@/assets/img/Rectangle 9-2.png"
                 alt="информация о покупке"
               />
               от 50 000р
@@ -58,7 +58,7 @@
             <li>
               <img
                 class="price-info__img"
-                src="@/assets/img/Rectangle 9-2.png"
+                src="@/assets/img/Rectangle 9.png"
                 alt="информация о покупке"
               />от 10 000р
             </li>
