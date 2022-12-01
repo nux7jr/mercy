@@ -6,7 +6,6 @@
           ><img src="@/assets/img/tiksangroup.png" alt=""
         /></a>
         <ul class="nav-links">
-          <li><a href="#main">Главная</a></li>
           <li><a href="#about">О проекте</a></li>
           <li><a href="#buy-info">Принять участие</a></li>
           <li><a href="#partners">Партнеры</a></li>
@@ -15,8 +14,8 @@
         <div v-on:click="toggleMenu" class="burger-icon" id="burger">
           <div class="icons">
             <svg
-              width="100"
-              height="100"
+              width="50"
+              height="50"
               viewBox="0 0 32 42"
               xmlns="http://www.w3.org/2000/svg"
               onclick="this.classList.toggle('active')"
@@ -46,24 +45,23 @@
       </nav>
       <section class="slogan">
         <div class="slogan__text backInLeft">
-          <small>Благотворительная акция-рекорд</small>
+          <small>Старт 8 декабря</small>
           <h1 class="slogan__heading animate__backInLeft">
-            1000 логотипов <br />
-            на баннере
+            Прими участие в акции <br />
           </h1>
-          <small>в рамках премии</small>
-          <h3 class="slogan__wrapper">Человек года 2022</h3>
+          <small>и попади</small>
+          <h3 class="slogan__wrapper">в Книгу рекордов России!</h3>
         </div>
         <div class="diagram">
           <h1 class="diagram__heeading">Уже занято места на баннере</h1>
           <small class="diagram__small-text">257 логотипов из 1000</small>
           <div class="main-diagram">
-            <MercyMainDiargamInfo :width="340" :height="340" />
+            <MercyMainDiargamInfo :width="310" :height="310"/>
           </div>
           <a href="#buy-info" class="diagram__link"
-            >Хочу в книгу рекордов Гиннеса</a
+            >Хочу в Книгу рекордов России</a
           >
-          <p class="diagram__tag">#баннеррекорд</p>
+
         </div>
       </section>
       <div class="call">
@@ -266,6 +264,7 @@ header {
 }
 .slogan__wrapper {
   position: relative;
+  margin-top: 7px;
 }
 .slogan__wrapper::after {
   content: url(@/assets/img/sloganimg.png);
@@ -274,11 +273,12 @@ header {
   right: 16px;
 }
 .slogan__heading {
-  line-height: 37px;
+  line-height: 48px;
   background: linear-gradient(118.3deg, #0ab9ee 7.91%, #8dccec 74.43%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  margin: 0;
 }
 .diagram__heeading {
   margin-bottom: 5px;
@@ -325,13 +325,10 @@ header {
   border-color: transparent;
   margin: 0 auto;
   margin-top: 20px;
+  margin-bottom: 20px;
   color: white;
   font-size: 20px;
   cursor: pointer;
-}
-.diagram__tag {
-  text-align: center;
-  margin: 10px;
 }
 
 @media (min-width: 575.98px) {
@@ -379,8 +376,7 @@ header {
   }
   #burger {
     width: 70px;
-    height: 50px;
-    margin-bottom: 65px;
+    margin-bottom: 48px;
   }
   .container .navbar .nav-links li a {
     color: #000;

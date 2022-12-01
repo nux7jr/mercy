@@ -87,7 +87,7 @@ export default {
   animation: scroll 30s linear infinite;
 }
 
-.marquee--reverse .marquee__content {
+.marquee__content {
   animation-direction: reverse;
 }
 

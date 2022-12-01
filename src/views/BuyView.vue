@@ -1,18 +1,23 @@
 <template>
   <div class="buy container">
-    <transition name="fade" :duration="2000">
-      <div v-show="allCart.length">
+    <transition name="fade" :duration="300">
+      <div v-show="allCart.price">
         <div
           class="offer-order__item__wrapper"
-          v-for="(item, index) in allCart"
-          :key="index"
         >
           <div class="form-order">
             <h1 class="form-order__heading">Оформление заявки</h1>
             <small>* – Поля обязательны к заполнению.</small>
             <form action="" method="post" enctype="multipart/form-data">
               <div class="offer-order__item main-info">
-                <p>Номер места: {{ item.index }}</p>
+                <div class="main-info__wrapper">
+                  <p>
+                    Номер: {{ allCart.index }}
+                  </p>
+                  <div class="offer-order__item">
+                    <p class="offer-order__price-name">Цена: {{ allCart.price }}₽</p>
+                  </div>
+                </div>
                 <p @click="fullReprimandCart" class="delete">
                   <svg
                     width="30"
@@ -34,12 +39,6 @@
                       stroke-linecap="round"
                     />
                   </svg>
-                </p>
-              </div>
-              <div class="offer-order__item">
-                <p class="offer-order__price-name">Итого:</p>
-                <p class="offer-order__price">
-                  {{ item.price }}
                 </p>
               </div>
               <hr />
@@ -99,22 +98,23 @@
                     v-model="userFormData.email"
                     name="email"
                     id="email"
+                    
                   />
                 </div>
                 <div class="from-order__item">
                   <label for="price" class="from-order__heading">
-                    Место на баннере будет стоить {{ item.price }},<br> хотите пожертвовать больше?
+                    Хотите пожертвовать больше?
                   </label>
                   <input
                     class="from-order__input"
                     type="number"
-                    v-model="userFormData.price"
+                    v-model="userFormData.additionalPrice"
                     name="price"
                     id="price"
-                    v-bind:placeholder="`Напишите сумму от ${item.price}`"
-                    placeholder="Сколько вы готовы пожертвовать еще?"
+                    placeholder="Напишите сумму"
                   />
                 </div>
+                
                 <div class="from-order__item">
                   <p class="from-order__heading">* Требование к логотипу:</p>
                   <p class="from-order__text">
@@ -131,19 +131,32 @@
                   type="file"
                   name="file"
                   ref="file"
-                  v-on:change="handleFileUpload()">		
+                  v-on:change="handleFileUpload()">
                   <span>Загрузить логотип</span>
               </label>
               <p>Загружая изображения на наш сайт, вы соглашаетесь с Условиями пользования.</p>
-              </div>
+            </div>
               </div>
             </form>
           </div>
         </div>
+        <div v-show="errors.length" class="error__validation">
+            <b>Пожалуйста исправьте указанные ошибки:</b>
+            <ul>
+              <li v-for="error in errors">{{ error }}</li>
+            </ul>
+        </div>
+        <hr>
+        <div class="offer-order__item">
+          <p class="offer-order__price-name">Итого:</p>
+          <p class="offer-order__price">
+            {{ this.getPrice }}₽
+          </p>
+        </div>
         <div class="option">
           <button
             class="form-order__submit"
-            @click="submitFile()"
+            @click="checkForm"
             type="submit"
           >
             Оплатить заявку
@@ -151,12 +164,12 @@
           <button class="form-order__button">
             <router-link to="/"> Отменить </router-link>
           </button>
-          form:{{ userFormData }} file:{{ file }}
+          <!-- form:{{ userFormData }} file:{{ file }} -->
         </div>
       </div>
     </transition>
     <transition name="fade">
-      <div class="error" v-show="!allCart.length">
+      <div class="error" v-show="!allCart.price">
         <h3>В вашей корзине ничего нет!</h3>
         <button class="form-order__button">
           <router-link to="/"> На глувную </router-link>
@@ -174,6 +187,7 @@ export default {
 
   data() {
     return {
+      errors: [],
       successSendData: false,
       file: "",
       userFormData: {
@@ -182,32 +196,31 @@ export default {
         link: "",
         phone: "",
         email: "",
-        price: "",
+        additionalPrice: "",
       },
     };
   },
 
   mounted() {
-    this.userFormData.id = this.productTicket.index;
-    this.userFormData.price = this.productTicket.price;
+    this.userFormData.id = this.allCart.index;
   },
   computed: {
     ...mapState(["cart"]),
     ...mapGetters(["allCart"]),
-    productTicket() {
-      return this.allCart[0];
+    getPrice() {
+      return Number(this.allCart.price) + Number(this.userFormData.additionalPrice)
     },
   },
   methods: {
     ...mapMutations(["fullReprimandCart"]),
-    submitFile() {
+    sendData() {
       let formData = new FormData();
       formData.append("id", this.userFormData.id);
       formData.append("title", this.userFormData.title);
       formData.append("link", this.userFormData.link);
       formData.append("phone", this.userFormData.phone);
       formData.append("email", this.userFormData.email);
-      formData.append("price", this.userFormData.price);
+      formData.append("price", this.getPrice);
 
       formData.append("file", this.file);
       axios
@@ -225,15 +238,41 @@ export default {
         });
     },
     handleFileUpload() {
-      this.file = this.$refs.file[0].files[0];
-      console.log(this.file);
+      this.file = this.$refs.file.files[0];
     },
+    checkForm: function (e) {
+      if (this.userFormData.phone && this.userFormData.email && this.$refs.file.files[0]) {
+        this.sendData()
+        this.errors = [];
+      }
+
+      this.errors = [];
+      console.log(this.userFormData.phone)
+      if (!this.userFormData.phone) {
+        this.errors.push('Требуется указать телефон');
+        console.log(this.userFormData.phone)
+      }
+      if (!this.userFormData.email) {
+        this.errors.push('Требуется указать Email');
+      }
+      if (!this.$refs.file.files[0]) {
+        this.errors.push('Требуется загрузить логотип');
+      }
+      e.preventDefault();
+    }
   },
-  components: {},
+  components: {
+  },
+  
 };
 </script>
 
 <style lang="scss" scoped>
+.main-info__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 .container {
   color: #5b5b5b;
 }
@@ -303,7 +342,13 @@ export default {
 
   border: 1px solid #9d9e9e;
   border-radius: 14px;
-  
+  transition: 0.5s;
+}
+.from-order__input:focus {
+  border: 1px solid #8dccec;
+}
+.from-order__input:focus { 
+  outline: none;
 }
 .form-order__heading,
 small {
@@ -324,6 +369,14 @@ small {
 .error {
   text-align: center;
   color: red;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.error__validation {
+  text-align: center;
+  color: red;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 // file input
 .input-file {

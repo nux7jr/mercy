@@ -177,16 +177,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.faq {
+  margin-top: 40px;
+}
 .faq__item {
   cursor: pointer;
-  margin: 20px 50px;
+  margin: 20px 20px;
   border-radius: 15px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: #F2F2F2;
-  // F2F2F2
 }
 .faq__heading {
   text-align: center;
@@ -195,7 +197,7 @@ export default {
   display: none;
 }
 .spoiler {
-  max-height: 100px;
+  max-height: 230px;
   overflow: hidden;
   transition: max-height 0.3s ease-in-out;
 }
@@ -238,6 +240,18 @@ export default {
 @media (max-width: 767.98px) {
   .faq__question {
     max-width: 200px;
+  }
+
+}
+@media (min-width: 991.98px) {
+  .faq {
+    margin-top: 0px;
+  }
+  .faq__item {
+    margin: 20px 50px;
+  }
+  .spoiler {
+    max-height: 100px;
   }
 }
 </style>

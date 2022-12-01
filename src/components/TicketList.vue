@@ -27,7 +27,7 @@
                 />
               </p>
             </div>
-            &#128937;
+            х
           </div>
           <div class="averageGoods itemNotAvailable" v-else-if="item.price == '25000'">
             <div class="product-booked__info">
@@ -41,7 +41,7 @@
                 />
               </p>
             </div>
-            &#128937;
+            х
           </div>
           <div class="expensiveGoods itemNotAvailable" v-else-if="item.price == '50000'">
             <div class="product-booked__info">
@@ -55,7 +55,7 @@
                 />
               </p>
             </div>
-            &#128937;
+            х
           </div>
         </div>
       </div>
@@ -110,7 +110,7 @@ export default {
   color: white;
 }
 .ticket-map {
-  width: 900px;
+
   padding: 10px;
   border-radius: 15px;
   background-color: white;
@@ -133,10 +133,6 @@ export default {
   height: 145px;
   background-color: #5b5b5b;
   border-radius: 10px;
-}
-.product-booked:hover > .product-booked__info {
-  display: block;
-  animation: showBlock 0.7s linear forwards;
 }
 .product-booked__img {
   width: 100%;
@@ -167,6 +163,15 @@ export default {
   align-items: center;
   justify-content: center;
 }
+.itemNotAvailable {
+  color: black;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 21px;
+  width: 21px;
+}
 .availableItem {
   color: black;
   text-align: center;
@@ -174,6 +179,7 @@ export default {
   align-items: center;
   justify-content: center;
   height: 21px;
+  width: 21px;
 }
 
 @media (max-width: 1199.98px) {

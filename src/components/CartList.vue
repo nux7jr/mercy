@@ -6,30 +6,29 @@
         <div class="offer-order__wrapper">
           <div
             class="offer-order__item__wrapper"
-            v-for="(item, index) in allCart"
-            :key="index"
+            
           >
             <div class="offer-order__item">
               <div class="offer-order__info">
                 <p class="offer-order__place">
-                  Выбранное место: <strong>{{ item.index }}</strong>
+                  Выбранное место: <strong>{{ allCart.index }}</strong>
                 </p>
                 <div class="info__wrapper">
-                  <p class="info__price">Цена: {{ item.price }}</p>
+                  <p class="info__price">Цена: {{ allCart.price }}</p>
                   <p @click="fullReprimandCart()" class="delete">X</p>
                 </div>
               </div>
             </div>
           </div>
-          <div class="offer-order__item">
+          <!-- <div class="offer-order__item">
             <p class="offer-order__price-name">Итого:</p>
             <p class="offer-order__price">
               {{ cartTotalCost | toFix | formattedPrice }}
             </p>
-          </div>
+          </div> -->
           <transition name="fade">
             <router-link
-              v-show="allCart.length"
+              v-show="allCart.price"
               class="offer-order__link"
               to="/buy"
             >
@@ -132,6 +131,7 @@ export default {
 .info__wrapper {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 10px;
 }
 .info__price {
   margin: 0;
