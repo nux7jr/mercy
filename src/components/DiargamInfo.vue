@@ -1,6 +1,7 @@
 <template>
   <div class="doughnut">
     <Doughnut
+    
     :width="width"
     :height="height"
     :chart-options="chartOptions"
@@ -12,7 +13,7 @@
     :styles="styles"
   />
   <div class="donut-inner">
-    <span>34%</span>
+    <span>2%</span>
   </div>
 </div>
 </template>
@@ -45,7 +46,7 @@ export default {
       default: 310
     },
     cssClasses: {
-      default: '',
+      default: 'weight: 10',
       type: String
     },
     styles: {
@@ -55,6 +56,10 @@ export default {
     plugins: {
       type: Object,
       default: () => {}
+    },
+    arr: {
+      type: Array,
+      default: () => {}
     }
   },
 
@@ -63,27 +68,52 @@ export default {
       chartData: {
         labels: [ 'Занято', 'Свободно' ],
         datasets: [{
-          data: [257, 743],
+          data: [8, 992],
           backgroundColor: ['#8DCCEC', '#9D9E9E'],
           borderWidth: 0,
           borderColor: "black",
+          borderRadius: 2,
+          cutout: 100,
+          font: {
+            size: 15,
+          },
       }],
       },
       Tooltips: {
-        enabled: false
+        enabled: true,
       },
       chartOptions: {
         responsive: false,
-      }, 
+      },
     };
   },
-
-  mounted() {
-    
-  },
-
+  // async mounted () {
+  //   try {
+  //     const res = await this.getChartData();
+  //     console.log(res)
+  //   } catch (e) {
+  //     console.error(e)
+  //   }
+  // },
   methods: {
-    
+    getChartData() {
+      const params = new URLSearchParams();
+      const headers = new Headers();
+      headers.append("Content-Type", "application/x-www-form-urlencoded");
+      params.set("action", "metrica");
+      fetch('https://api.tiksan.ru/api/products', 
+      {
+          method: "POST",
+          headers: headers,
+          body: params,
+      }
+      )
+        .then(function(response) {
+          return response.json();
+        }).then(function(data) {
+          // console.log(data.false)
+        });
+    }
   },
 };
 </script>
@@ -93,9 +123,12 @@ export default {
   position: relative;
 }
 .donut-inner {
+  font-size: x-large;
+  font-weight: 600;
   position: absolute;
-  top: 160px;
-  left: 140px;
+  top: 154px;
+  left: 134px;
+  pointer-events: none;
 }
 
 </style>

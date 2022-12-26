@@ -4,39 +4,20 @@
       <div class="goal">
         <h2 class="goal__heading">Цель проекта</h2>
         <p class="goal__text">
-          это создание бизнес карты Красноярского края. Установить рекорд - 
-          более 1000 логотипов на одном баннере. Попасть в Книгу рекордов России. 
+          Объединить 1 тыс. компаний из Красноярского края в единую систему. Минимальное участие 
+          на благотворительный взнос от компании всего 10 тыс. рублей. На эти деньги практически 
+          невозможно что-то сделать. Но когда свои усилия объединит весь бизнес края, это будет мощный 
+          источник силы, который сможет очень многое. По нашим прогнозам, проект сможет собрать несколько 
+          десятков миллионов рублей. А на эти деньги можно сделать немало добрых дел.
         </p>
       </div>
       <div class="money-transfer">
         <h2 class="money-transfer__heading">Куда пойдут пожертвования</h2>
         <p class="money-transfer__text">
-          Пожертвования пойдут в выбранный вами фонд из представленного списка
+          Все пожертвования будут распределены равномерно среди девяти аккредитованных фондов и шестилетней девочкой Дашей Здаевской, которая борется за свое будущее.
+          Мы вместе поможем сиротам, инвалидам, малоимущим гражданам и поисковой бригаде пропавших людей. Более подробная информация <a class="money-transfer__text-bold" href="#partners">здесь.</a>
         </p>
-      </div>
-      <div class="about">
-        <h2 class="about__heading">О проекте</h2>
-        <div class="about__text">
-          <h3>Компании из Красноярска устанавливают рекорд Гиннесса! </h3>
-          <p>
-            1000 компаний из Красноярска получат сертификат о попадании 
-            в Книгу Рекордов Гиннесса в России.
-          </p>
-          <p>
-            Компания <strong>TIKSAN GROUP</strong> в рамках проекта <strong>«Человек Года»</strong> запускает акцию, результат которой – 
-            объединить бизнес сообщество  Красноярского края.  
-            На главном баннере города будут размещены <strong>1000 логотипов</strong>  компаний, которые примут участие в проекте.
-          </p>
-          <p>
-            <strong>Цель</strong> – зафиксировать рекорд в книге рекордов  России, создать бизнес карту  и заявить о предпринимателях 
-            Красноярска на федеральном уровне. Каждая организация-участник получит сертификат о попадании в <strong>Книгу Рекордов России,</strong>
-            всероссийскую рекламную кампанию для своих предприятий, а также благодарность от фонда за помощь и поддержку.
-          </p>
-          <p>
-            Масштабное событие России, в котором у <strong>каждого</strong> предпринимателя из Красноярска есть шанс принять участие!
-          </p>
-        </div>
-      </div>
+      </div> 
     </div>
   </div>
 </template>
@@ -59,6 +40,15 @@ export default {
 #about {
   background-color: #EFEFEF;
 }
+.about {
+  flex-grow: 2;
+}
+.about__wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-grow: 2;
+}
 .information {
   display: flex;
   flex-direction: row;
@@ -73,24 +63,58 @@ export default {
 }
 .goal {
   background-color: var(--color-light-blue);
+  background-image: url(@/assets/img/howenter1.png);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: left;
 }
 .money-transfer {
   background-color: var(--color-light-gray);
+  background-image: url(@/assets/img/howenter2.png);
+  color: white;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: left;
+
+}
+.goal__heading {
+  font-size: xx-large;
+}
+.money-transfer__heading {
+  font-size: xx-large;
+  text-align: center;
 }
 .money-transfer__text,
 .goal__text {
   padding: 25px;
+  max-width: 500px;
+}
+.money-transfer__text-bold {
+  font-weight: 800;
 }
 .about__text {
-  text-align: center;
-  max-width: 800px;
+  text-align: left;
   padding: 5px;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+}
+.about__text h3 {
+  font-size: xx-large;
 }
 .about__heading {
   text-decoration-line: underline;
   text-decoration-style: solid;
   text-decoration-color: #8DCCEC;
   text-underline-offset: 8px;
+  margin-bottom: 35px;
 }
 @media (max-width: 850px) {
   .information {
@@ -104,6 +128,9 @@ export default {
   .goal__text {
     padding: 5px;
   }
+}
+.about__img {
+  display: none;
 }
 // media
 // возможно удалить!
@@ -124,5 +151,11 @@ export default {
 @media (min-width: 991.98px) {
 }
 @media (min-width: 1199.98px) {
+  .about__img {
+    display: block;
+  }
+  .about__text {
+    max-width: 600px;
+  }
 }
 </style>

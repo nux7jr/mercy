@@ -1,15 +1,27 @@
 <template>
+  <div class="header__wrapper">
+  <video autoplay muted loop id="myVideo">
+    <source src="@/assets/img/bgvideo.mp4" type="video/mp4">
+  </video>
   <header id="main">
     <div class="container">
       <nav class="navbar">
-        <a href="#" class="logo"
-          ><img src="@/assets/img/tiksangroup.png" alt=""
-        /></a>
+        <div class="navbar__wrapper">
+          <a href="#">
+            <img src="@/assets/img/logoHert.svg" alt="сердце бизнеса">
+          </a>
+          <hr class="line">
+          <a href="http://tiksan.ru/" class="logo" target="_blank" rel="noopener noreferrer"
+          ><img src="@/assets/img/tiksangroup.png" alt="Лого"
+          /></a>
+        </div>
         <ul class="nav-links">
-          <li><a href="#about">О проекте</a></li>
-          <li><a href="#buy-info">Принять участие</a></li>
-          <li><a href="#partners">Партнеры</a></li>
-          <li><a href="#faq">FaQ</a></li>
+          <li><a class="nav-link__item" href="#about">О проекте</a></li>
+          <li><a class="nav-link__item" href="#buy-info">Принять участие</a></li>
+          <li><a class="nav-link__item" href="#partners"
+            >Партнеры</a></li>
+          <li><a class="nav-link__item" href="#faq" 
+            >FaQ</a></li>
         </ul>
         <div v-on:click="toggleMenu" class="burger-icon" id="burger">
           <div class="icons">
@@ -44,35 +56,31 @@
         </div>
       </nav>
       <section class="slogan">
-        <div class="slogan__text backInLeft">
-          <small>Старт 8 декабря</small>
-          <h1 class="slogan__heading animate__backInLeft">
+        <div class="slogan__text">
+          <p class="slogan__medium">Старт 8 декабря</p>
+          <h1 class="slogan__heading">
             Прими участие в акции <br />
           </h1>
-          <small>и попади</small>
+          <p class="slogan__medium">и попади</p>
           <h3 class="slogan__wrapper">в Книгу рекордов России!</h3>
         </div>
         <div class="diagram">
           <h1 class="diagram__heeading">Уже занято места на баннере</h1>
-          <small class="diagram__small-text">257 логотипов из 1000</small>
+          <p class="diagram__small-text">{{ this.occupiedPlaces }} логотипов из 1000</p>
           <div class="main-diagram">
-            <MercyMainDiargamInfo :width="310" :height="310"/>
+            <MercyMainDiargamInfo :width="310" :height="310" />
           </div>
           <a href="#buy-info" class="diagram__link"
             >Хочу в Книгу рекордов России</a
           >
-
         </div>
       </section>
-      <div class="call">
-        <p class="call__item">Листайте вниз</p>
-      </div>
     </div>
   </header>
+</div>
 </template>
 
 <script>
-import "animate.css";
 import MercyMainDiargamInfo from "@/components/DiargamInfo.vue";
 export default {
   name: "MercyMainHeader",
@@ -80,21 +88,60 @@ export default {
     MercyMainDiargamInfo,
   },
   data() {
-    return {};
+    return {
+      occupiedPlaces: 8,
+    };
   },
 
   mounted() {},
-
+  created() {
+    // this.setDataOrr();
+  },
+  mounted() {
+  },
   methods: {
     toggleMenu() {
       const navLinks = document.querySelector(".nav-links");
       navLinks.classList.toggle("active");
     },
+    // async setDataOrr() {
+    //   const params = new URLSearchParams();
+    //   const headers = new Headers();
+    //   const fetchOccupiedPlace = "12";
+    //   headers.append("Content-Type", "application/x-www-form-urlencoded");
+    //   headers.append(
+    //     "Accept",
+    //     "application/json;text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9"
+    //   );
+    //   params.set("action", "metrica");
+    //   fetch('https://api.tiksan.ru/api/products', 
+    //   {
+    //       method: "POST",
+    //       headers: headers,
+    //       body: params,
+    //   }
+    //   )
+    //     .then(function(response) {
+    //       return response.json();
+    //     }).then(function(data) {
+    //       // this.setData(data.true)
+    //       this.occupiedPlaces  = data;
+    //     });
+    //     // this.occupiedPlaces = await fetchOccupiedPlace;
+    // }
   },
 };
 </script>
 
 <style scoped>
+#myVideo {
+  position: absolute;
+    right: 0;
+    top: 0px;
+    min-width: 100%; 
+    min-height: 130%;
+    z-index: -1;
+}
 svg {
   fill-rule: evenodd;
   clip-rule: evenodd;
@@ -133,14 +180,19 @@ h1 {
   text-align: center;
   margin-bottom: 2rem;
 }
-
+.slogan__medium {
+  margin: 10px;
+  font-size: 2rem;
+}
 .icons {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
-
+.nav-link__item {
+  display: flex;
+}
 #top,
 #bottom {
   stroke-dasharray: 30, 75.39;
@@ -173,17 +225,18 @@ svg:nth-child(2).active {
 header {
   font-family: "Panton Regular", sans-serif;
   min-height: calc(100vh - 47px);
-  background-color: black;
-  background-image: url(@/assets/img/bg.png);
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
+
   position: relative;
 }
 .container {
   max-width: 1368px;
   margin: 0 auto;
+}
+.navbar__wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 10px;
 }
 .container .navbar {
   min-height: 15vh;
@@ -260,28 +313,25 @@ header {
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
-  line-height: 20px;
 }
 .slogan__wrapper {
   position: relative;
   margin-top: 7px;
+  font-size: 1.5em;
 }
-.slogan__wrapper::after {
-  content: url(@/assets/img/sloganimg.png);
-  position: absolute;
-  top: -27px;
-  right: 16px;
-}
+
 .slogan__heading {
-  line-height: 48px;
+  font-size: 2em;
   background: linear-gradient(118.3deg, #0ab9ee 7.91%, #8dccec 74.43%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   margin: 0;
+
 }
 .diagram__heeading {
   margin-bottom: 5px;
+  font-size: xx-large;
 }
 .main-diagram {
   display: flex;
@@ -289,19 +339,7 @@ header {
 }
 .diagram__small-text {
   text-align: center;
-}
-.call {
-  color: var(--color-white);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  align-self: center;
-  text-align: center;
-  height: 60px;
-  margin-top: 30px;
-}
-.call__item {
-  margin-bottom: 0;
+  margin: 5px;
 }
 .diagram {
   padding: 20px;
@@ -365,9 +403,7 @@ header {
   .diagram {
     padding: 0;
   }
-  .slogan__wrapper::after {
-    display: none;
-  }
+
   .container .navbar .burger-icon {
     display: block;
   }
@@ -397,6 +433,12 @@ header {
   }
 }
 @media (min-width: 991.98px) {
+  .slogan__heading {
+    font-size: 3em;
+  }
+  .slogan__wrapper {
+    font-size: 2em;
+  }
   .slogan {
     justify-content: space-between;
   }
@@ -409,44 +451,8 @@ header {
     padding: 0 calc(50vw - 590px);
   }
 }
-@-webkit-keyframes backInLeft {
-  0% {
-    transform: translateX(-2000px) scale(0.7);
-    opacity: 0.7;
-  }
-
-  80% {
-    transform: translateX(0px) scale(0.7);
-    opacity: 0.7;
-  }
-
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-@keyframes backInLeft {
-  0% {
-    transform: translateX(-2000px) scale(0.7);
-    opacity: 0.7;
-  }
-
-  80% {
-    transform: translateX(0px) scale(0.7);
-    opacity: 0.7;
-  }
-
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-.backInLeft {
-  -webkit-animation: backInLeft 1.5s;
-  animation: backInLeft 1.5s;
-  -webkit-animation-timing-function: ease-out;
-  animation-timing-function: ease-out;
+.line {
+  height: 50px;
+  margin: 5px;
 }
 </style>

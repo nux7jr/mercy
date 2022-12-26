@@ -1,37 +1,36 @@
 <template>
   <div class="about-organizers" id="organizers">
     <h2 class="about-organizers__heading">Организаторы благотворительной акции</h2>
-    <Observer class="about-organizers__wrapper" @on-change="onChange">
-      <div class="about-organizers__item organizer" :class="{active: visible}">
-        <img class="organizer__img" src="@/assets/img/Kim.png" alt="">
+    <div class="about-organizers__wrapper">
+      <div class="about-organizers__item organizer">
+        <img class="organizer__img" src="@/assets/img/KimImg.png" alt="">
         <h3 class="organizer__heading">Сергей Ким</h3>
-        <p class="organizer__text">основатель Tiksan Group, соучредитель премии «Человек Года»
+        <p class="organizer__text">Основатель Tiksan Group, соучредитель премии «Человек Года»
         </p>
       </div>
-      <div class="about-organizers__item organizer" :class="{active: visible}">
+      <div class="about-organizers__item organizer">
         <img class="organizer__img" src="@/assets/img/Ylya.png" alt="">
         <h3 class="organizer__heading">Юлия Чанчикова</h3>
-        <p class="organizer__text">председатель оргкомитета «Человек Года», главный редактор, издатель журнала «Деловой квартал» в Красноярске</p>
+        <p class="organizer__text">Председатель оргкомитета «Человек Года», главный редактор, издатель журнала «Деловой квартал» в Красноярске</p>
       </div>
-      <div class="about-organizers__item organizer" :class="{active: visible}">
+      <div class="about-organizers__item organizer">
         <img class="organizer__img" src="@/assets/img/Den.png" alt="">
         <h3 class="organizer__heading">Денис Амосов</h3>
         <p class="organizer__text">Идейный вдохновитель</p>
       </div>
-    </Observer>
+    </div>
     <h1 class="about-organizers__text">Закончим 2022 год большим добрым делом!</h1>
-    <a class="about-organizers__call" href="#buy-info">Хочу в книгу рекордов Гиннеса</a>
+    <a class="about-organizers__call" href="#buy-info">Хочу в книгу рекордов</a>
   </div>
 </template>
 
 <script>
-import Observer from 'vue-intersection-observer';
+
 export default {
   name: 'MercyMainAboutOrganizers',
 
   data() {
     return {
-      visible: false
     };
   },
 
@@ -39,13 +38,11 @@ export default {
     
   },
   components: {
-    Observer
+
   },
 
   methods: {
-    onChange(entry, obv) {
-      this.visible = entry.isIntersecting
-    }
+
   },
 };
 </script>
@@ -64,6 +61,7 @@ export default {
 }
 .organizer__img {
   max-width: 300px;
+  min-height: 416px;
 }
 .organizer__text {
   text-align: center;
@@ -74,6 +72,11 @@ export default {
   text-align: center;
 }
 .about-organizers__heading {
+  text-align: center;
+  padding: 2rem;
+  color: #5B5B5B;
+  font-style: normal;
+  font-weight: 800;
   text-decoration-line: underline;
   text-decoration-style: solid;
   text-decoration-color: #8DCCEC;
@@ -86,37 +89,5 @@ export default {
   margin:  0 auto;
   background: linear-gradient(118.3deg, #0AB9EE 7.91%, #8DCCEC 74.43%);
   border-radius: 14.7473px;
-}
-.organizer img {
-  transition: .5s;
-}
-.organizer:hover img:hover {
-    outline: 3px solid #0AB9EE;
-    font-size: 20px;
-}
-.organizer {
-  opacity: 0;
-  transform: translateX(-100%);
-  filter: blur(5px);
-  transition: 2s;
-}
-.organizer:nth-child(2) {
-  transition-delay: 200ms;
-}
-.organizer:nth-child(3) {
-  transition-delay: 400ms;
-}
-.organizer:nth-child(4) {
-  transition-delay: 600ms;
-}
-.active {
-  opacity: 1;
-  filter: blur(0);
-  transform: translateX(0);
-}
-@media (prefers-reduced-motion) {
-  .organizer {
-    transition: 0;
-  }
 }
 </style>

@@ -2,11 +2,10 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-// import VeeValidate from "vee-validate";
+const VueScrollTo = require('vue-scrollto')
+Vue.use(VueScrollTo)
 
-// Vue.use(VeeValidate);
-
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
 new Vue({
   router,

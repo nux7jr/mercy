@@ -4,17 +4,18 @@
     <div class="mission__info">
     <h2 class="mission__heading">Миссия Благотворительной акции</h2>
     <div class="mission__kim">
-      <p>Команда TIKSAN GROUP провела  глубокий анализ, оценила возможности, риски и решила поставить рекорд России в добрых делах.</p>
-      <p>Объединить все бизнес-комьюнити Красноярского края и сделать прорыв в первом благотворительном проекте такого масштаба в России. Мы вместе объединяем  бизнес-сообщество города и заявляем  о предпринимателях Красноярска на федеральном уровне.</p>
+      <h3 class="mission__text">“Мы постарались сделать так, чтобы весь процесс прошел максимально прозрачно и открыто.</h3>
+      <p class="mission__text">
+        Рекорд будет зафиксирован официально по всем нормам и правилам. Надеемся, что этот проект станет системным и регулярным. Один раз оказать помощь — это уже хорошо. Но делать это регулярно и в составе большого бизнес-сообщества — совсем другой уровень. Время покажет, насколько ценным окажется сам проект, и какой уровень пользы он сможет принести.”
+      </p>
         <div class="kim">
-          <img class="kim__img" src="@/assets/img/kims.png" alt="Роспись">
-          <img class="kim-info__img" src="@/assets/img/KimLogo.png" alt="Лого">
+          <img class="kim-info__img" src="@/assets/img/KimEv.png" alt="Лого">
           <div class="kim__item kim-info">
-            <p>Сергей Ким</p>
+            <p><strong>Сергей Ким</strong></p>
             <p>основатель Tiksan Group</p>
           </div>
         </div>
-        <a class="kim__link" href="#buy-info">Хочу в Книгу рекордов России</a>
+        <a class="kim__link" href="https://tiksan.ru/" target="_blank">Больше о Tiksan Group</a>
     </div>
   </div>
   </div>
@@ -43,15 +44,15 @@ export default {
 <style lang="scss" scoped>
 .mission {
   display: flex;
-  height: 517px;
+  height: 660px;
 }
 .mission__img {
   width: 650px;
-  height: 500px;
+  height: 650px;
   z-index: -1;
   position: absolute;
   background-color: #00000099;
-  background-image: url(@/assets/img/people.png);
+  background-image: url(@/assets/img/bgMission.png);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -69,6 +70,10 @@ export default {
   text-underline-offset: 8px;
   padding: 10px;
 }
+.mission__text {
+  text-align: left;
+  margin-right: 150px;
+}
 .mission__kim {
   background-color: #8DCCEC;
   padding: 40px;
@@ -76,18 +81,19 @@ export default {
 }
 .kim {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: center;
   align-content: center;
   gap: 30px;
+  margin-bottom: 20px;
 }
 .kim__img {
-  width: 30px;
-  height: 20px;
+  width: 50px;
+  height: 40px;
 }
 .kim-info__img {
-  width: 50px;
-  height: 50px;
+  width: 70px;
+  height: 70px;
 }
 .kim__link {
   background-color: #5B5B5B;
@@ -98,6 +104,10 @@ export default {
   .mission__kim {
     width: auto;
     padding: 10px;
+  }
+  .mission__text {
+    text-align: left;
+    margin-right: 0;
   }
   .mission__img {
     display: none;

@@ -11,7 +11,7 @@
             <div class="offer-order__item">
               <div class="offer-order__info">
                 <p class="offer-order__place">
-                  Выбранное место: <strong>{{ allCart.index }}</strong>
+                  Выбранное место: <strong>{{ allCart.id }}</strong>
                 </p>
                 <div class="info__wrapper">
                   <p class="info__price">Цена: {{ allCart.price }}</p>
@@ -20,12 +20,6 @@
               </div>
             </div>
           </div>
-          <!-- <div class="offer-order__item">
-            <p class="offer-order__price-name">Итого:</p>
-            <p class="offer-order__price">
-              {{ cartTotalCost | toFix | formattedPrice }}
-            </p>
-          </div> -->
           <transition name="fade">
             <router-link
               v-show="allCart.price"
@@ -52,7 +46,7 @@
                 class="price-info__img"
                 src="@/assets/img/Rectangle 9-1.png"
                 alt="информация о покупке"
-              />от 15 000р
+              />от 25 000р
             </li>
             <li>
               <img

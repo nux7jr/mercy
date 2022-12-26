@@ -1,20 +1,28 @@
 <template>
   <div id="partners" class="partners">
     <div class="partners__item">
-      <h2 class="partners__heading">Партнеры благотворительной акции</h2>
+      <h2 class="partners__heading">Аккредитованные фонды первого рекорда России "Сердце бизнеса"</h2>
     </div>
     <div class="partners__wrapper">
       <section class="enable-animation">
         <div class="marquee marquee--fit-content">
           <ul class="marquee__content">
-            <li><img src="@/assets/img/logo-partners.png" alt="" /></li>
-            <li><img src="@/assets/img/logo-partners.png" alt="" /></li>
-            <li><img src="@/assets/img/logo-partners.png" alt="" /></li>
+            <li><a href="https://instagram.com/elena_zdaevskaya_?igshid=YmMyMTA2M2Y" target="_blank" rel="noopener noreferrer"><img src="@/assets/img/logos/7.png" alt="фонд" /></a></li>
+            <li><a href="http://bf24.ru/" target="_blank" rel="noopener noreferrer"><img src="@/assets/img/logos/1.png" alt="фонд" /></a></li>
+            <li><a href="https://xn--80aaakcmal4atbv0dydde.xn--p1ai/" target="_blank" rel="noopener noreferrer"><img src="@/assets/img/logos/2.png" alt="фонд" /></a></li>
+            <li><a href="https://vk.com/vprkrsk24" target="_blank" rel="noopener noreferrer"><img src="@/assets/img/logos/8.png" alt="фонд" /></a></li>
+            <li><a href="http://dom-materi.ru/" target="_blank" rel="noopener noreferrer"><img src="@/assets/img/logos/6.png" alt="фонд" /></a></li>
+            <li><a href="http://dobro-deti.ru/" target="_blank" rel="noopener noreferrer"><img src="@/assets/img/logos/5.png" alt="фонд" /></a></li>
+            <li><a href="https://vk.com/poiskdeteikrasnoyarsk" target="_blank" rel="noopener noreferrer"><img src="@/assets/img/logos/4.png" alt="фонд" /></a></li>
           </ul>
           <ul aria-hidden="true" class="marquee__content">
-            <li><img src="@/assets/img/logo-partners.png" alt="" /></li>
-            <li><img src="@/assets/img/logo-partners.png" alt="" /></li>
-            <li><img src="@/assets/img/logo-partners.png" alt="" /></li>
+            <li><a href="https://instagram.com/elena_zdaevskaya_?igshid=YmMyMTA2M2Y" target="_blank" rel="noopener noreferrer"><img src="@/assets/img/logos/7.png" alt="фонд" /></a></li>
+            <li><a href="http://bf24.ru/" target="_blank" rel="noopener noreferrer"><img src="@/assets/img/logos/1.png" alt="фонд" /></a></li>
+            <li><a href="https://xn--80aaakcmal4atbv0dydde.xn--p1ai/" target="_blank" rel="noopener noreferrer"><img src="@/assets/img/logos/2.png" alt="фонд" /></a></li>
+            <li><a href="https://vk.com/vprkrsk24" target="_blank" rel="noopener noreferrer"><img src="@/assets/img/logos/8.png" alt="фонд" /></a></li>
+            <li><a href="http://dom-materi.ru/" target="_blank" rel="noopener noreferrer"><img src="@/assets/img/logos/6.png" alt="фонд" /></a></li>
+            <li><a href="http://dobro-deti.ru/" target="_blank" rel="noopener noreferrer"><img src="@/assets/img/logos/5.png" alt="фонд" /></a></li>
+            <li><a href="https://vk.com/poiskdeteikrasnoyarsk" target="_blank" rel="noopener noreferrer"><img src="@/assets/img/logos/4.png" alt="фонд" /></a></li>
           </ul>
         </div>
       </section>
@@ -37,6 +45,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.marquee__img {
+  width: 220px;
+}
 .partners {
   background-color: #5b5b5b;
 }
