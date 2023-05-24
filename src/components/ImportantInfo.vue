@@ -1,20 +1,24 @@
 <template>
-    <article class="important-info">
-      <ul class="important-info__list">
-        <li>
-          <a class="important-info__link" href="#">Юридическая информация</a>
-        </li>
-        <li>
-          <a class="important-info__link" href="#organizers">Об организаторах</a>
-        </li>
-        <li>
-          <a class="important-info__link" href="#mission">О кампании</a>
-        </li>
-        <li>
-          <a class="important-info__link" href="#">Контакты</a>
-        </li>
-      </ul>
-    </article>
+  <article class="important-info">
+    <ul class="important-info__list">
+      <li>
+        <a
+          class="important-info__link"
+          href="https://tiksan-record.ru/politics.docx"
+          >Политика персональных данных</a
+        >
+      </li>
+      <li>
+        <a class="important-info__link" href="/#organizers">Об организаторах</a>
+      </li>
+      <li>
+        <a class="important-info__link" href="/#mission">О компании</a>
+      </li>
+      <li>
+        <a class="important-info__link" href="#footer">Контакты</a>
+      </li>
+    </ul>
+  </article>
 </template>
 
 <script>

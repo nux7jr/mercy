@@ -2,42 +2,46 @@
   <div class="mission" id="mission">
     <div class="mission__img"></div>
     <div class="mission__info">
-    <h2 class="mission__heading">Миссия Благотворительной акции</h2>
-    <div class="mission__kim">
-      <h3 class="mission__text">“Мы постарались сделать так, чтобы весь процесс прошел максимально прозрачно и открыто.</h3>
-      <p class="mission__text">
-        Рекорд будет зафиксирован официально по всем нормам и правилам. Надеемся, что этот проект станет системным и регулярным. Один раз оказать помощь — это уже хорошо. Но делать это регулярно и в составе большого бизнес-сообщества — совсем другой уровень. Время покажет, насколько ценным окажется сам проект, и какой уровень пользы он сможет принести.”
-      </p>
+      <h1 class="mission__heading">Миссия Благотворительного проекта</h1>
+      <div class="mission__kim">
+        <h3 class="mission__text">
+          “Мы сделали так, чтобы весь процесс прошел максимально прозрачно и
+          открыто.
+        </h3>
+        <p class="mission__text">
+          Рекорд будет зафиксирован официально по всем нормам и правилам.
+          Надеемся, что этот проект станет системным. Один раз оказать помощь —
+          это уже хорошо. Но делать это регулярно и в составе большого
+          количества людей — совсем другой уровень. Время покажет, насколько
+          ценным окажется сам проект, и какой уровень пользы он сможет
+          принести.”
+        </p>
         <div class="kim">
-          <img class="kim-info__img" src="@/assets/img/KimEv.png" alt="Лого">
+          <img class="kim-info__img" src="@/assets/img/KimEv.png" alt="Лого" />
           <div class="kim__item kim-info">
             <p><strong>Сергей Ким</strong></p>
-            <p>основатель Tiksan Group</p>
+            <p>основатель TIKSAN GROUP</p>
           </div>
         </div>
-        <a class="kim__link" href="https://tiksan.ru/" target="_blank">Больше о Tiksan Group</a>
+        <a class="kim__link" href="https://tiksan.ru/" target="_blank"
+          >Больше о TIKSAN GROUP</a
+        >
+      </div>
     </div>
-  </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'MercyMissionInfo',
+  name: "MercyMissionInfo",
 
   data() {
-    return {
-      
-    };
+    return {};
   },
 
-  mounted() {
-    
-  },
+  mounted() {},
 
-  methods: {
-    
-  },
+  methods: {},
 };
 </script>
 
@@ -66,7 +70,7 @@ export default {
 .mission__heading {
   text-decoration-line: underline;
   text-decoration-style: solid;
-  text-decoration-color: #8DCCEC;
+  text-decoration-color: var(--color-orange);
   text-underline-offset: 8px;
   padding: 10px;
 }
@@ -75,7 +79,7 @@ export default {
   margin-right: 150px;
 }
 .mission__kim {
-  background-color: #8DCCEC;
+  background-color: var(--color-semimain);
   padding: 40px;
   width: 70%;
 }
@@ -96,9 +100,11 @@ export default {
   height: 70px;
 }
 .kim__link {
-  background-color: #5B5B5B;
+  background-color: var(--color-main);
   border-radius: 14px;
   padding: 10px;
+  font-size: larger;
+  font-weight: bold;
 }
 @media (max-width: 850px) {
   .mission__kim {

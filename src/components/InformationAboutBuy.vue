@@ -4,20 +4,25 @@
       <div class="goal">
         <h2 class="goal__heading">Цель проекта</h2>
         <p class="goal__text">
-          Объединить 1 тыс. компаний из Красноярского края в единую систему. Минимальное участие 
-          на благотворительный взнос от компании всего 10 тыс. рублей. На эти деньги практически 
-          невозможно что-то сделать. Но когда свои усилия объединит весь бизнес края, это будет мощный 
-          источник силы, который сможет очень многое. По нашим прогнозам, проект сможет собрать несколько 
-          десятков миллионов рублей. А на эти деньги можно сделать немало добрых дел.
+          Объединить 1 000 людей из Красноярского края. Минимальное участие на
+          благотворительный взнос - 10 тыс. рублей. На эти деньги практически
+          невозможно что-то сделать. Но когда свои усилия объединят жители края,
+          это будет мощный источник силы, который сможет очень многое. По нашим
+          прогнозам, проект сможет собрать несколько десятков миллионов рублей.
+          А на эти деньги можно сделать немало добрых дел.
         </p>
       </div>
       <div class="money-transfer">
         <h2 class="money-transfer__heading">Куда пойдут пожертвования</h2>
         <p class="money-transfer__text">
-          Все пожертвования будут распределены равномерно среди девяти аккредитованных фондов и шестилетней девочкой Дашей Здаевской, которая борется за свое будущее.
-          Мы вместе поможем сиротам, инвалидам, малоимущим гражданам и поисковой бригаде пропавших людей. Более подробная информация <a class="money-transfer__text-bold" href="#partners">здесь.</a>
+          Пожертвования пойдут в выбранный вами фонд из представленного списка:
+          <a class="money-transfer__text-bold" href="#partners">СПИСОК НКО.</a>
+          Мы вместе поможем сиротам, малоимущим гражданам, поисковой бригаде
+          пропавших людей, женщинам, подвергшимся домашним насилием, людям с
+          ограниченными возможностями, с особенностями развития и
+          онкологическими заболеваниями, а также бездомным животным.
         </p>
-      </div> 
+      </div>
     </div>
   </div>
 </template>
@@ -38,7 +43,7 @@ export default {
 
 <style lang="scss" scoped>
 #about {
-  background-color: #EFEFEF;
+  background-color: #efefef;
 }
 .about {
   flex-grow: 2;
@@ -62,8 +67,8 @@ export default {
   width: 50%;
 }
 .goal {
-  background-color: var(--color-light-blue);
-  background-image: url(@/assets/img/howenter1.png);
+  background-color: #dfd0b8;
+
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -72,23 +77,22 @@ export default {
   text-align: left;
 }
 .money-transfer {
-  background-color: var(--color-light-gray);
-  background-image: url(@/assets/img/howenter2.png);
-  color: white;
+  background-color: #fb9d92;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   text-align: left;
-
 }
 .goal__heading {
   font-size: xx-large;
+  text-transform: uppercase;
 }
 .money-transfer__heading {
   font-size: xx-large;
   text-align: center;
+  text-transform: uppercase;
 }
 .money-transfer__text,
 .goal__text {
@@ -97,6 +101,7 @@ export default {
 }
 .money-transfer__text-bold {
   font-weight: 800;
+  color: black;
 }
 .about__text {
   text-align: left;
@@ -112,7 +117,7 @@ export default {
 .about__heading {
   text-decoration-line: underline;
   text-decoration-style: solid;
-  text-decoration-color: #8DCCEC;
+  text-decoration-color: #8dccec;
   text-underline-offset: 8px;
   margin-bottom: 35px;
 }

@@ -4,18 +4,15 @@
     <div class="cart__item">
       <div class="offer-order">
         <div class="offer-order__wrapper">
-          <div
-            class="offer-order__item__wrapper"
-            
-          >
+          <div class="offer-order__item__wrapper">
             <div class="offer-order__item">
               <div class="offer-order__info">
                 <p class="offer-order__place">
                   Выбранное место: <strong>{{ allCart.id }}</strong>
                 </p>
                 <div class="info__wrapper">
-                  <p class="info__price">Цена: {{ allCart.price }}</p>
-                  <p @click="fullReprimandCart()" class="delete">X</p>
+                  <p class="info__price">Сумма: {{ allCart.price }}</p>
+                  <p @click="fullReprimandCart()" class="delete">×</p>
                 </div>
               </div>
             </div>
@@ -26,52 +23,44 @@
               class="offer-order__link"
               to="/buy"
             >
-              Оформить заказ
+              Пожертвовать
             </router-link>
           </transition>
         </div>
         <div class="price-info">
-          <p class="price-info__item">стоимость размещения</p>
+          <!-- <p class="price-info__item">стоимость размещения</p> -->
           <ul class="price-info__item price-info__list">
             <li>
               <img
                 class="price-info__img"
-                src="@/assets/img/Rectangle 9-2.png"
+                src="@/assets/img/10.png"
                 alt="информация о покупке"
               />
-              от 50 000р
+              от 10 000р
             </li>
             <li>
               <img
                 class="price-info__img"
-                src="@/assets/img/Rectangle 9-1.png"
+                src="@/assets/img/25.png"
                 alt="информация о покупке"
               />от 25 000р
             </li>
             <li>
               <img
                 class="price-info__img"
-                src="@/assets/img/Rectangle 9.png"
+                src="@/assets/img/50.png"
                 alt="информация о покупке"
-              />от 10 000р
+              />от 50 000р
             </li>
           </ul>
         </div>
         <div class="availability-info">
           <div class="availability-info__item">
-            <img
-              class="availability-info__noAvalibleimg"
-              src="@/assets/img/Avalible.png"
-              alt="место свободно"
-            />
+            &#9679;
             <h3 class="availability-info__heading">- место свободно</h3>
           </div>
           <div class="availability-info__item">
-            <img
-              class="availability-info__img"
-              src="@/assets/img/noAvalible.png"
-              alt="место занято"
-            />
+            ×
             <h3 class="availability-info__heading">- место занято</h3>
           </div>
         </div>
@@ -133,26 +122,33 @@ export default {
 .delete {
   margin: 0;
   cursor: pointer;
+  font-size: larger;
+  font-weight: bolder;
 }
 .offer-order {
-  background-color: #1c1c1c;
+  background-color: var(--color-semimain);
+  color: black;
   padding: 20px;
-  color: white;
   border-radius: 15px;
 }
 .offer-order__link {
   display: block;
-  color: black;
+  font-weight: bolder;
+  font-size: large;
+  text-transform: uppercase;
+  color: white;
   padding: 15px;
-  background-color: #8dccec;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: var(--color-orange);
   border-radius: 15px;
   transition: background-color 0.2s;
 }
 .offer-order__link:hover {
-  background-color: #6caecf;
+  background-color: var(--color-orange);
 }
 .offer-order__link:visited {
-  color: black;
+  color: white;
 }
 .price-info__img {
   width: 30px;
@@ -178,8 +174,8 @@ export default {
   gap: 5px;
 }
 .availability-info__img {
-  width: 13px;
-  height: 13px;
+  width: 30px;
+  height: 30px;
 }
 .availability-info__noAvalibleimg {
   width: 7px;

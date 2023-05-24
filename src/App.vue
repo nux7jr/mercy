@@ -7,16 +7,33 @@
 export default {
   name: "App",
   components: {},
+
+  created() {
+    this.initBase();
+  },
+  methods: {
+    async initBase() {
+      const params = new URLSearchParams();
+      params.set("action", "update_expire");
+      await fetch("https://api.tiksan.ru/api/products", {
+        method: "POST",
+        body: params,
+      });
+    },
+  },
 };
 </script>
 <style lang="scss">
 :root {
-  --color-main: #5b5b5b;
+  --color-main: #2f2626;
+  --color-orange: #ee5645;
+  --color-semimain: #dfd0b8;
   --color-light-gray: #9d9e9e;
   --color-blue: #0ab9ee;
   --color-light-blue: #8dccec;
   --color-white: white;
   --color-black: #020304;
+  --swiper-theme-color: #ee5645;
 }
 @font-face {
   font-family: "Panton Regular";
@@ -32,8 +49,9 @@ body {
   margin: 0;
   box-sizing: border-box;
   font-family: "Panton Regular", sans-serif;
-  scroll-behavior: smooth !important;
+  background-color: #fff9f3;
 }
+
 html {
   scroll-behavior: smooth !important;
 }
@@ -62,9 +80,29 @@ a {
 a:visited {
   color: var(--color-white);
 }
+a.txttohtmllink {
+  color: black;
+}
+a:visited.txttohtmllink {
+  color: black;
+}
+
+.news__text a {
+  color: #8dccec;
+}
+.news-item__content a {
+  color: #8dccec;
+}
+
+.news__text a:visited {
+  color: #8dccec;
+}
+.news-item__content a:visited {
+  color: #8dccec;
+}
+
 img {
   width: 100%;
   height: auto;
 }
-
 </style>

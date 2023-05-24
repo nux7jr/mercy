@@ -4,14 +4,14 @@
       <div v-show="allCart.price">
         <div class="offer-order__item__wrapper">
           <div class="form-order">
-            <h1 class="form-order__heading">Оформление заявки</h1>
+            <h1 class="form-order__heading">Заполнение формы</h1>
             <small>* – Поля обязательны к заполнению.</small>
-            <!-- enctype="multipart/form-data" -->
-            <!-- http://tiksan-record.ru/ -->
             <form
-              action="https://tiksan-record.ru/payment.php"
+              action="pdf-generation.php"
               enctype="multipart/form-data"
               method="post"
+              id="userForm"
+              @submit="booking"
             >
               <div class="offer-order__item main-info">
                 <div class="main-info__wrapper">
@@ -78,7 +78,7 @@
                 </div>
                 <div class="from-order__item">
                   <label for="link" class="from-order__heading">
-                    * Ссылка на сайт комании
+                    * Ссылка на сайт компании
                   </label>
                   <input
                     class="from-order__input"
@@ -105,14 +105,14 @@
                   />
                 </div>
                 <div class="from-order__item">
-                  <label for="email" class="from-order__heading">
-                    * Email
+                  <label for="email" class="from-order__heading"
+                    >* Email
                   </label>
                   <input
                     class="from-order__input"
                     type="email"
                     v-model="userFormData.email"
-                    name="email"
+                    name="user_email"
                     id="email"
                     required
                   />
@@ -136,6 +136,15 @@
                   <p class="from-order__text">
                     Формат cdr, ai, eps, pdf, svg и др. форматы кривых
                   </p>
+                  <p class="from-order__text">
+                    Сгенерировать логотип можно
+                    <a
+                      class="from-order__link"
+                      target="_blank"
+                      href="https://logo.com/"
+                      >ТУТ</a
+                    >
+                  </p>
                 </div>
                 <div class="from-order__item">
                   <label class="input-file">
@@ -145,6 +154,7 @@
                       name="file"
                       id="file"
                       ref="file"
+                      accept="image/png, image/gif, image/jpeg, image/svg+xml"
                       required
                       v-on:change="handleFileUpload()"
                     />
@@ -269,79 +279,110 @@
                 </div>
               </div>
               <div>
-                <h2>
-                  Выберите программу Фонда, в которую вы хотите пожертвовать
-                </h2>
+                <h2>Выберите НКО, в которую вы хотите пожертвовать</h2>
                 <div class="programm__wrapper">
+                  <div class="name-programm1 programm__item">
+                    <input
+                      type="radio"
+                      name="nameProgramm"
+                      value="Живое дыхание"
+                      id="nameProgramm1"
+                      v-model="userFormData.programm"
+                      @click="indexItem = '0'"
+                    />
+                    <label for="nameProgramm1">Живое дыхание</label>
+                  </div>
                   <div class="name-programm2 programm__item">
                     <input
                       type="radio"
                       name="nameProgramm"
-                      value="От сердца к сердцу"
+                      value="Поиск пропавших людей"
                       id="nameProgramm2"
                       v-model="userFormData.programm"
+                      @click="indexItem = '1'"
                     />
-                    <label for="nameProgramm2">От сердца к сердцу</label>
+                    <label for="nameProgramm2">Поиск пропавших детей</label>
+                  </div>
+                  <div class="name-programm3 programm__item">
+                    <input
+                      type="radio"
+                      name="nameProgramm"
+                      value="Вместе против рака"
+                      id="nameProgramm3"
+                      v-model="userFormData.programm"
+                      @click="indexItem = '2'"
+                    />
+                    <label for="nameProgramm3">Вместе против рака</label>
                   </div>
                   <div class="name-programm4 programm__item">
                     <input
                       type="radio"
                       name="nameProgramm"
-                      value="Живое дыхание"
+                      value="Шаг за шагом к мечте"
                       id="nameProgramm4"
                       v-model="userFormData.programm"
+                      @click="indexItem = '3'"
                     />
-                    <label for="nameProgramm4">Живое дыхание</label>
+                    <label for="nameProgramm4">Шаг за шагом к мечте</label>
                   </div>
                   <div class="name-programm5 programm__item">
                     <input
                       type="radio"
                       name="nameProgramm"
-                      value="Поиск пропавших людей"
+                      value="Дом матери"
                       id="nameProgramm5"
                       v-model="userFormData.programm"
+                      @click="indexItem = '4'"
                     />
-                    <label for="nameProgramm5">Поиск пропавших людей</label>
+                    <label for="nameProgramm5">Дом матери</label>
+                  </div>
+                  <div class="name-programm6 programm__item">
+                    <input
+                      type="radio"
+                      name="nameProgramm"
+                      value="Бездомный пес"
+                      id="nameProgramm6"
+                      v-model="userFormData.programm"
+                      @click="indexItem = '5'"
+                    />
+                    <label for="nameProgramm6">Бездомный пёс</label>
+                  </div>
+                  <div class="name-programm7 programm__item">
+                    <input
+                      type="radio"
+                      name="nameProgramm"
+                      value="Красноярье без сирот"
+                      id="nameProgramm7"
+                      v-model="userFormData.programm"
+                      @click="indexItem = '6'"
+                    />
+                    <label for="nameProgramm7">Красноярье без сирот</label>
                   </div>
                   <div class="name-programm8 programm__item">
                     <input
                       type="radio"
                       name="nameProgramm"
-                      value="Вместе против рака"
+                      value="ВОРДИ"
                       id="nameProgramm8"
                       v-model="userFormData.programm"
+                      @click="indexItem = '7'"
                     />
-                    <label for="nameProgramm8">Вместе против рака</label>
+                    <label for="nameProgramm8"
+                      >Региональное отделение ВОРДИ Красноярского края</label
+                    >
                   </div>
                   <div class="name-programm9 programm__item">
                     <input
                       type="radio"
                       name="nameProgramm"
-                      value="Даша Здаевская"
+                      value="Благотворительный фонд '69 Параллель'"
                       id="nameProgramm9"
                       v-model="userFormData.programm"
+                      @click="indexItem = '8'"
                     />
-                    <label for="nameProgramm9">Даша Здаевская</label>
-                  </div>
-                  <div class="name-programm10 programm__item">
-                    <input
-                      type="radio"
-                      name="nameProgramm"
-                      value="Шаг за шагом к мечте"
-                      id="nameProgramm10"
-                      v-model="userFormData.programm"
-                    />
-                    <label for="nameProgramm10">Шаг за шагом к мечте</label>
-                  </div>
-                  <div class="name-programm11 programm__item">
-                    <input
-                      type="radio"
-                      name="nameProgramm"
-                      value="Дом матери"
-                      id="nameProgramm11"
-                      v-model="userFormData.programm"
-                    />
-                    <label for="nameProgramm11">Дом матери</label>
+                    <label for="nameProgramm9"
+                      >Благотворительный фонд "69 Параллель"</label
+                    >
                   </div>
                   <input
                     type="hidden"
@@ -354,8 +395,9 @@
               <hr />
               <div class="offer-order__item">
                 <p class="offer-order__price-end">Итого:</p>
-                <p class="offer-order__price-end">{{ this.getPrice }}₽</p>
+                <p class="offer-order-text">{{ this.getPrice }}₽</p>
               </div>
+              <MercyBuyViewItems :itemData="info[indexItem]" />
               <div class="politics">
                 <input
                   type="checkbox"
@@ -375,12 +417,16 @@
                   >
                 </p>
               </div>
+              <p>
+                Логотип вашей компании появится на сайте в течение 7 календарных
+                дней, после успешного проведения платежа на счет выбранного НКО
+              </p>
               <div class="option">
                 <input
                   class="form-order__submit"
                   type="submit"
                   name="send"
-                  value="Далее"
+                  value="Сформировать реквизиты"
                   v-on:submit="sendfile"
                 />
                 <button class="form-order__button">
@@ -396,7 +442,7 @@
       <div class="error" v-show="!allCart.price">
         <h3>В вашей корзине ничего нет!</h3>
         <button class="form-order__button">
-          <router-link to="/"> На глувную </router-link>
+          <router-link to="/">НА ГЛАВНУЮ</router-link>
         </button>
       </div>
     </transition>
@@ -404,6 +450,7 @@
 </template>
 
 <script>
+import MercyBuyViewItems from "@/components/BuyViewItem.vue";
 import MaskedInput from "vue-masked-input";
 import { mapState, mapGetters, mapMutations } from "vuex";
 export default {
@@ -411,6 +458,96 @@ export default {
 
   data() {
     return {
+      // data fond
+      indexItem: "0",
+      info: [
+        {
+          fondName: "БФ 'Живое дыхание'",
+          check: "Номер счета: 40703810601000003246",
+          INN: "ИНН: 2462038179",
+          KPP: "КПП: 246501001",
+          BIK: "БИК банка: 041806715",
+          CORcheck: "Корр. счет: 30101810100000000715",
+          NAMEres: "ЮЖНЫЙ Ф-Л ПАО 'ПРОМСВЯЗЬБАНК' г. Волгоград",
+          fondEmail: "Living_breath@mail.ru",
+        },
+        {
+          fondName: "КРОО 'ППД-КРАСНОЯРСК'",
+          check: "Номер счета: 40703810531000040971",
+          INN: "ИНН 2465287712",
+          KPP: "КПП: 246501001",
+          BIK: "БИК банка: 040407627",
+          CORcheck: "Корр. счет: 30101810800000000627",
+          NAMEres: "ПАО Сбербанк",
+          fondEmail: "Poiskdetei-krasnoyarsk@mail.ru",
+        },
+        {
+          fondName: "АНО «ЦСПР «ВМЕСТЕ ПРОТИВ РАКА»",
+          check: "Номер счета: 40703810431000002611",
+          INN: "ИНН 2465117767",
+          KPP: "КПП: 246501001",
+          BIK: "БИК банка: 040407627",
+          CORcheck: "Корр. счет: 30101810800000000627",
+          NAMEres: "Банк КРАСНОЯРСКОЕ ОТДЕЛЕНИЕ N 8646 ПАО СБЕРБАНК",
+          fondEmail: "vpr-krsk@mail.ru",
+        },
+        {
+          fondName: "Организация АНО СОК 'ШШМ'",
+          check: "Номер счета: 40703810831000001940",
+          INN: "ИНН 2465157047",
+          KPP: "КПП: 246501001",
+          BIK: "БИК банка: 040407627",
+          CORcheck: "Корр. счет: 30101810800000000627",
+          NAMEres: "Банк КРАСНОЯРСКОЕ ОТДЕЛЕНИЕ N 8646 ПАО СБЕРБАНК",
+          fondEmail: "lelkalog@mail.ru",
+        },
+        {
+          fondName: "ФЗМ ПЛ ТЖС «ДОМ МАТЕРИ»",
+          check: "Номер счета: 40703810631000040965",
+          INN: "ИНН: 2462056467",
+          KPP: "КПП: 246201001",
+          BIK: "БИК банка: 040407627",
+          CORcheck: "Корр. счет: 30101810800000000627",
+          NAMEres: "(ПАО) Банк: Красноярское отделение № 8646",
+          fondEmail: "info@dom-materi.net",
+        },
+        {
+          fondName: "КРАСНОЯРСКИЙ РФ АО 'Бездомный пес'",
+          check: "Номер счета: 40703810231000041005",
+          NAMEres: "Красноярское отделение № 8646 ПАО Сбербанк",
+          CORcheck: "Корр. счет банка: 30101810800000000627",
+          BIK: "БИК банка: 040407627",
+          fondEmail: "mig74-74@mail.ru",
+        },
+        {
+          fondName: "КРФ «Красноярье без сирот»",
+          check: "Номер счета: 40703810423420000017",
+          INN: "ИНН: 2465117252",
+          KPP: "КПП: 245801001",
+          BIK: "БИК банка: 045004774",
+          CORcheck: "Корр. счет: 30101810600000000774",
+          NAMEres: "Филиал «Новосибирский» АО «Альфа-Банк»",
+          fondEmail: "sbr_alternativa@mail.ru",
+        },
+        {
+          fondName: "Региональное отделение ВОРДИ Красноярского края",
+          check: "Номер счета: 40703810331000002067",
+          INN: "ИНН: 2463125586",
+          BIK: "БИК банка: 040407627",
+          CORcheck: "Корр. счет: 30101810800000000627",
+          NAMEres: "ПАО Сбербанк",
+          fondEmail: "krsk@vordi.ru",
+        },
+        {
+          fondName: "Благотворительный фонд '69 Параллель'",
+          check: "Номер счета: 40703810331000000797",
+          INN: "ИНН: 2457056084",
+          BIK: "БИК банка: 040407627",
+          CORcheck: "Корр. счет: 30101810800000000627",
+          NAMEres: "КРАСНОЯРСКОЕ ОТДЕЛЕНИЕ N 8646 ПАО СБЕРБАНК",
+          fondEmail: "fond69parallel@gmail.com",
+        },
+      ],
       fileLoading: false,
       fileLoad: false,
       file: "",
@@ -422,23 +559,27 @@ export default {
         phone: "",
         email: "",
         additionalPrice: "",
-        programm: "От сердца к сердцу",
+        programm: "Живое дыхание",
       },
     };
   },
-
   mounted() {
     this.userFormData.id = this.allCart.id;
-    const circles = document.querySelectorAll(".circle");
-    function update(time) {
-      circles.forEach((circle, index) => {
-        const angle = (time * (2 - index / 10)) / 5;
-        circle.setAttribute("transform", `rotate(${angle} 0 0)`);
-      });
-      requestAnimationFrame(update);
+
+    // const circles = document.querySelectorAll(".circle");
+    // function update(time) {
+    //   circles.forEach((circle, index) => {
+    //     const angle = (time * (2 - index / 10)) / 5;
+    //     circle.setAttribute("transform", `rotate(${angle} 0 0)`);
+    //   });
+    //   requestAnimationFrame(update);
+    // }
+    // update(0);
+    if (!this.allCart.price) {
+      this.$router.push("/");
     }
-    update(0);
   },
+  created() {},
   computed: {
     ...mapState(["cart"]),
     ...mapGetters(["allCart"]),
@@ -447,18 +588,18 @@ export default {
         Number(this.allCart.price) + Number(this.userFormData.additionalPrice)
       );
     },
+    // getFilterEl(el) {
+    //   return this.info.find((el) => el === this.item.title) || {};
+    // },
   },
   methods: {
     ...mapMutations(["fullReprimandCart"]),
     handleFileUpload() {
       this.file = this.$refs.file.files[0];
-      console.log(this.file);
       this.sendfile();
     },
     sendfile() {
       this.fileLoading = true;
-
-      console.log(this.file, " before");
       const formData = new FormData();
 
       formData.append("file", this.file);
@@ -471,22 +612,37 @@ export default {
       fetch(
         "https://tiksan-record.ru/App/Helpers/upload/file.php",
         options
-      ).then(function (res) {
-        console.log(res);
-        // this.fileLoading = false;
-        // this.fileLoad = true;
-      });
+      ).then(function (res) {});
       this.fileLoading = false;
       this.fileLoad = true;
+    },
+    booking() {
+      const params = new URLSearchParams();
+
+      params.set("action", "order");
+      params.append("id", this.userFormData.id);
+
+      const options = {
+        method: "POST",
+        params: params,
+        body: params,
+      };
+      fetch("https://api.tiksan.ru/api/products", options).then(function (res) {
+        ym(87773042, "reachGoal", "Leadrecord");
+      });
     },
   },
   components: {
     MaskedInput,
+    MercyBuyViewItems,
   },
 };
 </script>
 
 <style lang="scss" scoped>
+.from-order__link {
+  color: black;
+}
 .loading {
   width: 20px;
   height: 20px;
@@ -504,6 +660,9 @@ export default {
   align-items: center;
   justify-content: center;
   align-content: center;
+}
+.programm__item label {
+  font-size: 1.4rem;
 }
 .programm__wrapper {
   display: flex;
@@ -548,7 +707,7 @@ export default {
   color: rgb(255 255 255);
   text-align: center;
   border-radius: 9px;
-  background-color: #8dccec;
+  background-color: #fb9d92;
   line-height: 22px;
   height: 40px;
   padding: 10px 20px;
@@ -559,7 +718,7 @@ export default {
   transition: background-color 0.2s;
 }
 .form-order__submit:hover {
-  background-color: #72b4d5;
+  background-color: #fb9d92;
 }
 .form-order__button {
   font-size: 24px;
@@ -588,13 +747,13 @@ export default {
 .from-order__input {
   display: block;
   height: 37px;
-
+  padding: 5px 10px;
   border: 1px solid #9d9e9e;
   border-radius: 14px;
   transition: 0.5s;
 }
 .from-order__input:focus {
-  border: 1px solid #8dccec;
+  border: 1px solid #fb9d92;
 }
 .from-order__input:focus {
   outline: none;
@@ -603,10 +762,15 @@ export default {
 small {
   text-align: center;
 }
+form {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
 .form-order__heading {
+  text-transform: uppercase;
   text-decoration-line: underline;
   text-decoration-style: solid;
-  text-decoration-color: #8dccec;
+  text-decoration-color: #ee5645;
   text-underline-offset: 8px;
 }
 .from-order__item {
@@ -633,14 +797,16 @@ small {
 }
 .error {
   text-align: center;
-  color: red;
   margin-top: 20px;
   margin-bottom: 20px;
 }
 .offer-order__price-end {
-  color: black;
+  color: #5b5b5b;
   font-weight: 600;
   font-size: x-large;
+}
+.offer-order-text {
+  font-size: 1.4rem;
 }
 // file input
 .input-file {
@@ -659,7 +825,7 @@ small {
   color: rgb(255 255 255);
   text-align: center;
   border-radius: 9px;
-  background-color: #8dccec;
+  background-color: #fb9d92;
   height: 40px;
   padding: 4px 20px;
   box-sizing: border-box;
@@ -676,7 +842,10 @@ small {
   width: 0;
   height: 0;
 }
-
+input[type="radio"],
+input[type="checkbox"] {
+  accent-color: #fb9d92;
+}
 /* Focus */
 .input-file input[type="file"]:focus + span {
   box-shadow: 0 0 0 0.2rem rgba(6, 6, 6, 0.645);
@@ -684,10 +853,10 @@ small {
 
 /* Hover/active */
 .input-file:hover span {
-  background-color: #72b4d5;
+  background-color: #fb9d92;
 }
 .input-file:active span {
-  background-color: #72b4d5;
+  background-color: #fb9d92;
 }
 
 /* Disabled */

@@ -1,146 +1,155 @@
 <template>
   <div class="header__wrapper">
-  <video autoplay muted loop id="myVideo">
-    <source src="@/assets/img/bgvideo.mp4" type="video/mp4">
-  </video>
-  <header id="main">
-    <div class="container">
-      <nav class="navbar">
-        <div class="navbar__wrapper">
-          <a href="#">
-            <img src="@/assets/img/logoHert.svg" alt="сердце бизнеса">
-          </a>
-          <hr class="line">
-          <a href="http://tiksan.ru/" class="logo" target="_blank" rel="noopener noreferrer"
-          ><img src="@/assets/img/tiksangroup.png" alt="Лого"
-          /></a>
-        </div>
-        <ul class="nav-links">
-          <li><a class="nav-link__item" href="#about">О проекте</a></li>
-          <li><a class="nav-link__item" href="#buy-info">Принять участие</a></li>
-          <li><a class="nav-link__item" href="#partners"
-            >Партнеры</a></li>
-          <li><a class="nav-link__item" href="#faq" 
-            >FaQ</a></li>
-        </ul>
-        <div v-on:click="toggleMenu" class="burger-icon" id="burger">
-          <div class="icons">
-            <svg
-              width="50"
-              height="50"
-              viewBox="0 0 32 42"
-              xmlns="http://www.w3.org/2000/svg"
-              onclick="this.classList.toggle('active')"
-            >
-              <g transform="matrix(1,0,0,1,-389.5,-264.004)">
-                <g id="arrow_left2">
-                  <g transform="matrix(1,0,0,1,0,5)">
-                    <path
-                      id="top"
-                      d="M390,270L420,270L420,270C420,270 420.195,250.19 405,265C389.805,279.81 390,279.967 390,279.967"
-                    />
+    <video autoplay muted loop id="header__video">
+      <source src="@/assets/img/bgvideo.mp4" type="video/mp4" />
+    </video>
+    <header id="main">
+      <div class="container">
+        <nav class="navbar">
+          <div class="navbar__wrapper">
+            <a href="#">
+              <img
+                class="main__logo"
+                src="@/assets/img/logoHert.svg"
+                alt="сердце бизнеса"
+              />
+            </a>
+            <hr class="line" />
+            <a
+              href="http://tiksan.ru/"
+              class="logo svg-logo"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><img src="@/assets/img/tiksangroup.png" alt="Лого"
+            /></a>
+            <hr class="line" />
+            <a
+              href="https://t.me/tvknew"
+              class="svg-logo"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><img src="@/assets/img/logos/TVK.svg" alt="Лого"
+            /></a>
+            <hr class="line" />
+            <a
+              href="https://krasnoyarsk.dk.ru/"
+              class="svg-logo"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><img src="@/assets/img/logos/dkk.svg" alt="Лого"
+            /></a>
+          </div>
+          <ul class="nav-links">
+            <li><a class="nav-link__item" href="/#about">О проекте</a></li>
+            <li>
+              <a class="nav-link__item" href="/#buy-info">Принять участие</a>
+            </li>
+            <li><a class="nav-link__item" href="/#partners">Партнеры</a></li>
+            <li><a class="nav-link__item" href="/news">Новости</a></li>
+
+            <li><a class="nav-link__item" href="/#faq">FaQ</a></li>
+          </ul>
+          <div v-on:click="toggleMenu" class="burger-icon" id="burger">
+            <div class="icons">
+              <svg
+                width="50"
+                height="50"
+                viewBox="0 0 32 42"
+                xmlns="http://www.w3.org/2000/svg"
+                onclick="this.classList.toggle('active')"
+              >
+                <g transform="matrix(1,0,0,1,-389.5,-264.004)">
+                  <g id="arrow_left2">
+                    <g transform="matrix(1,0,0,1,0,5)">
+                      <path
+                        id="top"
+                        d="M390,270L420,270L420,270C420,270 420.195,250.19 405,265C389.805,279.81 390,279.967 390,279.967"
+                      />
+                    </g>
+                    <g
+                      transform="matrix(1,1.22465e-16,1.22465e-16,-1,0.00024296,564.935)"
+                    >
+                      <path
+                        id="bottom"
+                        d="M390,270L420,270L420,270C420,270 420.195,250.19 405,265C389.805,279.81 390,279.967 390,279.967"
+                      />
+                    </g>
+                    <path id="middle" d="M390,284.967L420,284.967" />
                   </g>
-                  <g
-                    transform="matrix(1,1.22465e-16,1.22465e-16,-1,0.00024296,564.935)"
-                  >
-                    <path
-                      id="bottom"
-                      d="M390,270L420,270L420,270C420,270 420.195,250.19 405,265C389.805,279.81 390,279.967 390,279.967"
-                    />
-                  </g>
-                  <path id="middle" d="M390,284.967L420,284.967" />
                 </g>
-              </g>
-            </svg>
+              </svg>
+            </div>
           </div>
-        </div>
-      </nav>
-      <section class="slogan">
-        <div class="slogan__text">
-          <p class="slogan__medium">Старт 8 декабря</p>
-          <h1 class="slogan__heading">
-            Прими участие в акции <br />
-          </h1>
-          <p class="slogan__medium">и попади</p>
-          <h3 class="slogan__wrapper">в Книгу рекордов России!</h3>
-        </div>
-        <div class="diagram">
-          <h1 class="diagram__heeading">Уже занято места на баннере</h1>
-          <p class="diagram__small-text">{{ this.occupiedPlaces }} логотипов из 1000</p>
-          <div class="main-diagram">
-            <MercyMainDiargamInfo :width="310" :height="310" />
+        </nav>
+        <section class="slogan">
+          <div class="slogan__text">
+            <h1 class="slogan__heading slogan__call">ПРИМИ УЧАСТИЕ В</h1>
+            <h1 class="slogan__heading slogan__call">
+              МАСШТАБНОМ БЛАГОТВОРИТЕЛЬНОМ
+            </h1>
+            <h1 class="slogan__heading slogan__call">
+              ПРОЕКТЕ "СЕРДЦЕ БИЗНЕСА"
+            </h1>
+
+            <h1 class="slogan__heading">и попади</h1>
+            <h1 class="slogan__heading">в Книгу рекордов России</h1>
           </div>
-          <a href="#buy-info" class="diagram__link"
-            >Хочу в Книгу рекордов России</a
-          >
-        </div>
-      </section>
-    </div>
-  </header>
-</div>
+          <div class="diagram">
+            <div class="diagram__item diagram__text">
+              <h1 class="diagram__heading">Количество участников проекта,</h1>
+              <h1 class="diagram__heading">которые отправили помощь</h1>
+              <h1 class="diagram__heading">одному из Фондов</h1>
+
+              <p class="diagram__logo">12 логотипов из 1000</p>
+              <a href="/#buy-info" class="diagram__link"
+                >Хочу сделать доброе дело</a
+              >
+            </div>
+            <div class="main-diagram diagram__item">
+              <MercyMainDiargamInfo :width="250" :height="250" />
+            </div>
+          </div>
+        </section>
+      </div>
+    </header>
+    <!-- <MercyMainInformationAboutBuy /> -->
+  </div>
 </template>
 
 <script>
 import MercyMainDiargamInfo from "@/components/DiargamInfo.vue";
+import MercyMainInformationAboutBuy from "@/components/InformationAboutBuy.vue";
 export default {
   name: "MercyMainHeader",
   components: {
     MercyMainDiargamInfo,
+    MercyMainInformationAboutBuy,
   },
   data() {
-    return {
-      occupiedPlaces: 8,
-    };
+    return {};
   },
 
   mounted() {},
-  created() {
-    // this.setDataOrr();
-  },
-  mounted() {
-  },
+  created() {},
+  mounted() {},
   methods: {
     toggleMenu() {
       const navLinks = document.querySelector(".nav-links");
       navLinks.classList.toggle("active");
     },
-    // async setDataOrr() {
-    //   const params = new URLSearchParams();
-    //   const headers = new Headers();
-    //   const fetchOccupiedPlace = "12";
-    //   headers.append("Content-Type", "application/x-www-form-urlencoded");
-    //   headers.append(
-    //     "Accept",
-    //     "application/json;text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9"
-    //   );
-    //   params.set("action", "metrica");
-    //   fetch('https://api.tiksan.ru/api/products', 
-    //   {
-    //       method: "POST",
-    //       headers: headers,
-    //       body: params,
-    //   }
-    //   )
-    //     .then(function(response) {
-    //       return response.json();
-    //     }).then(function(data) {
-    //       // this.setData(data.true)
-    //       this.occupiedPlaces  = data;
-    //     });
-    //     // this.occupiedPlaces = await fetchOccupiedPlace;
-    // }
   },
 };
 </script>
 
 <style scoped>
-#myVideo {
+#header__video {
+  background-color: black;
   position: absolute;
-    right: 0;
-    top: 0px;
-    min-width: 100%; 
-    min-height: 130%;
-    z-index: -1;
+  right: 0;
+  top: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
 }
 svg {
   fill-rule: evenodd;
@@ -198,7 +207,9 @@ h1 {
   stroke-dasharray: 30, 75.39;
   transition: all 0.6s cubic-bezier(0.6, 0.33, 0.67, 1.29);
 }
-
+.main__logo {
+  width: 100px;
+}
 svg.active #top,
 svg.active #bottom {
   stroke-dasharray: 75.39;
@@ -222,11 +233,15 @@ svg:nth-child(2).active {
   stroke-dasharray: 30, 88;
 }
 
-header {
+.header__wrapper {
   font-family: "Panton Regular", sans-serif;
-  min-height: calc(100vh - 47px);
 
   position: relative;
+
+  flex-wrap: nowrap;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .container {
   max-width: 1368px;
@@ -244,15 +259,13 @@ header {
   align-items: center;
   justify-content: space-between;
 }
-.container .navbar .logo {
-  font-size: 2.25rem;
-  text-decoration: none;
-  color: var(--color-white);
-  font-weight: 700;
+.logo {
+  margin-bottom: 5px;
 }
 .container .navbar .nav-links {
   display: flex;
   align-items: center;
+  gap: 5px;
 }
 .container .navbar .nav-links li {
   list-style-type: none;
@@ -260,7 +273,6 @@ header {
 .container .navbar .nav-links li a {
   text-decoration: none;
   color: var(--color-white);
-  margin: 0 1.25rem;
   font-weight: 500;
   font-size: 1.05rem;
   position: relative;
@@ -307,12 +319,15 @@ header {
   flex-wrap: wrap;
   justify-content: center;
 }
+.slogan__call {
+  color: var(--color-orange);
+}
 .slogan__text {
   text-align: center;
-
+  padding: 10px;
   font-style: normal;
   font-weight: 400;
-  font-size: 20px;
+  margin-bottom: 10px;
 }
 .slogan__wrapper {
   position: relative;
@@ -321,63 +336,100 @@ header {
 }
 
 .slogan__heading {
-  font-size: 2em;
-  background: linear-gradient(118.3deg, #0ab9ee 7.91%, #8dccec 74.43%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  text-transform: uppercase;
+  text-align: left;
+  font-size: 1.4em;
+  color: white;
   margin: 0;
-
 }
-.diagram__heeading {
-  margin-bottom: 5px;
-  font-size: xx-large;
+.slogan__call {
+  color: var(--color-orange);
+}
+.diagram__heading {
+  margin: 0;
+  font-size: 1.6rem;
 }
 .main-diagram {
   display: flex;
   justify-content: center;
 }
-.diagram__small-text {
-  text-align: center;
-  margin: 5px;
+.diagram__text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  align-self: center;
+  padding: 10px;
 }
 .diagram {
   padding: 20px;
 
-  max-width: 500px;
-
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  padding-bottom: 40px;
+  margin-bottom: 20px;
   border-radius: 15px;
 
-  background: linear-gradient(318.53deg, #2a2a2a 9.02%, #2f2f2f 78.97%);
+  background: var(--color-main);
   box-shadow: 0px 4px 21px #000000;
   border-radius: 14px;
   position: relative;
+
+  padding-bottom: 0;
+}
+.diagram__logo {
+  margin: 10 0;
 }
 .diagram__link {
-  background: linear-gradient(118.3deg, #0ab9ee 7.91%, #8dccec 74.43%);
-  border-radius: 14px;
+  background: var(--color-orange);
+  border-radius: 10px;
   padding: 8px;
   border-width: 0;
   border-color: transparent;
   margin: 0 auto;
-  margin-top: 20px;
+
   margin-bottom: 20px;
   color: white;
-  font-size: 20px;
+  font-size: 16px;
   cursor: pointer;
 }
-
+.svg-logo {
+  max-width: 50px;
+  display: none;
+}
+.svg-logo {
+  display: none;
+}
+.line {
+  display: none;
+}
+@media (min-width: 350.98px) {
+  .svg-logo {
+    display: block;
+  }
+  .line {
+    display: block;
+  }
+}
 @media (min-width: 575.98px) {
   header {
     padding: 0 calc(50vw - 270px);
   }
-  
+  .logo {
+    margin-bottom: 0px;
+  }
 }
 @media (min-width: 767.98px) {
   header {
     padding: 0 calc(50vw - 360px);
+  }
+  #header__video {
+    min-height: 130%;
+  }
+  .slogan__text {
+    padding: 0px;
   }
 }
 @media (max-width: 850px) {
@@ -397,13 +449,13 @@ header {
     transition: 0.4s ease all;
     z-index: 10;
   }
+
   h1 {
     font-size: 2rem;
   }
   .diagram {
     padding: 0;
   }
-
   .container .navbar .burger-icon {
     display: block;
   }
@@ -412,7 +464,7 @@ header {
   }
   #burger {
     width: 70px;
-    margin-bottom: 48px;
+    margin-bottom: 42px;
   }
   .container .navbar .nav-links li a {
     color: #000;
@@ -431,24 +483,51 @@ header {
   .container .navbar i {
     display: block;
   }
+  .container .navbar .nav-links li a {
+    font-size: 18px;
+  }
+}
+@media (max-width: 1199.98px) {
+  .container .navbar .nav-links li a {
+    font-size: 13px;
+  }
 }
 @media (min-width: 991.98px) {
+  .svg-logo {
+    max-width: 100px;
+    margin: auto 0;
+  }
   .slogan__heading {
-    font-size: 3em;
+    font-size: 2.3rem;
   }
   .slogan__wrapper {
     font-size: 2em;
   }
-  .slogan {
-    justify-content: space-between;
-  }
   header {
     padding: 0 calc(50vw - 480px);
+  }
+  .container .navbar .nav-links {
+    gap: 15px;
   }
 }
 @media (min-width: 1199.98px) {
   header {
     padding: 0 calc(50vw - 590px);
+    height: 60vh;
+  }
+  #header__video {
+    top: -214px;
+  }
+  .main__logo {
+    width: 180px;
+  }
+  .slogan {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  .diagram {
+    flex-wrap: nowrap;
   }
 }
 .line {

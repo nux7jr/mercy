@@ -3,14 +3,24 @@
     <h2 class="ticket__heading">Карта баннера</h2>
     <div v-if="allProducts" class="ticket-map">
       <div class="product" v-for="(item, index) in allProducts" :key="index">
-        <div class="availableGoods" @click="toggleDataCart(item)" v-if="(item.aviable == 0)">
+        <div
+          class="availableGoods"
+          @click="toggleDataCart(item)"
+          v-if="item.aviable == 0"
+        >
           <div class="cheapGoods availableItem" v-if="item.price == '10000'">
             &#9679;
           </div>
-          <div class="averageGoods availableItem" v-else-if="item.price == '25000'">
+          <div
+            class="averageGoods availableItem"
+            v-else-if="item.price == '25000'"
+          >
             &#9679;
           </div>
-          <div class="expensiveGoods availableItem" v-else-if="item.price == '50000'">
+          <div
+            class="expensiveGoods availableItem"
+            v-else-if="item.price == '50000'"
+          >
             &#9679;
           </div>
         </div>
@@ -21,41 +31,65 @@
               <p class="product-booked__heading">
                 Это место занято
                 <img
+                  v-if="item.url === 'https://tiksan-record.ru/odered.jpg'"
+                  src="https://tiksan-record.ru/odered.jpg"
+                  alt=""
+                />
+                <img
+                  v-else
                   class="product-booked__img"
-                  :src="`https://api.tiksan.ru${item.url}`"
+                  :src="`https://tiksan-record.ru/App/upload/${item.id}/${item.url}`"
                   alt="logo"
                 />
               </p>
             </div>
-            х
+            ×
           </div>
-          <div class="averageGoods itemNotAvailable" v-else-if="item.price == '25000'">
+          <div
+            class="averageGoods itemNotAvailable"
+            v-else-if="item.price == '25000'"
+          >
             <div class="product-booked__info">
               <div class="product__index">Номер: {{ item.id }}</div>
               <p class="product-booked__heading">
                 Это место занято
                 <img
+                  v-if="item.url === 'https://tiksan-record.ru/odered.jpg'"
+                  src="https://tiksan-record.ru/odered.jpg"
+                  alt=""
+                />
+                <img
+                  v-else
                   class="product-booked__img"
-                  :src="`https://api.tiksan.ru${item.url}`"
+                  :src="`https://tiksan-record.ru/App/upload/${item.id}/${item.url}`"
                   alt="logo"
                 />
               </p>
             </div>
-            х
+            ×
           </div>
-          <div class="expensiveGoods itemNotAvailable" v-else-if="item.price == '50000'">
+          <div
+            class="expensiveGoods itemNotAvailable"
+            v-else-if="item.price == '50000'"
+          >
             <div class="product-booked__info">
               <div class="product__index">Номер: {{ item.id }}</div>
               <p class="product-booked__heading">
                 Это место занято
                 <img
+                  v-if="item.url === 'https://tiksan-record.ru/odered.jpg'"
+                  src="https://tiksan-record.ru/odered.jpg"
+                  alt=""
+                />
+                <img
+                  v-else
                   class="product-booked__img"
-                  :src="`https://api.tiksan.ru${item.url}`"
+                  :src="`https://tiksan-record.ru/App/upload/${item.id}/${item.url}`"
                   alt="logo"
                 />
               </p>
             </div>
-            х
+            ×
           </div>
         </div>
       </div>
@@ -157,24 +191,20 @@ export default {
   background-color: rgb(254, 254, 254);
 }
 .averageGoods {
-  background-color: rgb(130, 144, 157);
+  background-color: #fb9d92;
 }
 .expensiveGoods {
-  background-color: rgb(109, 165, 213);
+  background-color: #ee5645;
 }
+
 .itemNotAvailable {
   color: black;
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-.itemNotAvailable {
-  color: black;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  font-size: larger;
+  font-weight: bolder;
   height: 21px;
   width: 21px;
 }

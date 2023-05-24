@@ -1,49 +1,80 @@
 <template>
-  <div class="footer">
+  <div class="footer" id="footer">
     <div class="footer__item footer-logo">
       <a href="/">
-        <img class="footer-logo__img" src="@/assets/img/tiksangroup.png" alt="Logo">
+        <img
+          class="footer-logo__img"
+          src="@/assets/img/tiksangroup.png"
+          alt="Logo"
+        />
       </a>
     </div>
     <div class="footer__item">
       <ul class="footer__info">
-        <li>
-          © 2022, ООО "Тиксан Групп" 
-        </li>
-        <li>
-          ОГРН 1212400014507
-        </li>
-        <li>
-          ИНН 2465340123
-        </li>
-        <li>
-          660135, г. Красноярск, ул. Октябрьская, 8а
-        </li>
+        <li>© 2022, ООО "Тиксан Групп"</li>
+        <li>ОГРН 1212400014507</li>
+        <li>ИНН 2465340123</li>
+        <li>660135, г. Красноярск, ул. Октябрьская, 8а</li>
       </ul>
     </div>
-    <div class="footer__item">
-      <div class="social-links">
-        <div class="social">
-          <a href="https://t.me/tiksangroup2030" target="_blank" rel="noopener noreferrer">
-            <img class="social__item" src="@/assets/img/telegram.svg" alt="telegram">
+    <div class="footer__item footer__links">
+      <div class="social__icon__links">
+        <div class="social__icon1">
+          <a
+            href="https://t.me/tiksangroup2030"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              class="social__icon__item"
+              src="@/assets/img/tel.svg"
+              alt="telegram"
+            />
           </a>
         </div>
-        <div class="social">
-          <a href="https://t.me/tiksangroup2030" target="_blank" rel="noopener noreferrer">
-            <img class="social__item" src="@/assets/img/whatsapp.svg" alt="whatup">
+        <div class="social__icon2">
+          <a
+            href="https://t.me/tiksangroup2030"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              class="social__icon__item"
+              src="@/assets/img/wa.svg"
+              alt="whatup"
+            />
           </a>
         </div>
-        <div class="social">
-          <a href="https://www.youtube.com/channel/UCCjQod9duCejwFDB3IqiR-w" target="_blank" rel="noopener noreferrer">
-            <img class="social__item" src="@/assets/img/youtube.svg" alt="youtube">
+        <div class="social__icon3">
+          <a
+            href="https://www.youtube.com/channel/UCCjQod9duCejwFDB3IqiR-w"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              class="social__icon__item"
+              src="@/assets/img/you.svg"
+              alt="youtube"
+            />
           </a>
         </div>
-        <div class="social">
-          <a href="https://www.instagram.com/tiksan.group/" target="_blank" rel="noopener noreferrer">
-            <img class="social__item logo__inst" src="@/assets/img/instagram.svg" alt="youtube">
+        <div class="social__icon4">
+          <a
+            href="https://www.instagram.com/tiksan.group/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              class="social__icon__item logo__inst"
+              src="@/assets/img/inst.svg"
+              alt="youtube"
+            />
           </a>
         </div>
       </div>
+      <a class="social__links" href="mailto:natalia@tiksan.ru"
+        >natalia@tiksan.ru</a
+      >
       <p>*Организация, запрещенная на территории РФ</p>
     </div>
   </div>
@@ -51,31 +82,24 @@
 
 <script>
 export default {
-  name: 'MercyMainFooter',
+  name: "MercyMainFooter",
 
   data() {
-    return {
-      
-    };
+    return {};
   },
 
-  mounted() {
-    
-  },
+  mounted() {},
 
-  methods: {
-    
-  },
+  methods: {},
 };
 </script>
 
 <style lang="scss" scoped>
 .footer {
-  background-color: #5B5B5B;
-  color: #FFFFFF;
+  background-color: #5b5b5b;
+  color: #ffffff;
 
   padding: 40px;
-  margin-top: 25px;
 
   display: flex;
   flex-direction: row;
@@ -84,13 +108,13 @@ export default {
   gap: 48px;
 }
 .footer__info {
-  color: #FFFFFF;
+  color: #ffffff;
   opacity: 0.5;
 }
 .footer-logo__img {
   max-width: 280px;
 }
-.social__item {
+.social__icon__item {
   width: 40px;
   height: 40px;
 }
@@ -98,9 +122,13 @@ export default {
   width: 41px;
   height: 41px;
 }
-.social-links {
+.social__icon__links {
   display: flex;
-  flex-wrap: nowrap;
-  gap: 10px;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.social__links {
+  display: block;
+  margin-top: 15px;
 }
 </style>

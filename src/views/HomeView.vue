@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <PopUpVue :show="timer" @togglePopUp="toggle"/>
+    <PopUpVue :show="timer" @togglePopUp="toggle" />
     <MercyMainImportantInfo />
     <MercyMainHeader />
     <MercyMainInformationAboutBuy />
@@ -31,14 +31,14 @@ export default {
   name: "HomeView",
   data() {
     return {
-      timer: true,
+      timer: false,
     };
   },
   created() {},
   methods: {
     toggle(data) {
-    this.timer = data;
-  },
+      this.timer = data;
+    },
   },
   components: {
     MercyVideoSlider,

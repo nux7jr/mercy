@@ -2,36 +2,69 @@
   <div class="slider-video swiper" ref="swiper">
     <div class="swiper-wrapper">
       <div class="swiper-slide">
-        <LazyYoutube class="video__item" src="https://www.youtube.com/watch?v=IxfUyEXUvQE"/>
-        <p class="slider-video__text">Бизнес-сообщества из Красноярска попадут в Книгу рекордов России!</p>
+        <LazyYoutube
+          class="video__item"
+          src="https://www.youtube.com/watch?v=axR6J6r6QsA&feature=youtu.be"
+        />
+        <p class="slider-video__text">РЕКОРД РОССИИ "СЕРДЦЕ БИЗНЕСА"</p>
       </div>
       <div class="swiper-slide">
-        <LazyYoutube class="video__item" src="https://www.youtube.com/watch?v=WYCeeKBWw2E"/>
-        <p class="slider-video__text">Поиск пропавших детей</p>
+        <LazyYoutube
+          class="video__item"
+          src="https://www.youtube.com/watch?v=IE7NoosfUNQ"
+        />
+        <p class="slider-video__text">КРФ "Красноярье без сирот"</p>
       </div>
       <div class="swiper-slide">
-        <LazyYoutube class="video__item" src="https://www.youtube.com/watch?v=-xamtPbqaOg"/>
-        <p class="slider-video__text">Вместе против рака</p>
+        <LazyYoutube
+          class="video__item"
+          src="https://www.youtube.com/watch?v=4BpKxRVWvZk&feature=youtu.be"
+        />
+        <p class="slider-video__text">Благотворительный фонд "Дом матери"</p>
       </div>
       <div class="swiper-slide">
-        <LazyYoutube class="video__item" src="https://www.youtube.com/watch?v=WczaWsst8t8&feature=youtu.be"/>
-        <p class="slider-video__text">Дашенька Здаевская</p>
+        <LazyYoutube
+          class="video__item"
+          src="https://www.youtube.com/watch?v=KHY4mfVqihM&feature=youtu.be"
+        />
+        <p class="slider-video__text">
+          Красноярская региональная организация "Поиск пропавших детей"
+        </p>
       </div>
       <div class="swiper-slide">
-        <LazyYoutube class="video__item" src="https://www.youtube.com/watch?v=m3V4Xmefatw&feature=youtu.be"/>
-        <p class="slider-video__text">Дом матери</p>
+        <LazyYoutube
+          class="video__item"
+          src="https://www.youtube.com/watch?v=2nBPFO9CJnsы"
+        />
+        <p class="slider-video__text">Благотворительный фонд "Живое дыхание"</p>
       </div>
       <div class="swiper-slide">
-        <LazyYoutube class="video__item" src="https://www.youtube.com/watch?v=yhwVchwgb7M"/>
-        <p class="slider-video__text">БФ ЖИВОЕ ДЫХАНИЕ</p>
+        <LazyYoutube
+          class="video__item"
+          src="https://www.youtube.com/watch?v=1RRGyZNTUEw"
+        />
+        <p class="slider-video__text">КРООЗЖ "БЕЗДОМНЫЙ ПЁС"</p>
       </div>
       <div class="swiper-slide">
-        <LazyYoutube class="video__item" src="https://www.youtube.com/watch?v=EhcI992YzZo"/>
-        <p class="slider-video__text">От сердца к сердцу</p>
+        <LazyYoutube
+          class="video__item"
+          src="https://www.youtube.com/watch?v=Dp50tlQjdoE"
+        />
+        <p class="slider-video__text">АНО "Вместе против рака"</p>
       </div>
       <div class="swiper-slide">
-        <LazyYoutube class="video__item" src="https://www.youtube.com/watch?v=_ow1JsZdFg0"/>
-        <p class="slider-video__text">Шаг за шагом к мечте</p>
+        <LazyYoutube
+          class="video__item"
+          src="https://www.youtube.com/watch?v=mBWq30WoPZs"
+        />
+        <p class="slider-video__text">РО ВОРДИ Красноярского края</p>
+      </div>
+      <div class="swiper-slide">
+        <LazyYoutube
+          class="video__item"
+          src="https://www.youtube.com/watch?v=uaY5QfnOdF4"
+        />
+        <p class="slider-video__text">АНО СОК "Шаг за шагом к мечте"</p>
       </div>
     </div>
     <div class="swiper-button-prev"></div>
@@ -41,23 +74,20 @@
   </div>
 </template>
 <script>
-import Swiper, { Navigation, Pagination, Autoplay } from 'swiper'
-import 'swiper/swiper-bundle.min.css'
-import { LazyYoutube } from 'vue-lazytube'
+import Swiper, { Navigation, Pagination, Autoplay } from "swiper";
+import "swiper/swiper-bundle.min.css";
+import { LazyYoutube } from "vue-lazytube";
 
 export default {
-  name: 'vueLazyYoutube',
+  name: "vueLazyYoutube",
   components: {
     LazyYoutube,
-    },
+  },
   data() {
-    return {
-      
-    };
-    
+    return {};
   },
   mounted() {
-    const SECOND = 1000 // milliseconds
+    const SECOND = 500; // milliseconds
 
     // init Swiper:
     new Swiper(this.$refs.swiper, {
@@ -66,32 +96,34 @@ export default {
 
       loop: true,
       autoplay: {
-        delay: 3 * SECOND,
+        delay: 10 * SECOND,
         disableOnInteraction: false,
       },
       speed: 2 * SECOND,
       pagination: {
-        el: '.swiper-pagination',
+        el: ".swiper-pagination",
         clickable: true,
       },
       navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
       },
 
       // Events
       on: {
         slideChange: (swiper) => {
-          this.activeIndex = swiper.realIndex
+          this.activeIndex = swiper.realIndex;
         },
       },
-    })
+    });
   },
-  methods: {
-  },
+  methods: {},
 };
 </script>
 <style lang="scss">
+:root {
+  --swiper-theme-color: #ee5645;
+}
 .swiper {
   height: 500px;
 }
@@ -99,15 +131,16 @@ export default {
 .swiper-slide {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  margin-top: 152px;
   align-items: center;
 }
 .slider-video {
-  margin: 50px 0;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+
+  background-color: white;
 }
 .slider-video__text {
   text-align: center;
@@ -118,15 +151,26 @@ export default {
 .slider-video__heading {
   text-align: center;
   padding: 2rem;
-  color: #5B5B5B;
+  color: #5b5b5b;
   font-style: normal;
   font-weight: 800;
   text-decoration-line: underline;
   text-decoration-style: solid;
-  text-decoration-color: #8DCCEC;
+  text-decoration-color: #8dccec;
   text-underline-offset: 8px;
 }
 .slider-video__wrapper {
   display: flex;
+}
+@media (min-width: 575.98px) {
+  .slider-video {
+    padding: 50px 0;
+  }
+  .swiper-slide {
+    margin-top: 0;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+  }
 }
 </style>

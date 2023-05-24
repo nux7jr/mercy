@@ -1,5 +1,5 @@
 <script>
-import MaskedInput from 'vue-masked-input'
+import MaskedInput from "vue-masked-input";
 export default {
   data() {
     return {
@@ -8,47 +8,48 @@ export default {
         name: "",
         company: "",
         phone: "",
-      }
-    }
+      },
+    };
   },
   name: "popUp",
   props: {
-    show: Boolean
+    show: Boolean,
   },
   components: {
-    MaskedInput
+    MaskedInput,
   },
   methods: {
     togglePopUp() {
-      this.$emit('togglePopUp', false);
+      this.$emit("togglePopUp", false);
     },
     sendLead(evt) {
       evt.preventDefault();
-      if (this.leadFormData.name == "" || this.leadFormData.company == "", this.leadFormData.phone == "") {
+      if (
+        (this.leadFormData.name == "" || this.leadFormData.company == "",
+        this.leadFormData.phone == "")
+      ) {
         this.errortext = true;
       } else {
         const params = new FormData();
         params.set("name", this.leadFormData.name);
         params.set("company", this.leadFormData.company);
         params.set("phone", this.leadFormData.phone);
-      fetch('https://tiksan-record.ru/email.php', 
-      {
+        fetch("https://tiksan-record.ru/email.php", {
           method: "POST",
-          body: params, 
+          body: params,
+        })
+          .then(function (response) {
+            return response.json();
+          })
+          .then(function (data) {
+            const el = document.querySelector(".success");
+            el.textContent = data;
+            ym(87773042, "reachGoal", "Leadrecord");
+          });
       }
-      )
-      .then(function(response) {
-        return response.json();
-      }).then(function(data) {
-        const el = document.querySelector(".success");
-        el.textContent = data;
-        ym(87773042,'reachGoal','Leadrecord');
-      }
-      );
-    }
     },
-  }
-}
+  },
+};
 </script>
 <template>
   <Transition name="modal">
@@ -64,10 +65,28 @@ export default {
             <slot name="body">
               <p>Примите участие в рекорде России</p>
               <form action="email.php" class="popUpForm">
-                <input v-model="leadFormData.name" class="popUpForm__input" type="text" placeholder="ФИО">
-                <input v-model="leadFormData.company" class="popUpForm__input" type="text" placeholder="Ваша компания">
-                <masked-input class="popUpForm__input" v-model="leadFormData.phone" mask="\+\7 (111) 111-11-11" @input="rawVal = arguments[2]" placeholder="Номер телефона"/>
-                <button class="popUpForm__button" @click="sendLead">Отправить</button>
+                <input
+                  v-model="leadFormData.name"
+                  class="popUpForm__input"
+                  type="text"
+                  placeholder="ФИО"
+                />
+                <input
+                  v-model="leadFormData.company"
+                  class="popUpForm__input"
+                  type="text"
+                  placeholder="Ваша компания"
+                />
+                <masked-input
+                  class="popUpForm__input"
+                  v-model="leadFormData.phone"
+                  mask="\+\7 (111) 111-11-11"
+                  @input="rawVal = arguments[2]"
+                  placeholder="Номер телефона"
+                />
+                <button class="popUpForm__button" @click="sendLead">
+                  Отправить
+                </button>
               </form>
               <p class="error" v-show="errortext">Нужно заполнить все поля!</p>
               <p class="success"></p>
@@ -75,10 +94,9 @@ export default {
           </div>
           <div class="modal-footer">
             <slot name="footer">
-              <button
-                class="modal-default-button"
-                @click="togglePopUp"
-              >Закрыть</button>
+              <button class="modal-default-button" @click="togglePopUp">
+                Закрыть
+              </button>
             </slot>
           </div>
         </div>
@@ -90,7 +108,7 @@ export default {
 .popUpForm {
   display: flex;
   flex-direction: column;
-  gap: 20px; 
+  gap: 20px;
 }
 .success {
   color: green;
@@ -128,7 +146,7 @@ export default {
 .popUpForm__input {
   font-family: "Panton Regular", sans-serif;
   padding: 20px;
-  outline:none;
+  outline: none;
 }
 .modal-mask {
   position: fixed;
@@ -165,7 +183,6 @@ export default {
 .modal-body {
   margin: 20px 0;
 }
-
 
 .modal-enter-from {
   opacity: 0;
