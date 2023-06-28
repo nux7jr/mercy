@@ -10,7 +10,7 @@
             <a href="#">
               <img
                 class="main__logo"
-                src="@/assets/img/logoHert.svg"
+                src="@/assets/img/logos/new.svg"
                 alt="сердце бизнеса"
               />
             </a>
@@ -100,7 +100,7 @@
               <h1 class="diagram__heading">которые отправили помощь</h1>
               <h1 class="diagram__heading">одному из Фондов</h1>
 
-              <p class="diagram__logo">12 логотипов из 1000</p>
+              <p class="diagram__logo">{{ quantity }} логотипов из 1000</p>
               <a href="/#buy-info" class="diagram__link"
                 >Хочу сделать доброе дело</a
               >
@@ -126,13 +126,37 @@ export default {
     MercyMainInformationAboutBuy,
   },
   data() {
-    return {};
+    return {
+      quantity: 17,
+    };
   },
 
   mounted() {},
   created() {},
-  mounted() {},
+  async mounted() {
+    try {
+      const params = new URLSearchParams();
+      const headers = new Headers();
+      headers.append("Content-Type", "application/x-www-form-urlencoded");
+      headers.append(
+        "Accept",
+        "application/json;text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9"
+      );
+      params.set("action", "metrica");
+      const res = await fetch("https://api.tiksan.ru/api/success_products", {
+        method: "GET",
+        headers: headers,
+        // body: params,
+      });
+      const result = await res.json();
+      this.quantity = result;
+    } catch (e) {
+      console.error(e);
+    }
+  },
   methods: {
+    // getQuantity() {}
+
     toggleMenu() {
       const navLinks = document.querySelector(".nav-links");
       navLinks.classList.toggle("active");

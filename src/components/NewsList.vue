@@ -90,7 +90,6 @@ export default {
     onChangePage(pageOfItems) {
       this.pageOfItems = pageOfItems;
     },
-
     async fetchData() {
       let response = await fetch("https://centr-polov.ru/vendor/recordnews/");
       this.data_info = await response.json();

@@ -21,7 +21,7 @@
       <div class="social__icon__links">
         <div class="social__icon1">
           <a
-            href="https://t.me/tiksangroup2030"
+            href="https://t.me/tiksanheart"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -32,7 +32,7 @@
             />
           </a>
         </div>
-        <div class="social__icon2">
+        <!-- <div class="social__icon2">
           <a
             href="https://t.me/tiksangroup2030"
             target="_blank"
@@ -44,10 +44,10 @@
               alt="whatup"
             />
           </a>
-        </div>
+        </div> -->
         <div class="social__icon3">
           <a
-            href="https://www.youtube.com/channel/UCCjQod9duCejwFDB3IqiR-w"
+            href="https://www.youtube.com/@tiksanheart"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -60,7 +60,7 @@
         </div>
         <div class="social__icon4">
           <a
-            href="https://www.instagram.com/tiksan.group/"
+            href="https://instagram.com/tiksan.heart?igshid=MzRlODBiNWFlZA=="
             target="_blank"
             rel="noopener noreferrer"
           >
