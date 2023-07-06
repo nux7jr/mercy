@@ -98,7 +98,7 @@
             <div class="diagram__item diagram__text">
               <h1 class="diagram__heading">Количество участников проекта,</h1>
               <h1 class="diagram__heading">которые отправили помощь</h1>
-              <h1 class="diagram__heading">одному из Фондов</h1>
+              <h1 class="diagram__heading">одному из фондов</h1>
 
               <p class="diagram__logo">{{ quantity }} логотипов из 1000</p>
               <a href="/#buy-info" class="diagram__link"

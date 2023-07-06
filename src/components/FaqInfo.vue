@@ -61,7 +61,7 @@
         <p class="spoiler-content__text">
           За участие в проекте «Сердце бизнеса» вы получите сертификат о
           попадании в Книгу рекордов России, всероссийскую PR-кампанию и
-          благодарность от Фонда.
+          благодарность.
         </p>
       </div>
     </details>
@@ -162,6 +162,7 @@
         </ul>
       </div>
     </details>
+    <!--
     <details class="faq__item spoiler faq__spoiler">
       <summary class="spoiler__header">
         <h3 class="faq__question">
@@ -190,9 +191,10 @@
         </p>
       </div>
     </details>
+    -->
     <details class="faq__item spoiler faq__spoiler">
       <summary class="spoiler__header">
-        <h3 class="faq__question">5. Как будет фиксировать рекорд?</h3>
+        <h3 class="faq__question">4. Как будет фиксировать рекорд?</h3>
         <div class="faq__icon">
           <svg
             class="spoiler__cross"
