@@ -194,7 +194,7 @@
     -->
     <details class="faq__item spoiler faq__spoiler">
       <summary class="spoiler__header">
-        <h3 class="faq__question">4. Как будет фиксировать рекорд?</h3>
+        <h3 class="faq__question">4. Как будет фиксироваться рекорд?</h3>
         <div class="faq__icon">
           <svg
             class="spoiler__cross"
