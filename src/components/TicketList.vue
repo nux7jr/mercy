@@ -111,10 +111,30 @@ export default {
   computed: mapGetters(["allProducts"]),
   async mounted() {
     await this.getProducts();
+    window.addEventListener("resize", (evt) => {
+      if (window.innerWidth < 1299) {
+        this.centerMap()
+      }
+    })
+    window.addEventListener("load", (evt) => {
+      if (window.innerWidth < 1299) {
+        setTimeout(() => {
+          this.centerMap();
+        }, 400);
+      }
+    })
   },
   methods: {
     ...mapActions(["getProducts"]),
     ...mapMutations(["toggleDataCart"]),
+    centerMap() {
+      const mapElem = document.querySelector(".ticket-map");
+      mapElem.scroll({
+      top: 70,
+      left: 250,
+      behavior: "smooth",
+    });
+    }
   },
 };
 </script>
