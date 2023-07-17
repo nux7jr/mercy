@@ -110,29 +110,26 @@ export default {
   components: {},
   computed: mapGetters(["allProducts"]),
   async mounted() {
-    await this.getProducts();
+    if (window.innerWidth < 1299) {
+        this.centerMap();
+        console.log(window.innerWidth)
+    }
     window.addEventListener("resize", (evt) => {
       if (window.innerWidth < 1299) {
-        this.centerMap()
+        this.centerMap();
       }
     })
-    window.addEventListener("load", (evt) => {
-      if (window.innerWidth < 1299) {
-        setTimeout(() => {
-          this.centerMap();
-        }, 400);
-      }
-    })
+    await this.getProducts();
   },
   methods: {
     ...mapActions(["getProducts"]),
     ...mapMutations(["toggleDataCart"]),
     centerMap() {
       const mapElem = document.querySelector(".ticket-map");
+      console.log(mapElem)
       mapElem.scroll({
       top: 70,
       left: 250,
-      behavior: "smooth",
     });
     }
   },
