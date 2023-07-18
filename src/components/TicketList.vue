@@ -1,7 +1,7 @@
 <template>
   <div class="ticket">
     <h2 class="ticket__heading">Карта баннера</h2>
-    <div v-if="allProducts" class="ticket-map">
+    <div v-if="allProducts" class="ticket-map" ref="map">
       <div class="product" v-for="(item, index) in allProducts" :key="index">
         <div
           class="availableGoods"
@@ -109,23 +109,27 @@ export default {
   name: "TicketList",
   components: {},
   computed: mapGetters(["allProducts"]),
-  async mounted() {
+  mounted() {
+    setTimeout(() => {
     if (window.innerWidth < 1299) {
         this.centerMap();
         console.log(window.innerWidth)
     }
+    }, 1000);
     window.addEventListener("resize", (evt) => {
       if (window.innerWidth < 1299) {
         this.centerMap();
       }
     })
+  },
+  async created() {
     await this.getProducts();
   },
   methods: {
     ...mapActions(["getProducts"]),
     ...mapMutations(["toggleDataCart"]),
     centerMap() {
-      const mapElem = document.querySelector(".ticket-map");
+      const mapElem = this.$refs.map;
       console.log(mapElem)
       mapElem.scroll({
       top: 70,
